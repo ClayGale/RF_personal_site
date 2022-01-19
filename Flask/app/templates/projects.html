@@ -1,0 +1,29 @@
+{% extends "foundation.html" %}
+
+{% block content %}
+    <h1>projects</h1>
+    <div> <!--  -->
+        {% for project in data.projects %}
+        <div> <button value='{{ project.ID }}'></button>
+            <h1>{{ project.title }}</h1>
+            <a href='{{ project.link }}'> {{ project.linkdesc }} </a>
+            <p> {{ project.longdesc }} </p>
+            {% if project.image %}
+                <img url='{{ project.image }}' alt="preview image">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <div> <!-- TODO dynamically loading projects -->
+        {% for project in data.projects %}
+        <div> <button value='{{ project.ID }}'></button>
+            <h1>{{ project.title }}</h1>
+            <a href='{{ project.link }}'> {{ project.linkdesc }} </a>
+            <p> {{ project.shortdesc }} </p>
+            {% if project.image %}
+                <img url='{{ project.image }}' alt="preview image">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
