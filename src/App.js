@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Frame from './Components/Frame'
 
 function App() {
+	const [view, setView] = useState([]);
+	
+	useEffect(()=>{
+		fetch('http://localhost:5000/index',{
+			'methods':'GET',
+			headers : {
+				'Content-Type':'application/json'
+			}
+		})
+		.then(response => response.json())
+		.then(response => setView(response))
+		.catch(error => console.log(error))
+		
+	},[])
+	
+	
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+	<div className="App container m-4">
+	<Frame
+	view={view}
+	/>
+	</div>
+  ); 
+} 
 
 export default App;
