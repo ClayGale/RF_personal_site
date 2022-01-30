@@ -1,11 +1,13 @@
 import os, json
-from flask import render_template, flash, redirect
-from flask_cors import CORS, cross_origin
-from Flask.app import app
+from flask import render_template, flash, redirect, make_response
+from FlaskBE.app import app
 
 @app.route('/')
 @app.route('/index', methods=['GET'])
 def index():
+    # response = make_response(render_template('index.html', title='home'))
+    # response.headers.set("Access-Control-Allow-Origin", "*")
+    # return response
     return render_template('index.html', title='home')
 
 @app.route('/projects') #route for projects showcase including json project data loading
