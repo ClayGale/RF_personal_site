@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-site": "cd Flask && venv/Scripts/flask run",
+    "start-site": "cd FlaskBE && venv/Scripts/flask run",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

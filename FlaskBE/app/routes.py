@@ -1,6 +1,5 @@
 import os, json
-from flask import render_template, flash, redirect, make_response
-from FlaskBE.app import app
+from flask import render_template, make_response
 
 @app.route('/')
 @app.route('/index', methods=['GET'])
