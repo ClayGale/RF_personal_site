@@ -1,13 +1,8 @@
-#from os import path
-
-#basedir = path.abspath(path.dirname(__file__))
-
 
 class Config:
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
-    FLASK_APP = 'ClayGale.py'
-    FLASK_ENV = 'development'
+    CORS_HEADERS = 'Access-Control-Allow-Origin'
     DEBUG = True
     TESTING = True
 #
