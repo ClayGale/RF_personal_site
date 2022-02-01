@@ -1,5 +1,6 @@
 import os, json
-from flask import render_template, make_response
+from flask import Flask, render_template
+app = Flask(__name__)
 
 @app.route('/')
 @app.route('/index', methods=['GET'])
