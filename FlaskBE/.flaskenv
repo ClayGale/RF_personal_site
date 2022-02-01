@@ -1,0 +1,2 @@
+FLASK_APP=ClayGale
+FLASK_ENV=development
