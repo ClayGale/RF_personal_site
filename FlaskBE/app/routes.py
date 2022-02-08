@@ -1,21 +1,22 @@
-import os, json
-from flask import Flask, render_template
+import sys, os, json
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS, cross_origin
+
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 CORS(app)
 
-@app.route('/', endpoint='index')
-@cross_origin()
-@app.route('/index', methods=['GET'], endpoint='index')
+
+@app.route('/')
+@app.route('/index', methods=['GET'])
 @cross_origin()
 def index():
-    # response = make_response(render_template('index.html', title='home'))
-    # response.headers.set("Access-Control-Allow-Origin", "*")
-    # return response
-    return render_template('index.html', title='home')
+    print('Hello world!', file=sys.stderr)
 
-@app.route('/projects', endpoint='projects') #route for projects showcase including json project data loading
+    return jsonify(render_template('index.html', title='home'))
+
+
+@app.route('/projects')  # route for projects showcase including json project data loading
 @cross_origin()
 def projects():
     projects = os.path.join(app.static_folder, 'data', 'projects.json')
@@ -23,9 +24,12 @@ def projects():
     with open(projects) as pData:
         data = json.load(pData)
 
-    return render_template('projects.html', title='showcase', data=data)
+    return jsonify(render_template('projects.html', title='showcase', data=data))
 
-@app.route('/contact', endpoint='contact')
+
+@app.route('/contact')
 def contact():
-    return render_template('contact.html', title='contact')
+    return jsonify(render_template('contact.html', title='contact'))
 
+
+print('Hello routes!', file=sys.stderr) #testing line

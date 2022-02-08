@@ -2,7 +2,7 @@
 class Config:
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
-    CORS_HEADERS = 'Access-Control-Allow-Origin'
+    # CORS_HEADERS = 'Content-Type'
     DEBUG = True
     TESTING = True
 #

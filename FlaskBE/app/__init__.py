@@ -1,5 +1,3 @@
-from flask import Flask
-
 from . import routes
-
-app = Flask(__name__)
+# retrieving app as defined in routes.py
+app = routes.app
