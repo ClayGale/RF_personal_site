@@ -1,12 +1,12 @@
+function createMarkup(markup) {
+    return { __html: markup };
+}
+
 const Frame = (props) => {
 
     return (
-        <div className="m-2">
-            {props.view(view => {
-                return (
-                    { json.parse(view[0]) }
-                )
-            })}
+        <div className="m-2" dangerouslySetInnerHTML={createMarkup(props.viewF)}>
+
         </div>
     )
 

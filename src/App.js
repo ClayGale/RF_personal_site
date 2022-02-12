@@ -19,10 +19,12 @@ function App() {
     console.log(view);
     return (
         <div className="App container m-4">
-            <Frame view={view} />
+            <Frame viewF={view.htmlPack} />
         </div>
     );
 
 }
 
 export default App;
+
+//<Frame view={view[0]} />
