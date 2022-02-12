@@ -12,8 +12,8 @@ CORS(app)
 @cross_origin()
 def index():
     print('Hello world!', file=sys.stderr)
-
-    return jsonify(render_template('index.html', title='home'))
+    output = {"htmlPack":render_template('index.html', title='home')}
+    return jsonify(output)
 
 
 @app.route('/projects')  # route for projects showcase including json project data loading
