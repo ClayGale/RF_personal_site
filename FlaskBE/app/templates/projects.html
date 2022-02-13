@@ -2,7 +2,8 @@
 
 {% block content %}
     <h1>projects</h1>
-    <div> <!--  -->
+<!--
+    <div> 
         {% for project in data.projects %}
         <div> <button value='{{ project.ID }}'></button>
             <h1>{{ project.title }}</h1>
@@ -14,9 +15,10 @@
         </div>
         {% endfor %}
     </div>
-    <div>
+-->
+    <div id="projectList">
         {% for project in data.projects %}
-        <div> <button value='{{ project.ID }}'></button>
+        <div class='project'> <button value='{{ project.ID }}'></button>
             <h1>{{ project.title }}</h1>
             <a href='{{ project.link }}'> {{ project.linkdesc }} </a>
             <p> {{ project.shortdesc }} </p>

@@ -1,30 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<html>
-    <head>
-      <title>Clay Gale</title>
-    </head>
-    <body>
-        <div>
-            <a href="/index">Home</a>
-            <a href="/projects">Projects</a>
-            <a href="/contact">Contact Me</a>
-            <!--<a href="/PH">stuff and things</a> -->
-        </div>
-        <hr>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+<body>
+    <div id="nav">
+        <a class="navlink" href="/index">Home</a>
+        <a class="navlink" href="/projects">Projects</a>
+        <a class="navlink" href="/contact">Contact Me</a>
+        <!--<a href="/PH">stuff and things</a> -->
+    </div>
+    <div id="content">
         {% block content %}{% endblock %}
-
-        <div>
-            quicklinks: TODO
-        </div>
-    </body>
-</html>
+    </div>
+    <div>
+        quicklinks: TODO
+    </div>
+</body>

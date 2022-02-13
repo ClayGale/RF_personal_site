@@ -24,12 +24,15 @@ def projects():
     with open(projects) as pData:
         data = json.load(pData)
 
-    return jsonify(render_template('projects.html', title='showcase', data=data))
+    output = {"htmlPack":render_template('projects.html', title='showcase', data=data)}
+    return jsonify(output)
 
 
 @app.route('/contact')
 def contact():
-    return jsonify(render_template('contact.html', title='contact'))
+
+    output = {"htmlPack":render_template('contact.html', title='contact')}
+    return jsonify(output)
 
 
 print('Hello routes!', file=sys.stderr) #testing line

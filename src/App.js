@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-//import { render } from 'react-dom';
-import Frame from './Components/Frame'
+import './main.css';
+import Frame from './Components/Frame';
 
 function App() {
     const [view, setView] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/index', {
+        var page = window.location.pathname;
+        if (page === '/') { page = 'index' }
+        fetch('http://localhost:5000/' + page, {
             'methods': 'GET',
             headers: {
                 'Content-Type': 'application/json'

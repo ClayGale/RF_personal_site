@@ -1,0 +1,68 @@
+/*
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@400&family=Encode+Sans:wght@300&family=News+Cycle&family=Noto+Sans+Display:wght@300&family=Raleway:wght@300&family=Red+Hat+Display:wght@300&family=Roboto+Condensed&display=swap');
+body {
+    font-family: 'Bebas Neue', cursive;
+    max-width: 1380px;
+    margin: auto;
+}
+/*
+    styling for top navigation bar
+*/
+#nav {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: white;
+    background-color: #263349;
+    padding: 60px 120px 60px 120px;
+    border-radius: 0 0 40px 40px;
+}
+
+#content {
+    max-width: 1280px;
+    margin: 0 60px 0 60px;
+}
+
+#projectList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project {
+    box-shadow: 0px 0px 8px 2px #263349;
+    border-radius: 6px 6px 6px 6px;
+    /* spacing */
+    width: 30%;
+    margin: auto;
+    flex-basis: calc(100% / 3);
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+a:link, a:visited {
+    color: white;
+    font-size: 32px;
+}
+
+p {
+    font-family: 'encode sans', sans-serif;
+}
+/*
+    font-family: 'Bebas Neue', cursive;
+
+    font-family: 'Dosis', sans-serif;
+
+    font-family: 'Encode Sans', sans-serif;
+
+    font-family: 'News Cycle', sans-serif;
+
+    font-family: 'Raleway', sans-serif;
+
+    font-family: 'Red Hat Display', sans-serif;
+
+    font-family: 'Roboto Condensed', sans-serif;
+*/

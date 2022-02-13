@@ -27,6 +27,15 @@
       "link": "WEB-ADDRESS",
       "linkdesc": "test link",
       "longdesc": "what this REALLY is blah blah blah"
+    },
+    {
+      "ID": "testooo",
+      "title": "template project yeehaw",
+      "shortdesc": "what this is",
+      "image": "previewimage.jpg",
+      "link": "WEB-ADDRESS",
+      "linkdesc": "test link",
+      "longdesc": "what this REALLY is blah blah blah"
     }
   ]
 }
