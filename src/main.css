@@ -2,40 +2,66 @@
 
 */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@400&family=Encode+Sans:wght@300&family=News+Cycle&family=Noto+Sans+Display:wght@300&family=Raleway:wght@300&family=Red+Hat+Display:wght@300&family=Roboto+Condensed&display=swap');
+:root {
+    --myBurgundy: #690c37;
+    --myDarkerBurgundy: #4a0619;
+    --myDarkestBurgundy: #1a0000;
+}
+
 body {
     font-family: 'Bebas Neue', cursive;
     max-width: 1380px;
     margin: auto;
+    background-color: #a8b0bd;
+    min-width: 350;
 }
 /*
     styling for top navigation bar
 */
 #nav {
+    /* content properties */
     display: flex;
     justify-content: space-between;
     text-align: center;
     color: white;
-    background-color: #263349;
+    background-image: linear-gradient(var(--myBurgundy), var(--myDarkerBurgundy));
+    /* border properties */
+    box-shadow: 0px 0px 2px 3px var(--myDarkestBurgundy);
     padding: 60px 120px 60px 120px;
-    border-radius: 0 0 40px 40px;
+    border-radius: 0 0 1px 1px;
+    border-right-style: outset;
+    border-bottom-style: outset;
+    border-left-style: inset;
+    border-width: 0 4px 4px 4px;
+    border-color: var(--myBurgundy);
+    min-width: 300px;
 }
 
 #content {
     max-width: 1280px;
+    min-width: 420px;
     margin: 0 60px 0 60px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 2px white;
+    border-radius: 6px 6px 6px 6px;
+
 }
 
 #projectList {
     display: flex;
     flex-wrap: wrap;
+    padding: 50px;
+    margin: -27px -27px;
+    justify-content: center;
 }
 
 .project {
-    box-shadow: 0px 0px 8px 2px #263349;
+    box-shadow: 0px 0px 8px 2px var(--myBurgundy);
     border-radius: 6px 6px 6px 6px;
     /* spacing */
-    width: 30%;
-    margin: auto;
+    min-width: 350px;
+    max-width: 350px;
+    margin: 27px 27px;
     flex-basis: calc(100% / 3);
     display: inline-block;
 }
