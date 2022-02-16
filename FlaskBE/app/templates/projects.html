@@ -18,7 +18,7 @@
 -->
     <div id="projectList">
         {% for project in data.projects %}
-        <div class='project'> <button value='{{ project.ID }}'></button>
+        <div class='project'> <button onClick={showcase.setShowcase({{ project.ID }})}> clicky </button>
             <h1>{{ project.title }}</h1>
             <a href='{{ project.link }}'> {{ project.linkdesc }} </a>
             <p> {{ project.shortdesc }} </p>

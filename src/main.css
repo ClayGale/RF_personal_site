@@ -9,11 +9,10 @@
 }
 
 body {
-    font-family: 'Bebas Neue', cursive;
     max-width: 1380px;
     margin: auto;
     background-color: #a8b0bd;
-    min-width: 350;
+    min-width: 350px;
 }
 /*
     styling for top navigation bar
@@ -68,10 +67,15 @@ body {
 
 a {
     text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
 }
 a:link, a:visited {
     color: white;
     font-size: 32px;
+}
+
+a:hover {
+    text-shadow: 1px 1px 1px white;
 }
 
 p {
