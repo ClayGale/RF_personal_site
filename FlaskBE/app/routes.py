@@ -8,7 +8,7 @@ CORS(app)
 
 
 @app.route('/')
-@app.route('/index', methods=['GET'])
+@app.route('/index', methods=['GET']) # home screen 
 @cross_origin()
 def index():
     print('Hello world!', file=sys.stderr)
@@ -28,14 +28,21 @@ def projects():
     return jsonify(output)
 
 
-@app.route('/contact')
+@app.route('/contact') # route for contact info
+@cross_origin()
 def contact():
 
     output = {"htmlPack":render_template('contact.html', title='contact')}
     return jsonify(output)
 
+@app.route('/nav') # route for the top nav bar
+@cross_origin()
+def nav():
+    output = {"htmlPack":render_template('nav.html', title='contact')}
+    return jsonify(output)
 
 @app.route('/showcase' , methods=['POST'])
+@cross_origin()
 def showcase():
     input = request.get_json()
     pId = input.json('pId') #taking requested ID from POST arg

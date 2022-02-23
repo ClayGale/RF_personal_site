@@ -1,6 +1,4 @@
-{% extends "foundation.html" %}
 
-{% block content %}
     <h1>projects</h1>
 <!--
     <div> 
@@ -16,9 +14,10 @@
         {% endfor %}
     </div>
 -->
+    <showcase></showcase>
     <div id="projectList">
         {% for project in data.projects %}
-        <div class='project'> <button onClick={showcase.setShowcase({{ project.ID }})}> clicky </button>
+        <div class='project'> <button onClick={{'{setShowcase('}}'{{ project.ID }}'{{')}'}}> clicky </button>
             <h1>{{ project.title }}</h1>
             <a href='{{ project.link }}'> {{ project.linkdesc }} </a>
             <p> {{ project.shortdesc }} </p>
@@ -28,4 +27,3 @@
         </div>
         {% endfor %}
     </div>
-{% endblock %}

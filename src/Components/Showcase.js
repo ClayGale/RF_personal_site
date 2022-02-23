@@ -6,9 +6,9 @@ const showcase = (props) => {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pId: showcase })
+        body: JSON.stringify({ 'pId': showcase })
     };
-
+    console.log(showcase);
     useEffect(() => {
         fetch('http://localhost:5000/showcase', {
             'methods': 'POST',
@@ -19,7 +19,7 @@ const showcase = (props) => {
             .then(response => response.json())
             .catch(error => console.log(error))
     }, [showcase])
-
+    console.log(showcase);
     return (
         <div>
             <div> 
