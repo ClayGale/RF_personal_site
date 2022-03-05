@@ -38,7 +38,7 @@ def contact():
 @app.route('/nav') # route for the top nav bar
 @cross_origin()
 def nav():
-    output = {"htmlPack":render_template('nav.html', title='contact')}
+    output = {'Home':'/index','Projects':'/projects','Contact':'/contact'}
     return jsonify(output)
 
 @app.route('/showcase' , methods=['POST'])

@@ -9,14 +9,13 @@ const Frame = (props) => {
 
     let target = props.viewF;
     if (target === '/') { target = '/index' };
+
     useEffect(() => {
         const contactBackend = async () => {
             try {
                 const response = await fetch('http://localhost:5000' + target, {
                     'methods': 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
+                    headers: { 'Content-Type': 'application/json'}
                 })
                 if (!response.ok) {
                     throw Error(response.statusText);
@@ -30,7 +29,7 @@ const Frame = (props) => {
             }
         }
         contactBackend();
-    }, []);
+    }, [props.viewF]);
 
 
     return (
