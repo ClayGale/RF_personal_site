@@ -1,18 +1,64 @@
-
-.my-node-enter {
+/* body animations */
+.my-main-enter {
     opacity: 0;
 }
 
-.my-node-enter-active {
+.my-main-enter-active {
     opacity: 1;
-    transition: opacity 400ms;
+    transition: opacity 200ms;
 }
 
-.my-node-exit {
+.my-main-exit {
     opacity: 1;
 }
 
-.my-node-exit-active {
+.my-main-exit-active {
     opacity: 0;
-    transition: opacity 400ms;
+    transition: opacity 200ms;
+}
+
+/* nav animations */
+.my-nav-enter {
+    opacity: 0;
+    height: 0;
+    padding: 0px 0px 0px 0px;
+    transform: scale(0);
+}
+
+.my-nav-enter-active {
+    opacity: 1;
+    transition: opacity 300ms, height 700ms, padding ease-out 700ms, transform 700ms;
+    transform: scale(1);
+}
+
+.my-nav-exit {
+    opacity: 1;
+}
+
+.my-nav-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+/* frame animations */
+.my-frame-enter {
+    opacity: 0;
+    color: #a8b0bd;
+}
+
+.my-frame-enter-active {
+    opacity: 1;
+    color: white;
+    transition: opacity 200ms, color 200ms, height ease-in-out 300ms;
+}
+
+.my-frame-exit {
+    opacity: 1;
+    color: white;
+}
+
+.my-frame-exit-active {
+    opacity: 0;
+    color: #a8b0bd;
+    transition: opacity 200ms, color 200ms, height ease-in-out 300ms;
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 function createMarkup(markup) {
     return { __html: markup };
@@ -6,12 +7,14 @@ function createMarkup(markup) {
 
 const Frame = (props) => {
     const [content, setContent] = useState('');
+    const [animSwitch, setAnimSwitch] = useState(false);
 
     let target = props.viewF;
     if (target === '/') { target = '/index' };
 
     useEffect(() => {
         const contactBackend = async () => {
+            setAnimSwitch(false);
             try {
                 const response = await fetch('http://localhost:5000' + target, {
                     'methods': 'GET',
@@ -21,23 +24,24 @@ const Frame = (props) => {
                     throw Error(response.statusText);
                 }
                 const data = await response.json();
-                console.log(data);
+                //console.log(data);
                 setContent(data.htmlPack);
+                setAnimSwitch(true);
 
             } catch (error) {
                 console.log(error);
             }
         }
-        props.animSwitch(false);
         contactBackend();
-        props.animSwitch(true);
     }, [props.viewF]);
 
 
     return (
-        <div className="m-2" dangerouslySetInnerHTML={createMarkup(content)}>
+        <CSSTransition in={animSwitch} timeout={300} classNames="my-frame">
+            <div className="m-2" id="content" dangerouslySetInnerHTML={createMarkup(content)}>
 
-        </div>
+            </div>
+        </CSSTransition>
     )
 
 };
