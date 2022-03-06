@@ -28,7 +28,9 @@ const Frame = (props) => {
                 console.log(error);
             }
         }
+        props.animSwitch(false);
         contactBackend();
+        props.animSwitch(true);
     }, [props.viewF]);
 
 

@@ -1,24 +1,27 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import './main.css';
+import './anim.css';
 import Frame from './Components/Frame';
 import Nav from './Components/Nav';
 
 
 function App() {
     const [view, setView] = useState(window.location.pathname);
+    const [inProp, setInProp] = useState(false);
 
     //setView(window.location.pathname)
 
     function handleContentChange(newView) {
         console.log('click out ' + newView);
+        setInProp(false);
         setView(newView);
     }
 
     useEffect(() => {
 
-        //setView(window.location.pathname);
         console.log('view change ' + view);
-        //setLoading(false);
+        setInProp(true);
     }, []);
 
 
@@ -29,9 +32,11 @@ function App() {
     return (
         <div className="App container m-4">
             <Nav active={view} handleContentChange={handleContentChange} />
-            <div id='content'>
-                <Frame viewF={view} />
-            </div>
+            <CSSTransition in={inProp} timeout={400} classNames="my-node">
+                <div id='content'>
+                    <Frame viewF={view} animSwitch={setInProp} />
+                </div>
+            </CSSTransition>
         </div>
     );
 
