@@ -59,5 +59,3 @@ def showcase():
 
 
     return jsonify(output)
-
-print('Hello routes!', file=sys.stderr) #testing line

@@ -5,7 +5,7 @@
 
 .my-main-enter-active {
     opacity: 1;
-    transition: opacity 200ms;
+    transition: opacity 700ms;
 }
 
 .my-main-exit {
@@ -18,17 +18,16 @@
 }
 
 /* nav animations */
+/* matrix parameters: matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY()) */
 .my-nav-enter {
     opacity: 0;
-    height: 0;
-    padding: 0px 0px 0px 0px;
-    transform: scale(0);
+    transform: translateY(-100px) scaleY(0);
 }
 
 .my-nav-enter-active {
     opacity: 1;
-    transition: opacity 300ms, height 700ms, padding ease-out 700ms, transform 700ms;
-    transform: scale(1);
+    transform: translateY(0);
+    transition: opacity 700ms, transform 500ms ease;
 }
 
 .my-nav-exit {
@@ -43,22 +42,18 @@
 /* frame animations */
 .my-frame-enter {
     opacity: 0;
-    color: #a8b0bd;
 }
 
 .my-frame-enter-active {
     opacity: 1;
-    color: white;
-    transition: opacity 200ms, color 200ms, height ease-in-out 300ms;
+    transition: opacity 300ms, height ease-in-out 300ms;
 }
 
 .my-frame-exit {
     opacity: 1;
-    color: white;
 }
 
 .my-frame-exit-active {
     opacity: 0;
-    color: #a8b0bd;
-    transition: opacity 200ms, color 200ms, height ease-in-out 300ms;
+    transition: opacity 300ms, height ease-in-out 300ms;
 }

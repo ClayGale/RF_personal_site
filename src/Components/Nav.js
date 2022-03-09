@@ -3,8 +3,8 @@ import { CSSTransition } from 'react-transition-group';
 
 
 const Nav = (props) => {
-    const [pages, setPages] = useState([]);
-    const [animSwitch, setAnimSwitch] = useState(false);
+    const [pages, setPages] = useState([]); //state to hold page list
+    const [animSwitch, setAnimSwitch] = useState(false); //animation switch for CSSTransition
 
     function handleNav(event) {
         console.log(event.target.value);
@@ -24,7 +24,7 @@ const Nav = (props) => {
                 const data = await response.json();
                 //console.log(data);
                 setPages(data);
-                setAnimSwitch(true);
+                await setAnimSwitch(true);
 
             } catch (error) {
                 console.log(error);
@@ -39,7 +39,7 @@ const Nav = (props) => {
     };
 
     return (
-        <CSSTransition in={animSwitch} timeout={300} classNames="my-nav">
+        <CSSTransition in={animSwitch} timeout={400} classNames="my-nav">
             <header className="m-2" id="nav" >
                 {links}
             </header>

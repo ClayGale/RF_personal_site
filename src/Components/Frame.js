@@ -6,15 +6,15 @@ function createMarkup(markup) {
 }
 
 const Frame = (props) => {
-    const [content, setContent] = useState('');
-    const [animSwitch, setAnimSwitch] = useState(false);
+    const [content, setContent] = useState(''); //state to hold markup
+    const [animSwitch, setAnimSwitch] = useState(false); //animation switch for CSSTransition
 
     let target = props.viewF;
     if (target === '/') { target = '/index' };
 
     useEffect(() => {
+        setAnimSwitch(false);
         const contactBackend = async () => {
-            setAnimSwitch(false);
             try {
                 const response = await fetch('http://localhost:5000' + target, {
                     'methods': 'GET',
@@ -26,7 +26,7 @@ const Frame = (props) => {
                 const data = await response.json();
                 //console.log(data);
                 setContent(data.htmlPack);
-                setAnimSwitch(true);
+                await setAnimSwitch(true);
 
             } catch (error) {
                 console.log(error);
@@ -37,7 +37,7 @@ const Frame = (props) => {
 
 
     return (
-        <CSSTransition in={animSwitch} timeout={300} classNames="my-frame">
+        <CSSTransition in={animSwitch} timeout={500} classNames="my-frame">
             <div className="m-2" id="content" dangerouslySetInnerHTML={createMarkup(content)}>
 
             </div>
