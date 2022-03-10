@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import contactBackend from '../Utilities/contactBackend';
 
 function createMarkup(markup) {
     return { __html: markup };
@@ -7,38 +8,19 @@ function createMarkup(markup) {
 
 const Frame = (props) => {
     const [content, setContent] = useState(''); //state to hold markup
-    const [animSwitch, setAnimSwitch] = useState(false); //animation switch for CSSTransition
+    const [animSwitchF, setAnimSwitchF] = useState(false); //animation switch for CSSTransition
 
-    let target = props.viewF;
-    if (target === '/') { target = '/index' };
+    let address = props.viewF;
+    if (address === '/') { address = '/index' };
 
     useEffect(() => {
-        setAnimSwitch(false);
-        const contactBackend = async () => {
-            try {
-                const response = await fetch('http://localhost:5000' + target, {
-                    'methods': 'GET',
-                    headers: { 'Content-Type': 'application/json'}
-                })
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-                const data = await response.json();
-                //console.log(data);
-                setContent(data.htmlPack);
-                await setAnimSwitch(true);
-
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        contactBackend();
+        contactBackend(address, setContent, setAnimSwitchF);
     }, [props.viewF]);
 
 
     return (
-        <CSSTransition in={animSwitch} timeout={500} classNames="my-frame">
-            <div className="m-2" id="content" dangerouslySetInnerHTML={createMarkup(content)}>
+        <CSSTransition in={animSwitchF} timeout={500} classNames="my-frame">
+            <div className="m-2" id="content" dangerouslySetInnerHTML={createMarkup(content.htmlPack)}>
 
             </div>
         </CSSTransition>

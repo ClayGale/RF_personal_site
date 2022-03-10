@@ -41,7 +41,7 @@
 
 /* frame animations */
 .my-frame-enter {
-    opacity: 0;
+    opacity: 0.1;
 }
 
 .my-frame-enter-active {
@@ -54,6 +54,6 @@
 }
 
 .my-frame-exit-active {
-    opacity: 0;
+    opacity: 0.1;
     transition: opacity 300ms, height ease-in-out 300ms;
 }

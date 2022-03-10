@@ -41,7 +41,7 @@ def nav():
     output = {'Home':'/index','Projects':'/projects','Contact':'/contact'}
     return jsonify(output)
 
-@app.route('/showcase' , methods=['POST'])
+@app.route('/showcase')
 @cross_origin()
 def showcase():
     input = request.get_json()

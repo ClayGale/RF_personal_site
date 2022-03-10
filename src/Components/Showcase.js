@@ -6,7 +6,7 @@ const Showcase = (props) => {
     console.log(showcase);
     useEffect(() => {
         const contactBackend = async () => {
-            //setAnimSwitch(false);
+            setAnimSwitch(false);
             try {
                 const response = await fetch('http://localhost:5000/showcase', {
                     'methods': 'POST',
@@ -18,7 +18,7 @@ const Showcase = (props) => {
                 const data = await response.json();
                 console.log(data);
                 setShowcase(data);
-                //await setAnimSwitch(true);
+                await setAnimSwitch(true);
 
             } catch (error) {
                 console.log(error);
