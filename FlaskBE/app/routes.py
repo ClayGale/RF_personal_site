@@ -23,8 +23,8 @@ def projects():
 
     with open(projects) as pData: #collecting data for template
         data = json.load(pData)
-
-    output = {"htmlPack":render_template('projects.html', title='showcase', data=data)}
+    #sending descriptive html, the project list, and the category for easy handling by the front end
+    output = {"htmlPack":render_template('projects.html'), "data":data, "type":"projects"}
     return jsonify(output)
 
 
