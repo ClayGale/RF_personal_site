@@ -7,7 +7,7 @@ It takes three arguements
 */
 
 const contactBackend = async (address, setReturn, setAnim) => {
-    setAnim(false);
+    //setAnim(false);
     try {
         const response = await fetch('http://localhost:5000' + address, {
             'methods': 'GET',
@@ -17,7 +17,7 @@ const contactBackend = async (address, setReturn, setAnim) => {
             throw Error(response.statusText);
         }
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         await setAnim(true);
         setReturn(data);
 

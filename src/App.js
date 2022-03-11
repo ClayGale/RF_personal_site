@@ -26,13 +26,8 @@ function App() {
     };
 
     useEffect(() => {
-        console.log('view change ' + view);
         setAnimSwitch(true);
     }, []);
-
-
-
-    console.log('logging view ' + view);
 
     return (
         <CSSTransition in={animSwitch} timeout={700} classNames="my-main">

@@ -1,0 +1,19 @@
+{
+  "classes": [
+    {
+      "ID": "cosc100",
+      "title": "example class 1",
+      "classdesc": "i did a learning"
+    },
+    {
+      "ID": "cosc101",
+      "title": "example class 2",
+      "classdesc": "i did a learning again!"
+    },
+    {
+      "ID": "cosc111",
+      "title": "example class 3",
+      "classdesc": "i did a learning and got a degree!!"
+    }
+  ]
+}

@@ -45,7 +45,7 @@ body {
     border-radius: 6px 6px 6px 6px;
 }
 
-#projectList {
+#projects {
     display: flex;
     flex-wrap: wrap;
     padding: 50px;

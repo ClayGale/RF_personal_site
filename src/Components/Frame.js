@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import contactBackend from '../Utilities/contactBackend';
-import Preview from '.Preview';
+import Preview from './Preview';
 
 function createMarkup(markup) {
     return { __html: markup };
@@ -16,15 +16,20 @@ const Frame = (props) => {
 
     useEffect(() => {
         contactBackend(address, setContent, setAnimSwitchF);
+        return () => {
+            setAnimSwitchF(false);
+        };
     }, [props.viewF]);
 
 
     return (
         <CSSTransition in={animSwitchF} timeout={500} classNames="my-frame">
-            <div className="m-2" id="content" dangerouslySetInnerHTML={createMarkup(content.htmlPack)}>
-
-            </div>
-            <Preview data={content.data} type={content.type} />
+            <>
+                <div className="m-2" id="content">
+                    <div dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
+                    <Preview data={content.data} type={content.type} />
+                </div>
+            </>
         </CSSTransition>
     )
 

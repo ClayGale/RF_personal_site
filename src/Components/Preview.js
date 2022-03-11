@@ -2,21 +2,34 @@ import React from 'react';
 
 const Preview = (props) => {
 
-    prevs = []; //container for generated elements
+    //console.log(props.data);
+    let prevs = []; //container for generated elements
     switch (props.type) {
         case "projects":
-
+            props.data.projects.forEach((project) => {
+                prevs.push(<div key={project.ID} className='project'>
+                    <h1>{project.title}</h1>
+                    <a href={project.link}> {project.linkdesc} </a>
+                    <p> {project.shortdesc} </p>
+                </div >)});
             break;
         case "education":
-
+            props.data.classes.forEach((schoolClass) => {
+                prevs.push(<div key={schoolClass.ID} className='schoolClass'>
+                    <h1>{schoolClass.ID}</h1>
+                    <h2>{schoolClass.title}</h2>
+                    <p> {schoolClass.classdesc} </p>
+                </div >)
+            });
             break;
         case "resume":
-
+            prevs[1] = "RESUMEEEEEEEEE";
             break;
         default:
             break;
     }
-
+    //console.log(prevs);
+    return (<div id={props.type}>{prevs}</div>);
 }
 
 export default Preview;
