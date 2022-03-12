@@ -1,7 +1,8 @@
 /*
 
 */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@400&family=Encode+Sans:wght@300&family=News+Cycle&family=Noto+Sans+Display:wght@300&family=Raleway:wght@300&family=Red+Hat+Display:wght@300&family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans&display=swap');
+
 :root {
     --myBurgundy: #690c37;
     --myDarkerBurgundy: #4a0619;
@@ -11,10 +12,11 @@
 body {
     max-width: 1380px;
     margin: auto;
-    background-color: #a8b0bd;
+    background-color: white;
     min-width: 350px;
 }
 /*
+    #a8b0bd
     styling for top navigation bar
 */
 #nav {
@@ -25,16 +27,22 @@ body {
     color: white;
     background-image: linear-gradient(var(--myBurgundy), var(--myDarkerBurgundy));
     /* border properties */
-    box-shadow: 0px 0px 2px 3px var(--myDarkestBurgundy);
+    /*box-shadow: 0px 0px 2px 3px white;*/
     padding: 40px 120px 40px 120px;
     border-radius: 0 0 1px 1px;
-    border-right-style: outset;
+    /*border-right-style: outset;
     border-bottom-style: outset;
     border-left-style: inset;
     border-width: 0 4px 4px 4px;
-    border-color: var(--myBurgundy);
+    border-color: var(--myBurgundy);*/
     min-width: 300px;
+    flex-wrap: wrap;
 }
+/*
+    
+    justify-content: center;
+    margin: 0 25px 0 25px;
+*/
 
 #content {
     max-width: 1280px;
@@ -50,12 +58,18 @@ body {
     flex-wrap: wrap;
     padding: 50px;
     margin: -27px -27px;
-    justify-content: center;
+    justify-content: left;
+}
+
+#splash {
+    position: fixed;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 100px;
+    margin: auto;
+    color: var(--myBurgundy);
 }
 
 .project {
-    box-shadow: 0px 0px 8px 2px var(--myBurgundy);
-    border-radius: 6px 6px 6px 6px;
     /* spacing */
     min-width: 350px;
     max-width: 350px;
@@ -63,6 +77,16 @@ body {
     flex-basis: calc(100% / 3);
     display: inline-block;
 }
+
+    .project:hover {
+        border-radius: 6px 6px 6px 6px;
+        transform: translate(5px, 5px);
+        transition: transform 1.5s;
+    }
+
+        .project::before {
+            box-shadow: 0px 0px 8px 2px var(--myBurgundy);
+        }
 
 button {
     font-family: 'Bebas Neue', cursive;
@@ -79,8 +103,16 @@ a:hover {
     text-shadow: 1px 1px 1px white;
 }
 
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    color: var(--myDarkerBurgundy);
+    position: center;
+}
+
 p {
-    font-family: 'encode sans', sans-serif;
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 /*
     font-family: 'Bebas Neue', cursive;

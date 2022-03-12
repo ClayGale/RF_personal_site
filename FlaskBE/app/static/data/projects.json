@@ -36,6 +36,15 @@
       "link": "WEB-ADDRESS",
       "linkdesc": "test link",
       "longdesc": "what this REALLY is blah blah blah"
+    },
+    {
+      "ID": "testooooo",
+      "title": "template project things",
+      "shortdesc": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "image": "previewimage.jpg",
+      "link": "WEB-ADDRESS",
+      "linkdesc": "test link",
+      "longdesc": "what this REALLY is blah blah blah"
     }
   ]
 }

@@ -14,6 +14,11 @@ const Frame = (props) => {
     let address = props.viewF;
     if (address === '/') { address = '/index' };
 
+    function handleShowcaseRequest(event) {
+        console.log(event.target.value);
+        props.showcaseRequest(event.target.value)
+    };
+
     useEffect(() => {
         contactBackend(address, setContent, setAnimSwitchF);
         return () => {
@@ -27,7 +32,7 @@ const Frame = (props) => {
             <>
                 <div className="m-2" id="content">
                     <div dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
-                    <Preview data={content.data} type={content.type} />
+                    <Preview data={content.data} type={content.type} handleShowcaseRequest={handleShowcaseRequest} />
                 </div>
             </>
         </CSSTransition>

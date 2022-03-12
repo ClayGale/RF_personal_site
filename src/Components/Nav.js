@@ -9,7 +9,7 @@ const Nav = (props) => {
 
     function handleNav(event) {
         console.log(event.target.value);
-        props.handleContentChange(event.target.value); //setting the view in the main app component
+        props.contentChange(event.target.value); //setting the view in the main app component
     }; //changes the page
 
     useEffect(() => {

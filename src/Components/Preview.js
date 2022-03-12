@@ -2,12 +2,12 @@ import React from 'react';
 
 const Preview = (props) => {
 
-    //console.log(props.data);
+    console.log(props);
     let prevs = []; //container for generated elements
     switch (props.type) {
         case "projects":
             props.data.projects.forEach((project) => {
-                prevs.push(<div key={project.ID} className='project'>
+                prevs.push(<div key={project.ID} value={project.ID} className='project' onClick={props.handleShowcaseRequest}>
                     <h1>{project.title}</h1>
                     <a href={project.link}> {project.linkdesc} </a>
                     <p> {project.shortdesc} </p>
@@ -15,7 +15,7 @@ const Preview = (props) => {
             break;
         case "education":
             props.data.classes.forEach((schoolClass) => {
-                prevs.push(<div key={schoolClass.ID} className='schoolClass'>
+                prevs.push(<div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass' onClick={props.handleShowcaseRequest}>
                     <h1>{schoolClass.ID}</h1>
                     <h2>{schoolClass.title}</h2>
                     <p> {schoolClass.classdesc} </p>
