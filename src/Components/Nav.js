@@ -13,18 +13,23 @@ const Nav = (props) => {
     }; //changes the page
 
     useEffect(() => {
-        contactBackend('/nav', setPages, setAnimSwitchN);
+        contactBackend('/nav', setPages);
     }, []);
+
+    useEffect(() => {
+        setAnimSwitchN(true);
+    }, [props.splash]);
 
     let links = []; //container for retrieved nav list
     for (const [key, value] of Object.entries(pages)){ //creating a nav button for each entry
         links.push(<button className="navlink" value={value} key={key} onClick={handleNav}> {key} </button >);
     };
 
+    if (props.splash) { return <br/>;} //won't render until the splash screen is dismissed
     return (
         <CSSTransition in={animSwitchN} timeout={400} classNames="my-nav">
             <header className="m-2" id="nav" >
-                {links}
+                {animSwitchN ? links : null}
             </header>
         </CSSTransition>
     )

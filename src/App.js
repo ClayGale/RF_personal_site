@@ -10,7 +10,7 @@ import Nav from './Components/Nav';
 function App() {
     const [view, setView] = useState(window.location.pathname); //page state
     const [animSwitch, setAnimSwitch] = useState(false); //animation switch for CSSTransition
-    const [splash, setSplash] = useState(true);
+    const [splash, setSplash] = useState(false);
 
     /* 
     The handleContentChange function is passed into the Nav component.
@@ -27,21 +27,17 @@ function App() {
     };
 
     useEffect(() => {
-        setAnimSwitch(true);
+        setSplash(true);
     }, []);
-    if (splash) {
-        return (
-            <div id="splash" onClick={() => setSplash(false)}>
-                <h1>Clay Gale</h1>
-                <h3> full stack web developer </h3>
-            </div>
-        )
-    }
     return (
         <>
-            <CSSTransition in={animSwitch} timeout={700} classNames="my-main">
+            <CSSTransition in={splash} timeout={700} classNames="my-splash">
                 <div className="App container m-4">
-                    <Nav active={view} contentChange={contentChange} />
+                    <div id="splash" onClick={() => setSplash(false)}>
+                        <h1>Clay Gale</h1>
+                        <h3> full stack web developer </h3>
+                    </div>
+                    <Nav active={view} contentChange={contentChange} splash={splash} />
                     <Frame viewF={view} showcaseRequest={showcaseRequest} />
                 </div>
             </CSSTransition>

@@ -17,6 +17,38 @@
     transition: opacity 200ms;
 }
 
+.my-splash-enter {
+    opacity: 0;
+}
+
+    .my-splash-enter > #splash {
+        opacity: 0.1;
+        transition: all 700ms ease;
+    }
+
+.my-splash-enter-active {
+    opacity: 0;
+}
+
+    .my-splash-enter-active > #splash {
+        opacity: 1;
+        transition: all 700ms ease;
+    }
+
+.my-splash-exit {
+}
+
+    .my-splash-exit > #splash {
+
+    }
+
+.my-splash-exit-active {
+}
+
+    .my-splash-exit-active > #splash {
+    }
+
+
 /* nav animations */
 /* matrix parameters: matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY()) */
 .my-nav-enter {

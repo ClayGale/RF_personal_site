@@ -26,6 +26,10 @@ const Frame = (props) => {
         };
     }, [props.viewF]);
 
+    useEffect(() => {
+        setAnimSwitchF(true);
+    }, [content]);
+
 
     return (
         <CSSTransition in={animSwitchF} timeout={500} classNames="my-frame">
