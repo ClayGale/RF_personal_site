@@ -16,7 +16,7 @@ const Frame = (props) => {
 
     function handleShowcaseRequest(event) {
         console.log(event.target.value);
-        props.showcaseRequest(event.target.value)
+        props.showcaseRequest(event.target.value);
     };
 
     useEffect(() => {
@@ -33,12 +33,10 @@ const Frame = (props) => {
 
     return (
         <CSSTransition in={animSwitchF} timeout={500} classNames="my-frame">
-            <>
                 <div className="m-2" id="content">
                     <div dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
                     <Preview data={content.data} type={content.type} handleShowcaseRequest={handleShowcaseRequest} />
                 </div>
-            </>
         </CSSTransition>
     )
 

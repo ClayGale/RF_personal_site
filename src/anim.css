@@ -18,42 +18,96 @@
 }
 
 .my-splash-enter {
-    opacity: 0;
+    opacity: 1;
+    font-size: 100px;
+    top: 0%;
+    left: 0%;
+    transition: all 700ms ease;
 }
 
-    .my-splash-enter > #splash {
-        opacity: 0.1;
-        transition: all 700ms ease;
-    }
 
 .my-splash-enter-active {
-    opacity: 0;
+    opacity: 1;
+    font-size: 100px;
+    top: 0%;
+    left: 0%;
+    transition: all 700ms ease;
 }
 
-    .my-splash-enter-active > #splash {
-        opacity: 1;
-        transition: all 700ms ease;
-    }
+    .my-splash-enter::before, .my-splash-enter-active::before, .my-splash-enter-done::before, .my-splash-exit-active::before {
+        content: '';
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: white;
+        z-index: -1;
+    } /* This pseudo element whites out the rest of the elements behind the splash text */
+
+.my-splash-enter-done {
+    font-size: 100px;
+    top: 0%;
+    left: 0%;
+}
 
 .my-splash-exit {
+    font-size: 100px;
+    top: 0%;
+    left: 0%;
+    transition: all 700ms ease;
 }
 
-    .my-splash-exit > #splash {
-
-    }
 
 .my-splash-exit-active {
 }
 
-    .my-splash-exit-active > #splash {
+    .my-splash-exit-active::before {
+        opacity: 0;
+        transition: opacity 700ms ease;
+    }
+
+    .my-splash-exit-active > h1 {
+        font-size: 48px;
+        top: 0%;
+        left: 0%;
+        transition: all 700ms ease;
+    }
+
+    .my-splash-exit-active > h3 {
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: all 700ms ease;
+    }
+
+.my-splash-exit-done {
+    top: 0%;
+    left: 0%;
+    transition: all 700ms ease;
+}
+
+    .my-splash-exit-done > h1 {
+        font-size: 48px;
+        transition: all 700ms ease;
+    }
+
+    .my-splash-exit-done > h3 {
+        opacity: 0;
     }
 
 
 /* nav animations */
 /* matrix parameters: matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY()) */
-.my-nav-enter {
+
+.my-nav{
     opacity: 0;
+}
+
+.my-nav-enter {
+    opacity: 0.2;
     transform: translateY(-100px) scaleY(0);
+
 }
 
 .my-nav-enter-active {
