@@ -34,12 +34,13 @@
 .my-splash-exit {
     font-size: 100px;
     top: 0%;
-    left: 0%;
+    left: 45%;
     transition: all 700ms ease;
 }
 
 
 .my-splash-exit-active {
+    left: 30%;
 }
 
     .my-splash-exit-active::before {
@@ -49,65 +50,127 @@
 
     .my-splash-exit-active > h1 {
         font-size: 48px;
-        top: 0%;
-        left: 0%;
+        margin: 0 auto 0 auto;
+        letter-spacing: 3px;
         transition: all 500ms ease;
     }
 
     .my-splash-exit-active > h3 {
         transform: translate(100%, 200%);
         opacity: 0;
+        margin: 0;
         transition: all 700ms ease;
     }
 
 .my-splash-exit-done {
-    top: 0%;
-    left: 0%;
+    left: 30%;
     transition: all 700ms ease;
 }
+
+    .my-splash-exit-done > h1 {
+        font-size: 48px;
+        margin: 0 auto 0 auto;
+        letter-spacing: 3px;
+        transition: all 700ms ease;
+    }
+    .my-splash-exit-done > h3 {
+        display: none;
+    }
+@media only screen and (min-width: 1730px) {
+    .my-splash-exit {
+        font-size: 100px;
+        top: 0%;
+        left: 0%;
+        transition: all 700ms ease;
+    }
+
+    .my-splash-exit-active {
+        position: center;
+    }
+
+    .my-splash-exit-done {
+        left: 0%;
+        transition: all 700ms ease;
+    }
+
+    .my-splash-exit-active > h1 {
+        font-size: 48px;
+        left: 0%;
+        transition: all 500ms ease;
+    }
+    .my-splash-exit-done > h1 {
+        font-size: 48px;
+        left: 0%;
+        transition: all 700ms ease;
+    }
+} /* Enabling the two alternate positions of my name at different screen sizes */
+
+@media only screen and (max-width: 1730px) { 
+    .my-splash-exit-active > h1 {
+        -webkit-text-fill-color: white !important;
+    }
+
+    .my-splash-exit-done > h1 {
+        -webkit-text-fill-color: white !important;
+    }
+} /* using the !important tag and a max-width media query isn't great practice but this solves 
+      my text coloring problem with the least number of properties
+  */
+@media only screen and (max-width: 1100px) {
+    .my-splash-enter h1,
+    .my-splash-enter-active h1,
+    .my-splash-enter-done h1{
+        font-size: 100% !important;
+        transition: all 700ms ease;
+    }
+    .my-splash-enter h3,
+    .my-splash-enter-active h3,
+    .my-splash-enter-done h3,
+    .my-splash-exit h3{
+        font-size: 24px !important;
+        transition: all 700ms ease;
+    }
+}
+/* same issue here, preventing ugly overflow on the splash screen with minimal excess properties */
+
     .my-splash-exit-done::before {
         opacity: 0;
     }
 
-    .my-splash-exit-done > h1 {
-        font-size: 48px;
-        transition: all 700ms ease;
-    }
 
     .my-splash-exit-done > h3 {
         opacity: 0;
     }
 
 
-/* nav animations 
+    /* nav animations 
 only uses exit classes as the animations of this component are tied to the same state as the splash component*/
 
-.my-nav-exit {
-    opacity: 0.2;
-    transform: translateY(-100px) scaleY(0);
-}
+    .my-nav-exit {
+        transform: translateY(-100px) scaleY(0);
+    }
 
-.my-nav-exit-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 700ms, transform 500ms ease;
-}
+    .my-nav-exit-active {
+        opacity: 1;
+        transform: translateY(0);
+        transition: transform 500ms ease;
+    }
 
-/* frame animations */
-.my-frame-enter {
-    opacity: 0.1;
-}
+    /* frame animations */
+    .my-frame-enter {
+        opacity: 0.1;
+    }
 
-.my-frame-enter-active {
-    opacity: 1;
-    transition: opacity 300ms, height ease-in-out 300ms;
-}
+    .my-frame-enter-active {
+        opacity: 1;
+        transition: opacity 300ms, height ease-in-out 300ms;
+    }
 
-.my-frame-exit {
-    opacity: 1;
-}
+    .my-frame-exit {
+        opacity: 1;
+    }
 
-.my-frame-exit-active {
-    opacity: 0.1;
-    transition: opacity 300ms, height ease-in-out 300ms;
-}
+    .my-frame-exit-active {
+        opacity: 0.1;
+        transition: opacity 300ms, height ease-in-out 300ms;
+    }
