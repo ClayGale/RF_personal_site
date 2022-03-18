@@ -61,6 +61,17 @@ body {
     z-index: 2;
 }
 
+    #splash::before {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: white;
+        z-index: -1;
+        transition: all 700ms ease;
+    }
+    /* This pseudo element whites out the rest of the elements behind the splash text */
     #splash > h1 {
         background: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
         background-clip: text;

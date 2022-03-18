@@ -12,9 +12,12 @@ const Nav = (props) => {
         props.contentChange(event.target.value); //setting the view in the main app component
     }; //changes the page
 
+
     useEffect(() => {
+        setAnimSwitchN(true);
         contactBackend('/nav', setPages);
     }, []);
+
 
     let links = []; //container for retrieved nav list
     for (const [key, value] of Object.entries(pages)){ //creating a nav button for each entry
@@ -22,7 +25,7 @@ const Nav = (props) => {
     };
 
     return (
-        <CSSTransition in={animSwitchN} timeout={400} classNames="my-nav">
+        <CSSTransition in={props.splash} timeout={400} classNames="my-nav">
             <header className="m-2" id="nav">
                 {links}
             </header>

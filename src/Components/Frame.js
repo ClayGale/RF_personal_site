@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CSSTransition } from 'react-transition-group';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import contactBackend from '../Utilities/contactBackend';
 import Preview from './Preview';
 
@@ -11,8 +11,6 @@ const Frame = (props) => {
     const [content, setContent] = useState(''); //state to hold markup
     const [animSwitchF, setAnimSwitchF] = useState(false); //animation switch for CSSTransition
 
-    let address = props.viewF;
-    if (address === '/') { address = '/index' };
 
     function handleShowcaseRequest(event) {
         console.log(event.target.value);
@@ -20,24 +18,31 @@ const Frame = (props) => {
     };
 
     useEffect(() => {
-        contactBackend(address, setContent, setAnimSwitchF);
+        contactBackend(props.viewF, setContent);
+
+        console.log("render");
         return () => {
-            setAnimSwitchF(false);
+            console.log("exit");
         };
     }, [props.viewF]);
 
     useEffect(() => {
+
+        setAnimSwitchF(false);
         setAnimSwitchF(true);
-    }, [content]);
+        console.log("content");
+    }, [content, props.splash]);
 
 
     return (
-        <CSSTransition in={animSwitchF} timeout={500} classNames="my-frame">
+        <SwitchTransition>
+            <CSSTransition key={props.viewF} in={animSwitchF} timeout={500} classNames="my-frame" unmountOnExit>
                 <div className="m-2" id="content">
                     <div dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
                     <Preview data={content.data} type={content.type} handleShowcaseRequest={handleShowcaseRequest} />
                 </div>
-        </CSSTransition>
+            </CSSTransition>
+        </SwitchTransition>
     )
 
 };
