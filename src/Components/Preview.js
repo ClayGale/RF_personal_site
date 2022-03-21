@@ -7,7 +7,7 @@ const Preview = (props) => {
     switch (props.type) {
         case "projects":
             props.data.projects.forEach((project) => {
-                prevs.push(<div key={project.ID} value={project.ID} className='project' onClick={props.handleShowcaseRequest}>
+                prevs.push(<div key={project.ID} value={project.ID} className='project' onClick={() => props.handleShowcaseRequest}>
                     <h1>{project.title}</h1>
                     <a href={project.link}> {project.linkdesc} </a>
                     <p> {project.shortdesc} </p>

@@ -27,6 +27,9 @@ body {
     padding: 65px 80px 15px 80px;
     color: white;
     background-image: linear-gradient(var(--myBurgundy), var(--myDarkerBurgundy));
+    max-width: 600px;
+    margin: auto;
+    transition: all 700ms ease;
 }
 /*
     
@@ -42,6 +45,7 @@ body {
     #nav {
         grid-template-columns: repeat(4, 1fr);
         padding: 40px 120px 40px 120px;
+        max-width: unset;
     }
 }
 
@@ -60,7 +64,7 @@ body {
 
 
 #splash {
-    position: fixed;
+    position: absolute;
     font-family: 'Bebas Neue', cursive;
     color: var(--myDarkerBurgundy);
     z-index: 2;

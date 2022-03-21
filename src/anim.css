@@ -146,31 +146,34 @@
     /* nav animations 
 only uses exit classes as the animations of this component are tied to the same state as the splash component*/
 
-    .my-nav-exit {
-        transform: translateY(-100px) scaleY(0);
-    }
+.my-nav-exit {
+    transform: translateY(-100px) scaleY(0);
+}
 
-    .my-nav-exit-active {
-        opacity: 1;
-        transform: translateY(0);
-        transition: transform 500ms ease;
-    }
+.my-nav-exit-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 500ms ease;
+}
 
-    /* frame animations */
-    .my-frame-enter {
-        opacity: 0.1;
-    }
+/* frame animations */
+.my-frame-enter {
+    transform: translateY(-1rem);
+    opacity: 0.1;
+}
 
-    .my-frame-enter-active {
-        opacity: 1;
-        transition: opacity 300ms, height ease-in-out 300ms;
-    }
+.my-frame-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.5s;
+}
 
-    .my-frame-exit {
-        opacity: 1;
-    }
+.my-frame-exit {
+    opacity: 1;
+}
 
-    .my-frame-exit-active {
-        opacity: 0.1;
-        transition: opacity 300ms, height ease-in-out 300ms;
-    }
+.my-frame-exit-active {
+    transform: translateY(1rem);
+    opacity: 0.1;
+    transition: all 0.5s;
+}

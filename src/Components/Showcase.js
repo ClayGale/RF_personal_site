@@ -2,13 +2,26 @@ import { useState, useEffect } from 'react';
 import contactBackend from '../Utilities/contactBackend';
 
 const Showcase = (props) => {
-    const [showcase, setShowcase] = useState('test');
+    const [content, setContent] = useState([]);
 
-    console.log(showcase);
+    console.log(props.showcase);
     useEffect(() => {
-        contactBackend();
-    }, []);
+        if (!(props.showcase === '')) {
+            contactBackend('/showcase', setContent, param);
+        };
+    }, [props.showcase]);
 
+    useEffect(() => {
+        if (!(props.showcase === '')) {
+
+        };
+    }, [content]);
+
+    
+
+    if (props.showcase === '') {
+        return ( null );
+    };
     return (
         <div>
             <h1>{project.title}</h1>
@@ -17,7 +30,7 @@ const Showcase = (props) => {
             <img url='{{ project.image }}' alt="preview image" />
 
         </div>
-    )
+    );
 }
 
 export default Showcase;

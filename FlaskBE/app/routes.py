@@ -55,7 +55,7 @@ def nav():
 @cross_origin()
 def showcase():
     input = request.get_json()
-    pId = input.json('pId') #taking requested ID from POST arg
+    pId = input.json('ID') #taking requested ID from get arg
     print(pId, file=sys.stderr)
 
     projects = os.path.join(app.static_folder, 'data', 'projects.json')

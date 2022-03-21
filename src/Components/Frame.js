@@ -22,13 +22,12 @@ const Frame = (props) => {
 
         console.log("render");
         return () => {
-            console.log("exit");
+            setAnimSwitchF(false);
         };
     }, [props.viewF]);
 
     useEffect(() => {
 
-        setAnimSwitchF(false);
         setAnimSwitchF(true);
         console.log("content");
     }, [content, props.splash]);
