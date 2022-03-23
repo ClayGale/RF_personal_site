@@ -8,7 +8,7 @@ const Splash = (props) => {
     }, []);
 
     return (
-        <CSSTransition in={props.splash} timeout={500} classNames="my-splash">
+        <CSSTransition in={props.splash} timeout={300} classNames="my-splash">
             <div id="splash" onClick={() => props.setSplash(false)}>
                 <h1>Clay Gale</h1>
                 <h3>Full Stack Web Developer</h3>

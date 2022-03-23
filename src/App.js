@@ -10,7 +10,6 @@ function App() {
     const [view, setView] = useState(window.location.pathname); //page state
     const [splash, setSplash] = useState(false);
     //the splash state is out here so the splash component can set it and the nav and frame component can watch it for transitions
-    const [showcase, setShowcase] = useState(''); //state indicating the active showcase to be watched by the showcase and set by the frame
     /* 
     The contentChange function is passed into the Nav component.
     The buttons in it send the value of a new page request back here.
@@ -21,15 +20,11 @@ function App() {
         setView(newView);
     };
 
-    function showcaseRequest(id) {
-        console.log(id);
-    };
-
     return (
         <div className="App container m-4">
             <Splash splash={splash} setSplash={setSplash} />
             <Nav active={view} contentChange={contentChange} splash={splash} />
-            <Frame viewF={view} showcaseRequest={showcaseRequest} splash={splash} />
+            <Frame viewF={view} splash={splash} />
         </div>
     );
 

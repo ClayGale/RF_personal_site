@@ -29,6 +29,7 @@
     font-size: 100px;
     top: 0%;
     left: 0%;
+    transition: all 700ms ease;
 }
 
 .my-splash-exit {
@@ -85,7 +86,7 @@
     }
 
     .my-splash-exit-active {
-        position: center;
+        left: 0%;
     }
 
     .my-splash-exit-done {

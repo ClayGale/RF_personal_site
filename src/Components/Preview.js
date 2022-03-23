@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+//import Showcase from './Showcase';
 
 const Preview = (props) => {
+    const [showcase, setShowcase] = useState('');
+
+    function handleShowcaseRequest(event) {
+        console.log(event.target.value);
+    };
+
 
     console.log(props);
     let prevs = []; //container for generated elements
     switch (props.type) {
         case "projects":
             props.data.projects.forEach((project) => {
-                prevs.push(<div key={project.ID} value={project.ID} className='project' onClick={() => props.handleShowcaseRequest}>
+                prevs.push(<div key={project.ID} value={project.ID} className='project' onClick={() => handleShowcaseRequest(project.ID)}>
                     <h1>{project.title}</h1>
                     <a href={project.link}> {project.linkdesc} </a>
                     <p> {project.shortdesc} </p>
@@ -29,10 +36,18 @@ const Preview = (props) => {
             break;
     }
     //console.log(prevs);
-    return (<div id={props.type}>{prevs}</div>);
+    return (
+        <>
+            <div id={props.type}>{prevs}</div>
+        </>
+    );
 }
 
 export default Preview;
+
+/*
+            <Showcase showcase={Showcase}/> 
+            */
 
 /*
 let links = []; //container for retrieved nav list

@@ -11,12 +11,6 @@ const Frame = (props) => {
     const [content, setContent] = useState(''); //state to hold markup
     const [animSwitchF, setAnimSwitchF] = useState(false); //animation switch for CSSTransition
 
-
-    function handleShowcaseRequest(event) {
-        console.log(event.target.value);
-        props.showcaseRequest(event.target.value);
-    };
-
     useEffect(() => {
         contactBackend(props.viewF, setContent);
 
@@ -38,7 +32,7 @@ const Frame = (props) => {
             <CSSTransition key={props.viewF} in={animSwitchF} timeout={500} classNames="my-frame" unmountOnExit>
                 <div className="m-2" id="content">
                     <div dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
-                    <Preview data={content.data} type={content.type} handleShowcaseRequest={handleShowcaseRequest} />
+                    <Preview data={content.data} type={content.type} />
                 </div>
             </CSSTransition>
         </SwitchTransition>
