@@ -1,32 +1,27 @@
 import { useState, useEffect } from 'react';
+import contactBackend from '../Utilities/contactBackend';
 
 const Showcase = (props) => {
-    const [showcase, setShowcase] = useState('test');
+    const [content, setContent] = useState([]);
 
-    console.log(showcase);
+    console.log(props.showcase);
     useEffect(() => {
-        const contactBackend = async () => {
-            //setAnimSwitch(false);
-            try {
-                const response = await fetch('http://localhost:5000/showcase', {
-                    'methods': 'POST',
-                    headers: { 'Content-Type': 'application/json' }
-                })
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-                const data = await response.json();
-                console.log(data);
-                setShowcase(data);
-                //await setAnimSwitch(true);
+        if (!(props.showcase === '')) {
+            contactBackend('/showcase', setContent, param);
+        };
+    }, [props.showcase]);
 
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        contactBackend();
-    }, []);
+    useEffect(() => {
+        if (!(props.showcase === '')) {
 
+        };
+    }, [content]);
+
+    
+
+    if (props.showcase === '') {
+        return ( null );
+    };
     return (
         <div>
             <h1>{project.title}</h1>
@@ -35,7 +30,7 @@ const Showcase = (props) => {
             <img url='{{ project.image }}' alt="preview image" />
 
         </div>
-    )
+    );
 }
 
 export default Showcase;

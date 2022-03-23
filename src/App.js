@@ -1,46 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { CSSTransition } from 'react-transition-group';
+import React, { useState } from 'react';
 import './main.css';
 import './anim.css';
 import Frame from './Components/Frame';
 import Nav from './Components/Nav';
+import Splash from './Components/Splash';
 //import Showcase from './Components/Showcase';
-
 
 function App() {
     const [view, setView] = useState(window.location.pathname); //page state
-    const [animSwitch, setAnimSwitch] = useState(false); //animation switch for CSSTransition
-
+    const [splash, setSplash] = useState(false);
+    //the splash state is out here so the splash component can set it and the nav and frame component can watch it for transitions
     /* 
-    The handleContentChange function is passed into the Nav component.
+    The contentChange function is passed into the Nav component.
     The buttons in it send the value of a new page request back here.
     Setting the view will cause the frame component to Hide, request new content, and rerender.
     */
-    function handleContentChange(newView) {
+    function contentChange(newView) {
         console.log('click out ' + newView);
         setView(newView);
     };
 
-    function handleShowcaseRequest(id) {
-
-    };
-
-    useEffect(() => {
-        console.log('view change ' + view);
-        setAnimSwitch(true);
-    }, []);
-
-
-
-    console.log('logging view ' + view);
-
     return (
-        <CSSTransition in={animSwitch} timeout={700} classNames="my-main">
-            <div className="App container m-4">
-                <Nav active={view} handleContentChange={handleContentChange} />
-                <Frame viewF={view} handleShowcaseRequest={handleShowcaseRequest} />
-            </div>
-        </CSSTransition>
+        <div className="App container m-4">
+            <Splash splash={splash} setSplash={setSplash} />
+            <Nav active={view} contentChange={contentChange} splash={splash} />
+            <Frame viewF={view} splash={splash} />
+        </div>
     );
 
 }

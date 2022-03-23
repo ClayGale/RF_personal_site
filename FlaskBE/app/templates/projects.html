@@ -1,29 +1,3 @@
 
-    <h1>projects</h1>
-<!--
-    <div> 
-        {% for project in data.projects %}
-        <div> <button value='{{ project.ID }}'></button>
-            <h1>{{ project.title }}</h1>
-            <a href='{{ project.link }}'> {{ project.linkdesc }} </a>
-            <p> {{ project.longdesc }} </p>
-            {% if project.image %}
-                <img url='{{ project.image }}' alt="preview image">
-            {% endif %}
-        </div>
-        {% endfor %}
-    </div>
--->
-    <showcase></showcase>
-    <div id="projectList">
-        {% for project in data.projects %}
-        <div class='project'> <button onClick={{'{setShowcase('}}'{{ project.ID }}'{{')}'}}> clicky </button>
-            <h1>{{ project.title }}</h1>
-            <a href='{{ project.link }}'> {{ project.linkdesc }} </a>
-            <p> {{ project.shortdesc }} </p>
-            {% if project.image %}
-                <img url='{{ project.image }}' alt="preview image">
-            {% endif %}
-        </div>
-        {% endfor %}
-    </div>
+<h1>Projects</h1>
+<p>These elements represent projects I intend to showcase. Please click to see more information on each</p>
