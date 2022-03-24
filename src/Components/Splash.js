@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 const Splash = (props) => {

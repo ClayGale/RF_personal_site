@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-//import Showcase from './Showcase';
+import Showcase from './Showcase';
 
 const Preview = (props) => {
     const [showcase, setShowcase] = useState('');
 
-    function handleShowcaseRequest(event) {
-        console.log(event.target.value);
+    function handleShowcaseRequest(ID) {
+        console.log(ID);
+        setShowcase(ID);
     };
 
 
     console.log(props);
     let prevs = []; //container for generated elements
     switch (props.type) {
+
         case "projects":
             props.data.projects.forEach((project) => {
                 prevs.push(<div key={project.ID} value={project.ID} className='project' onClick={() => handleShowcaseRequest(project.ID)}>
@@ -20,15 +22,17 @@ const Preview = (props) => {
                     <p> {project.shortdesc} </p>
                 </div >)});
             break;
+
         case "education":
             props.data.classes.forEach((schoolClass) => {
-                prevs.push(<div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass' onClick={props.handleShowcaseRequest}>
+                prevs.push(<div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass' onClick={() => handleShowcaseRequest(schoolClass.ID)}>
                     <h1>{schoolClass.ID}</h1>
                     <h2>{schoolClass.title}</h2>
                     <p> {schoolClass.classdesc} </p>
                 </div >)
             });
             break;
+
         case "resume":
             prevs[1] = "RESUMEEEEEEEEE";
             break;
@@ -37,9 +41,11 @@ const Preview = (props) => {
     }
     //console.log(prevs);
     return (
-        <>
+        <section>
+            <h4> {props.type} </h4>
+            <Showcase showcase={showcase} />
             <div id={props.type}>{prevs}</div>
-        </>
+        </section>
     );
 }
 

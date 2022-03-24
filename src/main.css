@@ -51,14 +51,7 @@ body {
 #content {
     max-width: 1280px;
     margin: 0 60px 0 60px;
-}
-
-#projects {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 50px;
-    margin: -27px -27px;
-    justify-content: left;
+    position: relative;
 }
 
 
@@ -89,6 +82,14 @@ body {
         -webkit-text-fill-color: transparent;
         transition: all 700ms ease;
     }
+
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    margin: -27px -27px;
+    justify-content: left;
+}
 
 .project {
     /* spacing */
@@ -129,9 +130,12 @@ body {
         transform: translate(-3px, -3px);
     }
 
-.schoolClass {
+#education {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
+
+.schoolClass {
     gap: 5px;
     border-color: grey;
 

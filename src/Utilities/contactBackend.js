@@ -3,20 +3,14 @@ This script separates the logic for contacting the flask backend.
 It takes two arguements
 - address, which is the route to fetch from the backend
 - setReturn, Which sets the supplied state variable with the fetched content
-- param, which is the optional argument for requesting a specific return from the route. Used mainly for showcase
 */
 
-const contactBackend = async (address, setReturn, param) => {
-    let data = {};
-    if (param) {
-        data = { ID: param };
-    };
+const contactBackend = async (address, setReturn) => {
 
     try {
         const response = await fetch('http://localhost:5000' + address, {
             'methods': 'GET',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
         })
         if (!response.ok) {
             throw Error(response.statusText);

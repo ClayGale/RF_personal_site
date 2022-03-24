@@ -1,5 +1,9 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import contactBackend from '../Utilities/contactBackend';
+
+function createMarkup(markup) {
+    return { __html: markup };
+}
 
 const Showcase = (props) => {
     const [content, setContent] = useState([]);
@@ -7,13 +11,13 @@ const Showcase = (props) => {
     console.log(props.showcase);
     useEffect(() => {
         if (!(props.showcase === '')) {
-            contactBackend('/showcase', setContent, param);
+            contactBackend('/showcase/' + props.showcase, setContent);
         };
     }, [props.showcase]);
 
     useEffect(() => {
         if (!(props.showcase === '')) {
-
+            console.log('nothin at all');
         };
     }, [content]);
 
@@ -23,13 +27,7 @@ const Showcase = (props) => {
         return ( null );
     };
     return (
-        <div>
-            <h1>{project.title}</h1>
-            <a href='{ project.link }'> {project.linkdesc}</a>
-            <p> {project.longdesc} </p>
-            <img url='{{ project.image }}' alt="preview image" />
-
-        </div>
+        <div dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
     );
 }
 

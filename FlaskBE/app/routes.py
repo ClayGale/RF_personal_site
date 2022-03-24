@@ -51,21 +51,22 @@ def nav():
     output = {'Home':'/index','Projects':'/projects','Education':'/education','Contact':'/contact'}
     return jsonify(output)
 
-@app.route('/showcase')
+@app.route('/showcase/<sValue>')
 @cross_origin()
-def showcase():
-    input = request.get_json()
-    pId = input.json('ID') #taking requested ID from get arg
-    print(pId, file=sys.stderr)
-
-    projects = os.path.join(app.static_folder, 'data', 'projects.json')
-    with open(projects) as pData: #open json for iteration
-        data = json.load(pData)
-
-    for project in data:
-        if project.ID == pId: #matching ID and setting output to matched project set
-            output = project
-            break
-
-
+def showcase(sValue):
+    #input = request.get_json()
+    #pId = input.json('ID') #taking requested ID from get arg
+    print(sValue, file=sys.stderr)
+    
+    output = {"htmlPack":render_template('showcaseTemplates/' + sValue + '.html', title='showcase')}
     return jsonify(output)
+
+
+    #showcase = os.path.join(app.static_folder, 'data', 'projects.json')
+    #with open(projects) as pData: #open json for iteration
+    #    data = json.load(pData)
+
+    #for project in data:
+    #    if project.ID == pId: #matching ID and setting output to matched project set
+    #        output = project
+    #        break
