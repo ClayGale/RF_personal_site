@@ -11,7 +11,6 @@
     --myGoldenYellow: #fbb947;
     --myVeryGoldenYellow: #ff9b1a;
     --myGrey: #a8b0bd;
-    --myOtherGray: grey;
 }
 
 body {
@@ -51,7 +50,6 @@ body {
 #content {
     max-width: 1280px;
     margin: 0 60px 0 60px;
-    position: relative;
 }
 
 
@@ -60,7 +58,6 @@ body {
     font-family: 'Bebas Neue', cursive;
     color: var(--myDarkerBurgundy);
     z-index: 2;
-    transition: all 700ms ease;
 }
 
     #splash::before {
@@ -80,7 +77,6 @@ body {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        transition: all 700ms ease;
     }
 
 #projects {
@@ -99,7 +95,6 @@ body {
     flex-basis: calc(100% / 3);
     display: inline-block;
     transition: all 0.5s ease-out;
-    position: relative;
     transition: all 700ms ease;
 }
 
@@ -125,7 +120,7 @@ body {
     }
 
     .project:hover::after {
-        opacity: 0.3;
+        opacity: 0.7;
         transition: all 0.5s ease-out;
         transform: translate(-3px, -3px);
     }
@@ -140,6 +135,35 @@ body {
     border-color: grey;
 
     max-width: 30%;
+}
+
+#showcase {
+    position: fixed;
+    border-radius: 2px;
+    inset: 20vh 20vw auto 20vw;
+}
+
+    #showcase::before {
+        content: '';
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        background-color: white;
+        z-index: -1;
+        transition: all 700ms ease;
+    }
+
+#showcaseContent {
+    position: relative;
+    z-index: 1;
+    background-color: var(--myCream);
+    box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
+
+    padding: 1em;
 }
 /*
 .tempShowcase {
@@ -165,9 +189,15 @@ body {
         transition: all 700ms ease;
     } */
 
+.closeButton {
+    position: absolute;
+    inset: 0 0 auto auto;
+    z-index: 2;
+}
+
 button {
     font-family: 'Bebas Neue', cursive;
-    color: white;
+    color: inherit;
     font-size: 32px;
     /* tidying ugly default button style */
     background: none;

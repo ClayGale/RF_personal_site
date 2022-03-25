@@ -41,9 +41,9 @@ const Preview = (props) => {
     }
     //console.log(prevs);
     return (
-        <section>
+        <section >
             <h4> {props.type} </h4>
-            <Showcase showcase={showcase} />
+            <Showcase showcase={showcase} setShowcase={setShowcase} />
             <div id={props.type}>{prevs}</div>
         </section>
     );

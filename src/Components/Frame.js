@@ -31,7 +31,7 @@ const Frame = (props) => {
         <SwitchTransition>
             <CSSTransition key={props.viewF} in={animSwitchF} timeout={500} classNames="my-frame" unmountOnExit>
                 <div className="m-2" id="content">
-                    <div dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
+                    <section dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></section>
                     <Preview data={content.data} type={content.type} />
                 </div>
             </CSSTransition>

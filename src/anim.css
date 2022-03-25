@@ -178,3 +178,28 @@ only uses exit classes as the animations of this component are tied to the same 
     opacity: 0.1;
     transition: all 0.5s;
 }
+
+.my-showcase-enter {
+    transform: translateY(1rem);
+    opacity: 0.1;
+}
+
+.my-showcase-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.my-showcase-exit {
+    opacity: 1;
+}
+
+.my-showcase-exit-active {
+    transform: translateY(1rem);
+    opacity: 0.1;
+    transition: all 0.5s;
+}
+
+.my-frame-exit-done {
+    display: none;
+}
