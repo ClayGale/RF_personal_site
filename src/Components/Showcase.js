@@ -13,8 +13,8 @@ const Showcase = (props) => {
     console.log(props.showcase);
 
     function closeShowcase() {
+        console.log('Away with you showcase')
         setAnimSwitchS(false);
-        props.setShowcase('')
     };
 
     useEffect(() => {
@@ -35,21 +35,20 @@ const Showcase = (props) => {
 
 
 
-    //if (props.showcase === '') {
-    //    return (null);
-    //};
+    if (props.showcase === '') {
+        return (null);
+    };
     return (
-        <SwitchTransition>
-        <CSSTransition key={props.showcase} in={animSwitchS} timeout={500} classNames="my-showcase" unmountOnExit>
+        <CSSTransition key={props.showcase} in={animSwitchS} timeout={500} onExited={() => props.setShowcase('')} classNames="my-showcase" unmountOnExit>
             <div id="showcase">
                 <button className="closeButton" onClick={closeShowcase}>
                     {'\u2715'}
                 </button>
                 <div id="showcaseContent" dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
+                <div class="mask"></div>
             </div>
-            </CSSTransition>
+        </CSSTransition>
 
-            </SwitchTransition>
     );
 }
 
