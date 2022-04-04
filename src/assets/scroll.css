@@ -1,0 +1,22 @@
+/* I isolated the scrollbar properties to avoid confusion in the main file and to ease toggling */
+.scrolling::-webkit-scrollbar {
+    height: 1em;
+}
+
+.scrolling::-webkit-scrollbar-track {
+    background: var(--myCream);
+    border-radius: 100vw;
+}
+
+.scrolling::-webkit-scrollbar-thumb {
+    background: var(--myDarkerBurgundy);
+    border-radius: 100vw;
+}
+
+/* Firefox property below*/
+
+@supports (scrollbar-color: white white) {
+    .scrolling {
+        scrollbar-color: var(--myDarkerBurgundy) var(--myCream);
+    }
+}

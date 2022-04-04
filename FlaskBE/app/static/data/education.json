@@ -1,19 +1,39 @@
 {
   "classes": [
     {
-      "ID": "cosc100",
-      "title": "example class 1",
-      "classdesc": "i did a learning"
-    },
-    {
-      "ID": "cosc101",
-      "title": "example class 2",
-      "classdesc": "i did a learning again!"
+      "ID": "COSC109",
+      "title": "Technical Aspects of Operating Systems",
+      "classdesc": "This course will provide students with an overview of the UNIX and Windows operating systems. Topics include setup, processes, file systems, log files, recovery, popular daemons/services, text manipulation utilities, network utilities, shells, and scripting. Brief overviews of network troubleshooting and batch files are included.",
+      "skills": ["Linux","Terminal use"]
     },
     {
       "ID": "cosc111",
-      "title": "example class 3",
-      "classdesc": "i did a learning and got a degree!!"
+      "title": "Computer Programming I",
+      "classdesc": "This course is an introduction to the design, implementation, and understanding of computer programs. Topics include problem solving, modeling, algorithm design, and abstraction, with the emphasis on the development of working programs. This course should be followed by COSC 121.",
+      "skills": ["Java"]
+    },
+    {
+      "ID": "cosc118",
+      "title": "Computer Networks",
+      "classdesc": "This course introduces the theory of practice of modern telecommunications with an emphasis on the TCP/IP (Transmission Control Protocol/Internet Protocol) stack. Students will learn to install and troubleshoot the electronic components necessary for telephony and data communications."
+    },
+    {
+      "ID": "cosc109",
+      "title": "example class 4",
+      "classdesc": "i did a learning and got a degree!!",
+      "skills": [ "Linux", "Terminal use" ]
+    },
+    {
+      "ID": "cosc11",
+      "title": "example class 5",
+      "classdesc": "i did a learning and got a degree!!",
+      "skills": [ "Linux", "Terminal use" ]
+    },
+    {
+      "ID": "cosc222",
+      "title": "example class 6",
+      "classdesc": "i did a learning and got a degree!!",
+      "skills": [ "Linux", "Terminal use" ]
     }
   ]
 }

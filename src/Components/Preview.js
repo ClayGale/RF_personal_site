@@ -44,7 +44,7 @@ const Preview = (props) => {
         <section >
             <h4> {props.type} </h4>
             <Showcase showcase={showcase} setShowcase={setShowcase} />
-            <div id={props.type}>{prevs}</div>
+            <div id={props.type} className="snapping scrolling">{prevs}</div>
         </section>
     );
 }

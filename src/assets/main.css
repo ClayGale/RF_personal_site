@@ -80,20 +80,22 @@ body {
     }
 
 #projects {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 50px;
-    margin: -27px -27px;
-    justify-content: left;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 30%;
+    gap: 10px;
+    padding: 10px;
+    box-shadow: inset white 5px 5px;
+    /* scrollbar */
+    overflow-x: scroll;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    
 }
 
 .project {
     /* spacing */
-    min-width: 350px;
-    max-width: 350px;
-    margin: 27px 27px;
-    flex-basis: calc(100% / 3);
-    display: inline-block;
+    display: grid;
     transition: all 0.5s ease-out;
     transition: all 700ms ease;
 }
@@ -109,7 +111,7 @@ body {
         background-color: var(--myCream);
         border-radius: 4px 4px 4px 4px;
         box-shadow: 0px 0px 2px 1px var(--myGoldenYellow); 
-        position: absolute;
+        position: fixed;
         transition: all 0.5s ease-out;
         width: 100%;
         height: 100%;
@@ -127,19 +129,23 @@ body {
 
 #education {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: 30%;
+    gap: 10px;
+    padding: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
 }
 
 .schoolClass {
     gap: 5px;
     border-color: grey;
-
-    max-width: 30%;
 }
 
 #showcase {
     position: fixed;
-    border-radius: 2px;
+    border-radius: 3px;
     z-index: 1;
     inset: 25vh 30vw auto 30vw;
 }
@@ -189,6 +195,16 @@ body {
     position: absolute;
     inset: 0 0 auto auto;
     z-index: 2;
+}
+
+.snapping {
+    /* Snapping behavior below */
+    scroll-snap-type: inline mandatory;
+    /*scroll-padding-inline: somethingTODO;*/
+}
+
+.snapping > * {
+    scroll-snap-align: start;
 }
 
 button {

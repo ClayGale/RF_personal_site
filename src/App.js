@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './main.css';
-import './anim.css';
+import './assets/main.css';
+import './assets/anim.css';
+import './assets/scroll.css';
 import Frame from './Components/Frame';
 import Nav from './Components/Nav';
 import Splash from './Components/Splash';
