@@ -13,6 +13,16 @@
     border-radius: 100vw;
 }
 
+.snapping {
+    /* Snapping behavior below */
+    scroll-snap-type: inline mandatory;
+    /*scroll-padding-inline: somethingTODO;*/
+}
+
+    .snapping > * {
+        scroll-snap-align: start;
+    }
+
 /* Firefox property below*/
 
 @supports (scrollbar-color: white white) {

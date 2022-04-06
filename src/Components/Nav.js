@@ -21,7 +21,7 @@ const Nav = (props) => {
 
     let links = []; //container for retrieved nav list
     for (const [key, value] of Object.entries(pages)){ //creating a nav button for each entry
-        links.push(<button className="navlink" value={value} key={key} onClick={handleNav}> {key} </button >);
+        links.push(<button type="button" className="navlink" value={value} key={key} onClick={handleNav}> {key} </button >);
     };
 
     return (

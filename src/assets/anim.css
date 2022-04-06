@@ -41,7 +41,7 @@
 
 
 .my-splash-exit-active {
-    left: 30%;
+    left: 50%;
 }
 
     .my-splash-exit-active::before {
@@ -53,6 +53,7 @@
         font-size: 48px;
         margin: 0 auto 0 auto;
         letter-spacing: 3px;
+        transform: translateX(-2em) !important;
         transition: all 500ms ease;
     }
 
@@ -64,7 +65,7 @@
     }
 
 .my-splash-exit-done {
-    left: 30%;
+    left: 50%;
     transition: all 700ms ease;
 }
 
@@ -72,6 +73,7 @@
         font-size: 48px;
         margin: 0 auto 0 auto;
         letter-spacing: 3px;
+        transform: translateX(-2em) !important;
         transition: all 700ms ease;
     }
     .my-splash-exit-done > h3 {
@@ -102,6 +104,7 @@
     .my-splash-exit-done > h1 {
         font-size: 48px;
         left: 0%;
+        transform: translateY(0.5em) !important;
         transition: all 700ms ease;
     }
 } /* Enabling the two alternate positions of my name at different screen sizes */
@@ -120,15 +123,15 @@
 @media only screen and (max-width: 1100px) {
     .my-splash-enter h1,
     .my-splash-enter-active h1,
-    .my-splash-enter-done h1{
-        font-size: 100% !important;
+    .my-splash-enter-done h1 {
+        font-size: 100px !important;
         transition: all 700ms ease;
     }
     .my-splash-enter h3,
     .my-splash-enter-active h3,
     .my-splash-enter-done h3,
-    .my-splash-exit h3{
-        font-size: 24px !important;
+    .my-splash-exit h3 {
+        font-size: clamp(32px, 24px, 64px) !important;
         transition: all 700ms ease;
     }
 }

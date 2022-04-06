@@ -41,7 +41,7 @@ const Showcase = (props) => {
     return (
         <CSSTransition key={props.showcase} in={animSwitchS} timeout={500} onExited={() => props.setShowcase('')} classNames="my-showcase" unmountOnExit>
             <div id="showcase">
-                <button className="closeButton" onClick={closeShowcase}>
+                <button type="button" className="closeButton" onClick={closeShowcase}>
                     {'\u2715'}
                 </button>
                 <div id="showcaseContent" dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
