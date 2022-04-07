@@ -122,7 +122,7 @@ nav {
         content: '';
         display: block;
         background-color: var(--myCream);
-        border-radius: 4px 4px 4px 4px;
+        border-radius: 4px;
         box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
         position: fixed;
         transition: var(--medTransition);
@@ -142,20 +142,71 @@ nav {
 
 /* education page styling */
 #education {
+    position: relative;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 30%;
+    grid-template-areas:
+        "one"
+        "one"
+        "one";
     gap: 10px;
-    padding: 10px;
+    padding: 20px;
     overflow-x: auto;
     overflow-y: hidden;
     overscroll-behavior-inline: contain;
 }
 
 .schoolClass {
-    gap: 5px;
-    border-color: grey;
+    inset: 30% 40% auto 40%;
+    /*top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;*/
 }
+
+    .schoolClass > * {
+        float: left;
+        font-size: max(auto, initial);
+    }
+
+.schoolClass > p {
+    opacity: 0;
+    display: none;
+}
+
+/* school class hover transition properties */
+
+.schoolContainer {
+    transition: var(--longTransition);
+}
+
+    .schoolContainer:hover {
+        box-shadow: 0px 0px 2px 1px var(--myGrey);
+        border-radius: 4px;
+        transition: var(--longTransition);
+    }
+
+        .schoolContainer:hover > .schoolClass {
+            position: fixed;
+            box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
+            border-radius: 4px;
+            background-color: var(--myCream);
+            inset: 25vh 30vw auto 30vw;
+            transition: var(--longTransition);
+            z-index: 1;
+            inset: 20% 30% auto 30%;
+            /*top: 20%;
+            left: 30%;
+            right: 30%;
+            bottom: auto;*/
+        }
+
+            .schoolContainer:hover > .schoolClass > p {
+                opacity: 1;
+                display: unset;
+            }
+/* showcase properties */
 
 #showcase {
     position: fixed;
@@ -219,13 +270,14 @@ button {
         background-color: var(--myCream);
         display: block;
         position: absolute;
-        padding-top: 500%;
-        padding-left: 250%;
-        margin-top: -80%;
+        padding-top: 300%;
+        padding-left: 150%;
+        margin-top: -18%;
         opacity: 0;
-        transition: var(--longTransition);
+        transition: var(--medTransition);
         transition-property: margin padding;
         transition-timing-function: ease-out;
+        /* the margin and padding on this function effectively work as timing for the ripple effect */
     }
 
     .navlink:active::after {

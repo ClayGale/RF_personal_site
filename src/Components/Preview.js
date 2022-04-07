@@ -16,20 +16,25 @@ const Preview = (props) => {
 
         case "projects":
             props.data.projects.forEach((project) => {
-                prevs.push(<div key={project.ID} value={project.ID} className='project' onClick={() => handleShowcaseRequest(project.ID)}>
-                    <h1>{project.title}</h1>
-                    <a href={project.link}> {project.linkdesc} </a>
-                    <p> {project.shortdesc} </p>
-                </div >)});
+                prevs.push(
+                    <div key={project.ID} value={project.ID} className='project' onClick={() => handleShowcaseRequest(project.ID)}>
+                        <h1>{project.title}</h1>
+                        <a href={project.link}> {project.linkdesc} </a>
+                        <p> {project.shortdesc} </p>
+                    </div >);
+            });
             break;
 
         case "education":
             props.data.classes.forEach((schoolClass) => {
-                prevs.push(<div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass' onClick={() => handleShowcaseRequest(schoolClass.ID)}>
-                    <h1>{schoolClass.ID}</h1>
-                    <h2>{schoolClass.title}</h2>
-                    <p> {schoolClass.classdesc} </p>
-                </div >)
+                prevs.push(
+                    <div className='schoolContainer'>
+                        <div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass' onClick={() => handleShowcaseRequest(schoolClass.ID)}>
+                            <h1>{schoolClass.ID}</h1>
+                            <h2>{schoolClass.title}</h2>
+                            <p> {schoolClass.classdesc} </p>
+                        </div>
+                    </div>);
             });
             break;
 

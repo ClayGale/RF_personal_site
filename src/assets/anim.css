@@ -58,7 +58,7 @@
     }
 
     .my-splash-exit-active > h3 {
-        transform: translate(100%, 200%);
+        transform: translate(100%, 200%) !important;
         opacity: 0;
         margin: 0;
         transition: all 700ms ease;
@@ -99,13 +99,14 @@
     .my-splash-exit-active > h1 {
         font-size: 48px;
         left: 0%;
+        transform: translateY(0.5em) !important;
         transition: all 500ms ease;
     }
     .my-splash-exit-done > h1 {
         font-size: 48px;
         left: 0%;
         transform: translateY(0.5em) !important;
-        transition: all 700ms ease;
+        transition: all 500ms ease;
     }
 } /* Enabling the two alternate positions of my name at different screen sizes */
 
@@ -162,12 +163,12 @@ only uses exit classes as the animations of this component are tied to the same 
 
 /* frame animations */
 .my-frame-enter {
-    transform: translateY(-1rem);
+    transform: translateX(-1rem);
     opacity: 0.1;
 }
 
 .my-frame-enter-active {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
     transition: all 0.5s;
 }
@@ -177,7 +178,7 @@ only uses exit classes as the animations of this component are tied to the same 
 }
 
 .my-frame-exit-active {
-    transform: translateY(1rem);
+    transform: translateX(1rem);
     opacity: 0.1;
     transition: all 0.5s;
 }
