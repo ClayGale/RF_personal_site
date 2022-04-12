@@ -99,7 +99,7 @@ nav {
     grid-auto-flow: column;
     grid-auto-columns: 30%;
     gap: 10px;
-    padding: 10px;
+    padding: 20px;
     box-shadow: inset white 5px 5px;
     
 }
