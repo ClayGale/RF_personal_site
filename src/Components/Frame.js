@@ -14,16 +14,13 @@ const Frame = (props) => {
     useEffect(() => {
         contactBackend(props.viewF, setContent);
 
-        console.log("render");
         return () => {
             setAnimSwitchF(false);
         };
     }, [props.viewF]);
 
     useEffect(() => {
-
         setAnimSwitchF(true);
-        console.log("content");
     }, [content, props.splash]);
 
 

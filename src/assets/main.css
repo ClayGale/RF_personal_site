@@ -82,6 +82,7 @@ nav {
     /* This pseudo element whites out the rest of the elements behind the splash text */
 
     #splash > h1 {
+        margin: 0;
         background: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
         background-clip: text;
         -webkit-background-clip: text;
@@ -100,10 +101,6 @@ nav {
     gap: 10px;
     padding: 10px;
     box-shadow: inset white 5px 5px;
-    /* scrollbar */
-    overflow-x: scroll;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
     
 }
 
@@ -146,23 +143,17 @@ nav {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 30%;
+    /*grid-auto-columns: minmax(max-content, 30%);*/
     grid-template-areas:
         "one"
         "one"
         "one";
     gap: 10px;
     padding: 20px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
 }
 
 .schoolClass {
     inset: 30% 40% auto 40%;
-    /*top: 0%;
-    left: 0%;
-    right: 0%;
-    bottom: 0%;*/
 }
 
     .schoolClass > * {
@@ -170,42 +161,50 @@ nav {
         font-size: max(auto, initial);
     }
 
-.schoolClass > p {
-    opacity: 0;
-    display: none;
-}
+    .schoolClass > p {
+        display: none;
+        text-align: center;
+    }
 
 /* school class hover transition properties */
 
 .schoolContainer {
     transition: var(--longTransition);
+    transition-property: box-shadow background;
+    margin: 0 2px;
+    overflow: hidden;
 }
-
-    .schoolContainer:hover {
+/* The trio of selectors allows for a combination of tapping on mobile */
+    .schoolContainer:hover, 
+    .schoolContainer:focus, 
+    .schoolContainer:active {
+        background: radial-gradient(closest-corner, var(--myCream), white);
         box-shadow: 0px 0px 2px 1px var(--myGrey);
         border-radius: 4px;
-        transition: var(--longTransition);
+        transition: var(--quickTransition);
+        transition-property: box-shadow background;
     }
 
-        .schoolContainer:hover > .schoolClass {
+        .schoolContainer:hover > .schoolClass,
+        .schoolContainer:focus > .schoolClass,
+        .schoolContainer:active > .schoolClass {
             position: fixed;
+            inset: 25vh 30vw auto 30vw;
             box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
             border-radius: 4px;
             background-color: var(--myCream);
-            inset: 25vh 30vw auto 30vw;
-            transition: var(--longTransition);
+            transition: var(--quickTransition);
+            transition-property: background-color inset;
             z-index: 1;
-            inset: 20% 30% auto 30%;
-            /*top: 20%;
-            left: 30%;
-            right: 30%;
-            bottom: auto;*/
         }
 
-            .schoolContainer:hover > .schoolClass > p {
-                opacity: 1;
+            .schoolContainer:hover > .schoolClass > p,
+            .schoolContainer:focus > .schoolClass > p,
+            .schoolContainer:active > .schoolClass > p {
                 display: unset;
             }
+
+
 /* showcase properties */
 
 #showcase {

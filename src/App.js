@@ -18,6 +18,7 @@ function App() {
     */
     function contentChange(newView) {
         console.log('click out ' + newView);
+        window.history.replaceState(newView, "Title", newView); //setting the URL for clarity
         setView(newView);
     };
 

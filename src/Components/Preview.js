@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Showcase from './Showcase';
 
 const Preview = (props) => {
@@ -9,70 +9,64 @@ const Preview = (props) => {
         setShowcase(ID);
     };
 
+    //let prevScroll = 0;
+    //let translateScroll = 0;
+    function horizontalScroll(event) {
+        console.log(event.deltaY + ' ' + event.deltaX);
+        /*event.target.scrollLeft = event.target.scrollLeft + event.deltaY * 2;*/
+        event.target.scroll({
+            left: event.target.scrollLeft + event.deltaY * 5,
+            behavior: 'smooth'
+        });
+    };
 
     console.log(props);
-    let prevs = []; //container for generated elements
-    switch (props.type) {
+    const previewItems = useMemo(() => {
 
-        case "projects":
-            props.data.projects.forEach((project) => {
-                prevs.push(
-                    <div key={project.ID} value={project.ID} className='project' onClick={() => handleShowcaseRequest(project.ID)}>
-                        <h1>{project.title}</h1>
-                        <a href={project.link}> {project.linkdesc} </a>
-                        <p> {project.shortdesc} </p>
-                    </div >);
-            });
-            break;
+        switch (props.type) {
 
-        case "education":
-            props.data.classes.forEach((schoolClass) => {
-                prevs.push(
-                    <div className='schoolContainer'>
-                        <div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass' onClick={() => handleShowcaseRequest(schoolClass.ID)}>
-                            <h1>{schoolClass.ID}</h1>
-                            <h2>{schoolClass.title}</h2>
-                            <p> {schoolClass.classdesc} </p>
-                        </div>
-                    </div>);
-            });
-            break;
+            case "projects":
+                let projectPrevs = []; //container for generated elements
+                console.log('rebuild');
+                props.data.projects.forEach((project) => {
+                    projectPrevs.push(
+                        <div key={project.ID} value={project.ID} className='project' onClick={() => handleShowcaseRequest(project.ID)}>
+                            <h1>{project.title}</h1>
+                            <a href={project.link}> {project.linkdesc} </a>
+                            <p> {project.shortdesc} </p>
+                        </div >);
+                });
+                return projectPrevs;
 
-        case "resume":
-            prevs[1] = "RESUMEEEEEEEEE";
-            break;
-        default:
-            break;
-    }
+            case "education":
+                let classPrevs = []; //container for generated elements
+                console.log('rebuild');
+                props.data.classes.forEach((schoolClass) => {
+                    classPrevs.push(
+                        <div className='schoolContainer'>
+                            <div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass'>
+                                <h1>{schoolClass.ID}</h1>
+                                <h2>{schoolClass.title}</h2>
+                                <p> {schoolClass.classdesc} </p>
+                            </div>
+                        </div>);
+                });
+                return classPrevs;
+
+            case "resume":
+                return "finish this";
+            default:
+                break;
+        }
+    }, [props.type]);
     //console.log(prevs);
     return (
         <section >
             <h4> {props.type} </h4>
             <Showcase showcase={showcase} setShowcase={setShowcase} />
-            <div id={props.type} className="snapping scrolling">{prevs}</div>
+            <div id={props.type} className="snapping scrolling" onWheel={horizontalScroll}>{previewItems}</div>
         </section>
     );
 }
 
 export default Preview;
-
-/*
-            <Showcase showcase={Showcase}/> 
-            */
-
-/*
-let links = []; //container for retrieved nav list
-    for (const [key, value] of Object.entries(pages)){ //creating a nav button for each entry
-        links.push(<button className="navlink" value={value} key={key} onClick={handleNav}> {key} </button >);
-    };
- */
-/*
-<div class='project'> <button onClick={{'setShowcase{('}}'{{ project.ID }}'{{')}'}}> clicky </button>
-            <h1>{{ project.title }}</h1>
-            <a href='{{ project.link }}'> {{ project.linkdesc }} </a>
-            <p> {{ project.shortdesc }} </p>
-            {% if project.image %}
-                <img url='{{ project.image }}' alt="preview image">
-            {% endif %}
-        </div>
-*/

@@ -5,12 +5,18 @@
 
 .scrolling::-webkit-scrollbar-track {
     background: var(--myCream);
-    border-radius: 100vw;
+    border-radius: 2px;
 }
 
 .scrolling::-webkit-scrollbar-thumb {
-    background: var(--myDarkerBurgundy);
-    border-radius: 100vw;
+    background-image: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
+    border-radius: 2px;
+}
+
+.scrolling {
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
 }
 
 .snapping {

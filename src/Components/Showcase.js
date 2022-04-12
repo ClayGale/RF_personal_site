@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import contactBackend from '../Utilities/contactBackend';
 
 function createMarkup(markup) {
