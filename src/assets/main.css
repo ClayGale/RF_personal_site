@@ -39,6 +39,8 @@ nav {
     color: white;
     background-image: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
     margin: auto;
+    opacity: 0;
+    transform: translateY(-3em);
     font-size: 32px;
     transition: var(--longTransition);
 }
@@ -286,10 +288,14 @@ button {
     }
 
 /* general text formatting */
-h1 {
+h1 { /* titles and headers */
     font-family: var(--bebas);
     color: var(--myDarkerBurgundy);
     position: center;
+}
+
+h2 {
+    text-transform: capitalize;
 }
 
 p {

@@ -151,12 +151,8 @@
     /* nav animations 
 only uses exit classes as the animations of this component are tied to the same state as the splash component*/
 
-.my-nav-exit {
-    opacity: 0;
-    transform: translateY(-100px) scaleY(0);
-}
-
-.my-nav-exit-active {
+.my-nav-exit-active,
+.my-nav-exit-done{
     opacity: 1;
     transform: translateY(0);
     transition-property: opacity transform;

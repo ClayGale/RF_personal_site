@@ -11,6 +11,8 @@ const Frame = (props) => {
     const [content, setContent] = useState(''); //state to hold markup
     const [animSwitchF, setAnimSwitchF] = useState(false); //animation switch for CSSTransition
 
+    /* the useEffect hook on the viewF state here sets the content state with fetched html and data
+    on the components unmount the css transition is set to false so it can be cleanly toggled for the new state*/
     useEffect(() => {
         contactBackend(props.viewF, setContent);
 

@@ -3,7 +3,7 @@ import Showcase from './Showcase';
 
 const Preview = (props) => {
     const [showcase, setShowcase] = useState(''); //state for the currently active showcase component
-    const scrollingBox = useRef();
+    const scrollingBox = useRef(); //ref for the scrolling div so the other elements within can reference it onWheel events
     function handleShowcaseRequest(ID) {
         console.log(ID);
         setShowcase(ID);
@@ -29,7 +29,8 @@ const Preview = (props) => {
                 console.log('rebuild');
                 props.data.projects.forEach((project) => {
                     projectPrevs.push(
-                        <div key={project.ID} value={project.ID} className='project' onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(project.ID)}>
+                        <div key={project.ID} value={project.ID} className='project'
+                            onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(project.ID)}>
                             <h1>{project.title}</h1>
                             <a href={project.link}> {project.linkdesc} </a>
                             <p> {project.shortdesc} </p>
