@@ -27,6 +27,11 @@ function App() {
             <Splash splash={splash} setSplash={setSplash} />
             <Nav active={view} contentChange={contentChange} splash={splash} />
             <Frame viewF={view} splash={splash} />
+            <section id={"contactBar"}>
+                <h2> Contact Me! </h2>
+                <p> Email: clay.aj.gale@gmail.com </p>
+                <p> Phone: 250-826-4293 </p>
+            </section>
         </div>
     );
 

@@ -1,243 +1,238 @@
 {
-  "classes": [
-    {
-      "ID": "COSC 109",
-      "title": "Technical Aspects of OS",
+  "classes": {
+
+    "COSC 109": {
+      "shortTitle": "Technical Aspects of OS TODO",
+      "title": "Technical aspects of operating systems",
       "classdesc": "This course is the micro half of the standard university-level introductory course in economic institutions and theory. It deals with supply and demand, the analysis of the firm under different market structures, markets for factors of production, and the distribution of income.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "COSC 111",
+    "COSC 111": {
+      "shortTitle": "Computer Programming I",
       "title": "Computer Programming I",
       "classdesc": "This course is an introduction to the design, implementation, and understanding of computer programs. Topics include problem solving, modeling, algorithm design, and abstraction, with the emphasis on the development of working programs. This course should be followed by COSC 121.",
       "skills": [ "Java" ]
     },
-    {
-      "ID": "COSC 118",
+    "COSC 118": {
+      "shortTitle": "Computer Networks",
       "title": "Computer Networks",
       "classdesc": "This course introduces the theory of practice of modern telecommunications with an emphasis on the TCP/IP (Transmission Control Protocol/Internet Protocol) stack. Students will learn to install and troubleshoot the electronic components necessary for telephony and data communications."
     },
-
-    {
-      "ID": "ECON 115",
+    "ECON 115": {
+      "shortTitle": "micro-economics",
       "title": "principles of micro-economics",
+
       "classdesc": "This course is the micro half of the standard university-level introductory course in economic institutions and theory. It deals with supply and demand, the analysis of the firm under different market structures, markets for factors of production, and the distribution of income.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "ECON 125",
-      "title": "principles of macro-economics",
+    "ECON 125": {
+      "shortTitle": "macro-economics",
+      "title": "principles of macro-economics TODO",
       "classdesc": "This course is an introduction to the design, implementation, and understanding of computer programs. Topics include problem solving, modeling, algorithm design, and abstraction, with the emphasis on the development of working programs. This course should be followed by COSC 121.",
       "skills": [ "Java" ]
     },
-    {
-      "ID": "BUAD 111",
-      "title": "financial accounting 1",
+    "BUAD 111": {
+      "shortTitle": "financial accounting 1 TODO",
+      "title": "accounting 1",
       "classdesc": "This course introduces the theory of practice of modern telecommunications with an emphasis on the TCP/IP (Transmission Control Protocol/Internet Protocol) stack. Students will learn to install and troubleshoot the electronic components necessary for telephony and data communications."
     },
-    {
-      "ID": "CMNS 113",
-      "title": "technical comm for info technology",
-      "classdesc": "This course develops technical writing and speaking skills. Students will apply elements of style, awareness of audience, and clarity of purpose to summaries, memos, letters, employment applications, instructions, and technical manuals. They will learn to plan, draft, and edit efficiently, and will develop the confidence and skills required for speaking in job-related situations. Students with credit for ENGL 112, PCOM 112, CMNS 112 or PCOM 113 cannot complete CMNS 113 for further credit. (3,0,0) ",
+    "CMNS 113": {
+      "shortTitle": "technical comm for IT",
+      "title": "technical communications for information technology",
+      "classdesc": "This course develops technical writing and speaking skills. Students will apply elements of style, awareness of audience, and clarity of purpose to summaries, memos, letters, employment applications, instructions, and technical manuals. They will learn to plan, draft, and edit efficiently, and will develop the confidence and skills required for speaking in job-related situations.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "ECON 261",
-      "title": "econ of developing countries",
+    "ECON 261": {
+      "shortTitle": "econ of developing countries",
+      "title": "economics of developing countries",
       "classdesc": "i did a learning and got a degree!!",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "CMNS 123",
-      "title": "analysis and reporting for info technology",
-      "classdesc": "In this course students further develop their individual writing and speaking skills and apply research techniques and documentation standards to produce case analyses, proposals, progress and technical reports, and oral presentations. Students will also work in groups to develop collaborative writing and project management skills. Students with credit for ENGL 130 or PCOM 123 cannot complete CMNS 123 for further credit.",
+    "CMNS 123": {
+      "shortTitle": "analysis for IT",
+      "title": "analysis and reporting for information technology",
+      "classdesc": "In this course students further develop their individual writing and speaking skills and apply research techniques and documentation standards to produce case analyses, proposals, progress and technical reports, and oral presentations. Students will also work in groups to develop collaborative writing and project management skills.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "COSC 109",
-      "title": "technical aspects of operating systems",
-      "classdesc": "This course will provide students with an overview of the UNIX and Windows operating systems. Topics include setup, processes, file systems, log files, recovery, popular daemons/services, text manipulation utilities, network utilities, shells, and scripting. Brief overviews of network troubleshooting and batch files are included. (3,2,0) ",
-      "skills": [ "Linux", "Terminal use" ]
-    },
-    {
-      "ID": "COSC 121",
+    "COSC 121": {
+      "shortTitle": "computer programming II",
       "title": "computer programming II",
-      "classdesc": "This course is an advanced programming course in the application of software engineering techniques to the design and implementation of programs manipulating complex data structures. (4,2,0) ",
+      "classdesc": "This course is an advanced programming course in the application of software engineering techniques to the design and implementation of programs manipulating complex data structures.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "COSC 126",
+    "COSC 126": {
+      "shortTitle": "systems analysis and design",
       "title": "systems analysis and design",
-      "classdesc": "This course concentrates on the activities associated with developing computer-based information systems. Online systems, including all aspects dealing with the use of databases and data communications, will be emphasized. Practical work will expose students to relational database management systems within a client-server environment and may include Computer Assisted Software Engineering (CASE) tools. (3,2,0) ",
+      "classdesc": "This course concentrates on the activities associated with developing computer-based information systems. Online systems, including all aspects dealing with the use of databases and data communications, will be emphasized. Practical work will expose students to relational database management systems within a client-server environment and may include Computer Assisted Software Engineering (CASE) tools.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "COSC 131",
+    "COSC 131": {
+      "shortTitle": "visual programming",
       "title": "visual programming",
-      "classdesc": "This course is an introduction to visual programming using the Visual Programming Integrated Development Environement (IDE) platform. Students will learn how to develop and deploy Windows-based software programs. Topics include event-driven programming concepts, graphical user interface (GUI) design, Windows programming, database programming and web application development. (3,2,0",
+      "classdesc": "This course is an introduction to visual programming using the Visual Programming Integrated Development Environement (IDE) platform. Students will learn how to develop and deploy Windows-based software programs. Topics include event-driven programming concepts, graphical user interface (GUI) design, Windows programming, database programming and web application development.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "COSC 221",
+    "COSC 221": {
+      "shortTitle": "discrete structures",
       "title": "intro to discrete structures",
-      "classdesc": "This course is an introduction to sets, logic, combinatorics, and graph theory, as applied in computing: sets and propositions, permutations and combinations, graphs and trees, Boolean algebra, algorithms, and applications. This course is also offered as MATH 251. Students with credit for MATH 251 cannot take COSC 221 for further credit. (4,0,0) ",
+      "classdesc": "This course is an introduction to sets, logic, combinatorics, and graph theory, as applied in computing: sets and propositions, permutations and combinations, graphs and trees, Boolean algebra, algorithms, and applications.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "COSC 213",
-      "title": "web development with lamp",
-      "classdesc": "This course focuses on web development using LAMP technology, the Linux operating system, the Apache web server, the MySQL database, and the PHP server-side scripting language. Course topics include LAMP set-up, HTML5, CSS, PHP, MySQL, fine-tuning and administration of the web server. (3,2,0) ",
+    "COSC 213": {
+      "shortTitle": "LAMP",
+      "title": "web development with LAMP",
+      "classdesc": "This course focuses on web development using LAMP technology, the Linux operating system, the Apache web server, the MySQL database, and the PHP server-side scripting language. Course topics include LAMP set-up, HTML5, CSS, PHP, MySQL, fine-tuning and administration of the web server.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "COSC 219",
+    "COSC 219": {
+      "shortTitle": "client-side web systems",
       "title": "client-side web systems",
-      "classdesc": "This course is an introduction to web applications published to the Internet. Topics will include validating end-user input, asynchronous and synchronous programming techniques, and content management systems. A scripting language for web development is the primary focus, with an exploration of one higher order library. (3,2,0) ",
+      "classdesc": "This course is an introduction to web applications published to the Internet. Topics will include validating end-user input, asynchronous and synchronous programming techniques, and content management systems. A scripting language for web development is the primary focus, with an exploration of one higher order library.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "COSC 222",
+    "COSC 222": {
+      "shortTitle": "data structures",
       "title": "computer data structures",
-      "classdesc": "This course is an exploration of abstract data types (ADTs), their implementations, algorithms (including sorting and searching) and algorithm analysis. ADTs explored include vectors, queues, stacks, deques, lists, sequences, iterators, binary trees, search trees, priority queues, dictionaries, sets, graphs. A high-level programming language is used to study implementations during laboratory work. (3,2,0) ",
+      "classdesc": "This course is an exploration of abstract data types (ADTs), their implementations, algorithms (including sorting and searching) and algorithm analysis. ADTs explored include vectors, queues, stacks, deques, lists, sequences, iterators, binary trees, search trees, priority queues, dictionaries, sets, graphs. A high-level programming language is used to study implementations during laboratory work.",
       "skills": [ "Linux", "Terminal use" ]
     },
-    {
-      "ID": "COSC 236",
-      "title": "object oriented systems a and d",
-      "classdesc": "This course is an introduction to object-oriented techniques in systems analysis and design. It introduces a number of tools and techniques used in object-oriented systems analysis and design (OOA&D) and builds on the OOA&D techniques from previous courses. Topics will include development lifecycles (in particular the iterative development model), analysis techniques (requirements and uses cases), design techniques (modeling methods, responsibilities and collaborations), and design patterns. (3,2,0) ",
+    "COSC 236": {
+      "shortTitle": "object oriented systems a and d",
+      "title": "object oriented systems of analysis and design",
+      "classdesc": "This course is an introduction to object-oriented techniques in systems analysis and design. It introduces a number of tools and techniques used in object-oriented systems analysis and design (OOA&D) and builds on the OOA&D techniques from previous courses. Topics will include development lifecycles (in particular the iterative development model), analysis techniques (requirements and uses cases), design techniques (modeling methods, responsibilities and collaborations), and design patterns.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 304",
+    "COSC 304": {
+      "shortTitle": "database management systems",
       "title": "intro to database management systems",
-      "classdesc": "This course is an introduction to the use and operating principles of database management systems. Topics include: semantic modelling, query languages, relational calculus and algebra as applied to database design, implementation and access. Students will receive hands-on experience in accessing information using a query language. (3,2,0) ",
+      "classdesc": "This course is an introduction to the use and operating principles of database management systems. Topics include: semantic modelling, query languages, relational calculus and algebra as applied to database design, implementation and access. Students will receive hands-on experience in accessing information using a query language.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 205",
+    "COSC 205": {
+      "shortTitle": "project management",
       "title": "project management",
-      "classdesc": "This course focuses on the business cycle as it relates to software development including: planning, organizing, directing, monitoring and control. Particular emphasis is given to scheduling practices and solving problems when the project is behind schedule. Students will be enrolled in a computer science capstone project course concurrently and will practice implementing a variety of problem solving strategies. (3,2,0) ",
+      "classdesc": "This course focuses on the business cycle as it relates to software development including: planning, organizing, directing, monitoring and control. Particular emphasis is given to scheduling practices and solving problems when the project is behind schedule. Students will be enrolled in a computer science capstone project course concurrently and will practice implementing a variety of problem solving strategies.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 224",
+    "COSC 224": {
+      "shortTitle": "TODO",
       "title": "projects in computer science",
       "classdesc": "TODO",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 315",
+    "COSC 315": {
+      "shortTitle": "operating systems",
       "title": "intro to operating systems",
-      "classdesc": "This course is an introduction to batch, multiprogramming and time-sharing systems. Process synchronization and communication. Main memory allocation techniques including virtual memory. Process scheduling. Deadlock avoidance and prevention. File organization and device management. (3,2,0) ",
+      "classdesc": "This course is an introduction to batch, multiprogramming and time-sharing systems. Process synchronization and communication. Main memory allocation techniques including virtual memory. Process scheduling. Deadlock avoidance and prevention. File organization and device management.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 331",
-      "title": "microservices and software architecture",
-      "classdesc": "Students will be introduced to web services that interact across multiple servers and the need for optimal performance and security. The evolution of enterprise software from legacy enterprise applications to the use of microservice containers and orchestration tools will be explored. Topics will include: distributed computing, integrating existing enterprise applications with microservices, and using patterns of software architecture for design. (3,2,0) ",
+    "COSC 331": {
+      "shortTitle": "middleware",
+      "title": "Middleware Development",
+      "classdesc": "Students will be introduced to web services that interact across multiple servers and the need for optimal performance and security. The evolution of enterprise software from legacy enterprise applications to the use of microservice containers and orchestration tools will be explored. Topics will include: distributed computing, integrating existing enterprise applications with microservices, and using patterns of software architecture for design.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 341",
+    "COSC 341": {
+      "shortTitle": "user experience",
       "title": "user experience",
-      "classdesc": "As computers become ever more prevalent, the way in which we interact with them becomes more crucial. This course will examine different types of interaction, both from a psychological perspective and a prototyping perspective. Specifically, we will look at the design through the process of sketching user experiences, with a view to getting the right design and getting the design right. (3,2,0) ",
+      "classdesc": "As computers become ever more prevalent, the way in which we interact with them becomes more crucial. This course will examine different types of interaction, both from a psychological perspective and a prototyping perspective. Specifically, we will look at the design through the process of sketching user experiences, with a view to getting the right design and getting the design right.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 404",
+    "COSC 404": {
+      "shortTitle": "database management systems II",
       "title": "advanced database management systems",
-      "classdesc": "This course is a continuation and expansion of the concepts from COSC 304. Review of database environment and database design principles are included. Advanced topics include recovery and concurrency control in distributed database systems, object and object relational databases, data mining, and data warehousing. Students will design and develop database applications using state-of-the art technology. (3,2,0)",
+      "classdesc": "This course is a continuation and expansion of the concepts from COSC 304. Review of database environment and database design principles are included. Advanced topics include recovery and concurrency control in distributed database systems, object and object relational databases, data mining, and data warehousing. Students will design and develop database applications using state-of-the art technology. ",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 419",
+    "COSC 419": {
+      "shortTitle": "TODO",
       "title": "topics in computer science",
       "classdesc": "TODO",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 470",
+    "COSC 470": {
+      "shortTitle": "software engineering",
       "title": "software engineering",
-      "classdesc": "This course explores the design and implementation of large, multi-module-program systems. Topics include the software life cycle, design tools, features and use of module-oriented programming languages, intermodule communication, and eXtreme programming. Students will require significant out-of-class time to complete this course successfully. This course is to be taken in the final year of the BCIS degree. (3,3,0)",
+      "classdesc": "This course explores the design and implementation of large, multi-module-program systems. Topics include the software life cycle, design tools, features and use of module-oriented programming languages, intermodule communication, and eXtreme programming. Students will require significant out-of-class time to complete this course successfully. This course is to be taken in the final year of the BCIS degree.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 211",
+    "COSC 211": {
+      "shortTitle": "machine architecture",
       "title": "machine architecture",
-      "classdesc": "This course is an introduction to the conceptual structure and functional characteristics of a computer. Topics include computer organization, memory addressing schemes, and decoding and executing instructions. Laboratory assignments use the assembly language of selected machines. (3,2,0) ",
+      "classdesc": "This course is an introduction to the conceptual structure and functional characteristics of a computer. Topics include computer organization, memory addressing schemes, and decoding and executing instructions. Laboratory assignments use the assembly language of selected machines.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 232",
+    "COSC 232": {
+      "shortTitle": "system security",
       "title": "information system security",
-      "classdesc": "In this course, students will explore various aspects of computing where security is important. Techniques for enforcing security will be investigated. (3,2,0) ",
+      "classdesc": "In this course, students will explore various aspects of computing where security is important. Techniques for enforcing security will be investigated.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 419",
+    "COSC 419a": {
+      "shortTitle": "TODO",
       "title": "topics in computer science",
       "classdesc": "TODO",
       "skills": [ "" ]
     },
-    {
-      "ID": "PHIL 350",
+    "PHIL 350": {
+      "shortTitle": "business ethics",
       "title": "business ethics",
-      "classdesc": "This course examines moral and ethical principles as they apply to business. The case method will be used extensively. This course is integrated with the other Business Capstone courses by a small-business-across-the-curriculum theme. (3,0,0) ",
+      "classdesc": "This course examines moral and ethical principles as they apply to business. The case method will be used extensively. This course is integrated with the other Business Capstone courses by a small-business-across-the-curriculum theme.",
       "skills": [ "" ]
     },
-    {
-      "ID": "BUAD 123",
+    "BUAD 123": {
+      "shortTitle": "management principles",
       "title": "management principles",
       "classdesc": "A study of the universal functions of management: planning, organizing, leading and controlling. This course emphasizes strategic business planning and decision making; organizing resources and work scheduling; leading and motivating individuals and groups to achieve objectives; and controlling worker output and productivity so that goals are achieved effectively and efficiently. ",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 360",
+    "COSC 360": {
+      "shortTitle": "server platform as a service",
       "title": "server platform as a service",
-      "classdesc": "Students will focus on single-server deployment on a variety of cloud-native platforms(PaaS – Platform as a Service). Students will explore the need to move from their own server to a cloud platform when they have hope to serve thousands of end-users. Topics may include: performant server-side scripting, cost effectiveness and efficiency, load balancing, robustness testing. (3,2,0) ",
+      "classdesc": "Students will focus on single-server deployment on a variety of cloud-native platforms(PaaS – Platform as a Service). Students will explore the need to move from their own server to a cloud platform when they have hope to serve thousands of end-users. Topics may include: performant server-side scripting, cost effectiveness and efficiency, load balancing, robustness testing.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 416",
+    "COSC 416": {
+      "shortTitle": null,
       "title": "topics in database",
       "classdesc": "TODO",
       "skills": [ "" ]
     },
-    {
-      "ID": "ECON 335",
+    "ECON 335": {
+      "shortTitle": "econ - social issues",
       "title": "the economics of social issues",
-      "classdesc": "Designed for students with little or no prior background in economics, this course surveys the applications of economic concepts and methodologies in the analyses of contemporary social issues such as poverty, global warming, crime, discrimination, taxation and free trade. (3,0,0) ",
+      "classdesc": "Designed for students with little or no prior background in economics, this course surveys the applications of economic concepts and methodologies in the analyses of contemporary social issues such as poverty, global warming, crime, discrimination, taxation and free trade.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 417",
+    "COSC 417": {
+      "shortTitle": null,
       "title": "topics in computer networks",
       "classdesc": "TODO",
       "skills": [ "" ]
     },
-    {
-      "ID": "PHIL 331",
+    "PHIL 331": {
+      "shortTitle": "computing ethics",
       "title": "computing ethics",
-      "classdesc": "This course examines ethical and professional issues facing those who work with computers. Issues include piracy, hacking, responsibility and liability for the use of software, cyberpornography and freedom of information, computerised invasion of privacy, computers in the workplace, the use of artificial intelligence and expert systems. (3,0,0) ",
+      "classdesc": "This course examines ethical and professional issues facing those who work with computers. Issues include piracy, hacking, responsibility and liability for the use of software, cyberpornography and freedom of information, computerised invasion of privacy, computers in the workplace, the use of artificial intelligence and expert systems.",
       "skills": [ "" ]
     },
-    {
-      "ID": "CMNS 100",
+    "CMNS 100": {
+      "shortTitle": "communications",
       "title": "intro to communications",
-      "classdesc": "This course provides students with an introduction to communications theory. Surveying historical and contemporary theories, the course will offer a critical examination of the ways people communicate with each other via print and/or new media, orally, interpersonally, and visually. Students will analyse meaning-making in a range of mediated contexts, including advertising, television, film, popular culture, and the Internet. (3,0,0) ",
+      "classdesc": "This course provides students with an introduction to communications theory. Surveying historical and contemporary theories, the course will offer a critical examination of the ways people communicate with each other via print and/or new media, orally, interpersonally, and visually. Students will analyse meaning-making in a range of mediated contexts, including advertising, television, film, popular culture, and the Internet.",
       "skills": [ "" ]
     },
-    {
-      "ID": "COSC 331",
+    "COSC 331b": {
+      "shortTitle": "microservices",
       "title": "microservices and software",
-      "classdesc": "Students will be introduced to web services that interact across multiple servers and the need for optimal performance and security. The evolution of enterprise software from legacy enterprise applications to the use of microservice containers and orchestration tools will be explored. Topics will include: distributed computing, integrating existing enterprise applications with microservices, and using patterns of software architecture for design. (3,2,0) ",
+      "classdesc": "Students will be introduced to web services that interact across multiple servers and the need for optimal performance and security. The evolution of enterprise software from legacy enterprise applications to the use of microservice containers and orchestration tools will be explored. Topics will include: distributed computing, integrating existing enterprise applications with microservices, and using patterns of software architecture for design.",
       "skills": [ "" ]
     },
-    {
-      "ID": "PSYC 111",
-      "title": "intro to psych: basic processes",
-      "classdesc": "This course is a survey of topics in psychology which relate to basic processes. The topics covered will include: the nervous system and physiological processes, sensation and perception, learning, cognition, and memory. Introductory methods and statistics will also be studied. (3,0,0) ",
+    "PSYC 111": {
+      "shortTitle": "psychology 1",
+      "title": "intro to psychology: basic processes",
+      "classdesc": "This course is a survey of topics in psychology which relate to basic processes. The topics covered will include: the nervous system and physiological processes, sensation and perception, learning, cognition, and memory. Introductory methods and statistics will also be studied.",
       "skills": [ "" ]
     }
-  ]
+  }
 }

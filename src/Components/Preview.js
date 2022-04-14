@@ -14,7 +14,7 @@ const Preview = (props) => {
     is pointing within the div*/
     function horizontalScroll(event) {
         scrollingBox.current.scroll({
-            left: event.target.scrollLeft + event.deltaY * 3.5,
+            left: scrollingBox.current.scrollLeft + event.deltaY * 3.5,
             behavior: 'smooth'
         });
     };
@@ -27,6 +27,17 @@ const Preview = (props) => {
             case "projects":
                 let projectPrevs = []; //container for generated elements
                 console.log('rebuild');
+
+                //for (const [key, value] of Object.entries(props.data.projects)) {
+                //    projectPrevs.push(
+                //        <div key={key} className='project'
+                //            onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(key)}>
+                //            <h1>{value.title}</h1>
+                //            <a href={value.link}> {value.linkdesc} </a>
+                //            <p> {value.shortdesc} </p>
+                //        </div >);
+                //}; //maybe use this later
+
                 props.data.projects.forEach((project) => {
                     projectPrevs.push(
                         <div key={project.ID} value={project.ID} className='project'
@@ -41,16 +52,17 @@ const Preview = (props) => {
             case "education":
                 let classPrevs = []; //container for generated elements
                 console.log('rebuild');
-                props.data.classes.forEach((schoolClass) => {
+                for (const [key, value] of Object.entries(props.data.classes)) { //creating a nav button for each entry
                     classPrevs.push(
                         <div className='schoolContainer' onWheel={horizontalScroll}>
-                            <div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass'>
-                                <h1>{schoolClass.ID}</h1>
-                                <h2>{schoolClass.title}</h2>
-                                <p> {schoolClass.classdesc} </p>
+                            <div key={key} className='schoolClass'>
+                                <h1>{key}</h1>
+                                <h2>{value.shortTitle}</h2>
+                                <h2>{value.title}</h2>
+                                <p> {value.classdesc} </p>
                             </div>
                         </div>);
-                });
+                };
                 return classPrevs;
 
             case "resume":
@@ -70,3 +82,17 @@ const Preview = (props) => {
 }
 
 export default Preview;
+
+/*
+ props.data.classes.forEach((schoolClass) => {
+                    classPrevs.push(
+                        <div className='schoolContainer' onWheel={horizontalScroll}>
+                            <div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass'>
+                                <h1>{schoolClass.ID}</h1>
+                                <h2>{schoolClass.shortTitle}</h2>
+                                <h2>{schoolClass.title}</h2>
+                                <p> {schoolClass.classdesc} </p>
+                            </div>
+                        </div>);
+                });
+ */

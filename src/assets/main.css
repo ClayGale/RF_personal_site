@@ -5,13 +5,14 @@
 
 :root {
     /* color vars */
-    --myBurgundy: #690c37;
-    --myDarkerBurgundy: #4a0619;
-    --myDarkestBurgundy: #1a0000;
-    --myCream: #fbfcdf;
-    --myGoldenYellow: #fbb947;
-    --myVeryGoldenYellow: #ff9b1a;
-    --myGrey: #a8b0bd;
+    --myBurgundy: hsl(332, 79%, 23%);
+    --myDarkerBurgundy: hsl(343, 85%, 16%);
+    --myDarkestBurgundy: hsl(0, 100%, 5%);
+    --myCream: hsl(62, 83%, 93%);
+    --myGoldenYellow: hsl(38, 96%, 63%);
+    --myVeryGoldenYellow: hsl(34, 100%, 55%);
+    --myGrey: hsl(217, 14%, 70%);
+    --myOffBlack: hsl(0, 0%, 9%);
     /* font variables */
     --bebas: 'Bebas Neue', cursive;
     --smooch: 'Smooch Sans', sans-serif;
@@ -32,6 +33,7 @@ body {
 */
 nav {
     /* content properties */
+    position: sticky;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -58,12 +60,30 @@ nav {
     }
 }
 
+/* main content styling - mainly typography */
 #content {
     max-width: 1280px;
     margin: 0 60px 0 60px;
 }
+    .pageTitle {
+        margin: 1rem;
+        font-size: 40pt;
+        background: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
+    #content p {
+        line-height: 165%;
+        color: var(--myOffBlack);
+        font-family: var(--smooch);
+        font-size: 11pt;
+        letter-spacing: 1px;
+        width: max(70%, 500px);
+    }
 
+    /* splash text main styling - most of the effect happins in the anim.css sheet */
 #splash {
     position: absolute;
     font-family: var(--bebas);
@@ -145,7 +165,6 @@ nav {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 30%;
-    /*grid-auto-columns: minmax(max-content, 30%);*/
     grid-template-areas:
         "one"
         "one"
@@ -157,26 +176,32 @@ nav {
 .schoolClass {
     inset: 30% 40% auto 40%;
 }
-
     .schoolClass > * {
-        float: left;
-        font-size: max(auto, initial);
+        margin: 0.5em;
+    }
+
+    .schoolClass > h1,
+    .schoolClass > h2 {
+        white-space:nowrap;
+        width: min(auto, 50%);
+        display: inline;
     }
 
     .schoolClass > p {
         display: none;
         text-align: center;
+        float: left;
     }
 
 /* school class hover transition properties */
 
-.schoolContainer {
+.schoolContainer { /* this container allows the .schoolClass to pop out of the element without breaking the grid */
     transition: var(--longTransition);
     transition-property: box-shadow background;
     margin: 0 2px;
     overflow: hidden;
 }
-/* The trio of selectors allows for a combination of tapping on mobile */
+/* The trio of selectors allows for a combination of tapping on mobile and mouseover */
     .schoolContainer:hover, 
     .schoolContainer:focus, 
     .schoolContainer:active {
@@ -191,7 +216,7 @@ nav {
         .schoolContainer:focus > .schoolClass,
         .schoolContainer:active > .schoolClass {
             position: fixed;
-            inset: 25vh 30vw auto 30vw;
+            inset: 160px 30vw auto 30vw;
             box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
             border-radius: 4px;
             background-color: var(--myCream);
@@ -213,7 +238,7 @@ nav {
     position: fixed;
     border-radius: 3px;
     z-index: 1;
-    inset: 25vh 30vw auto 30vw;
+    inset: 160px 30vw auto 30vw;
 }
 
 .mask {
@@ -234,6 +259,21 @@ nav {
 
     padding: 1em;
 }
+
+/* styling for bottom screen contact bar */
+#contactBar {
+    position: fixed;
+    inset: auto 35vw 0 35vw;
+    max-width: 800px;
+    padding: 1rem;
+    font-family: var(--smooch);
+    background: linear-gradient(to bottom, var(--myDarkerBurgundy), var(--myDarkestBurgundy));
+    color: white;
+}
+
+    #contactBar * {
+        margin: 0.4em 0;
+    }
 
 /*button styling and animaton*/
 .closeButton {
@@ -296,12 +336,10 @@ h1 { /* titles and headers */
 
 h2 {
     text-transform: capitalize;
+    font-family: var(--bebas);
 }
 
 p {
-    font-family: var(--smooch);
-    font-size: 14px;
-    letter-spacing: 1px;
 }
 /*
     font-family: 'Bebas Neue', cursive;

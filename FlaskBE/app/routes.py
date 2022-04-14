@@ -6,6 +6,10 @@ app = Flask(__name__)
 app.config.from_pyfile('config.py')
 CORS(app)
 
+pages ={1:{'name':'Home','route':'/index'},
+        2:{'name':'Projects','route':'/projects'},
+        3:{'name':'Education','route':'/education'},
+        4:{'name':'About','route':'/about'}}
 
 @app.route('/')
 @app.route('/index') # home screen 
@@ -38,18 +42,17 @@ def education():
     output = {"htmlPack":render_template('education.html'), "data":data, "type":"education"}
     return jsonify(output)
 
-@app.route('/contact') # route for contact info
+@app.route('/about') # route for general info
 @cross_origin()
-def contact():
+def about():
 
-    output = {"htmlPack":render_template('contact.html', title='contact')}
+    output = {"htmlPack":render_template('about.html', title='about')}
     return jsonify(output)
 
 @app.route('/nav') # route for the top nav bar
 @cross_origin()
 def nav():
-    output = {'Home':'/index','Projects':'/projects','Education':'/education','Contact':'/contact'}
-    return jsonify(output)
+    return jsonify(pages)
 
 @app.route('/showcase/<sValue>')
 @cross_origin()
