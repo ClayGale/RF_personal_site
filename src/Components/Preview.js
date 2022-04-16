@@ -1,9 +1,11 @@
 import React, { useState, useMemo, useRef } from 'react';
+import '../assets/preview.css';
 import Showcase from './Showcase';
 
 const Preview = (props) => {
     const [showcase, setShowcase] = useState(''); //state for the currently active showcase component
     const scrollingBox = useRef(); //ref for the scrolling div so the other elements within can reference it onWheel events
+
     function handleShowcaseRequest(ID) {
         console.log(ID);
         setShowcase(ID);
@@ -45,7 +47,8 @@ const Preview = (props) => {
                             <h1>{project.title}</h1>
                             <a href={project.link}> {project.linkdesc} </a>
                             <p> {project.shortdesc} </p>
-                        </div >);
+                        </div >
+                    );
                 });
                 return projectPrevs;
 
@@ -57,11 +60,12 @@ const Preview = (props) => {
                         <div className='schoolContainer' onWheel={horizontalScroll}>
                             <div key={key} className='schoolClass'>
                                 <h1>{key}</h1>
-                                <h2>{value.shortTitle}</h2>
-                                <h2>{value.title}</h2>
+                                <h2 className={'subtitleAbbreviated'}>{value.shortTitle}</h2>
+                                <h2 className={'subtitleFull'}>{value.title}</h2>
                                 <p> {value.classdesc} </p>
                             </div>
-                        </div>);
+                        </div>
+                    );
                 };
                 return classPrevs;
 

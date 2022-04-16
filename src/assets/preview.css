@@ -1,0 +1,171 @@
+/* properties related only to the preview component are here */
+
+/* project page styling */
+#projects {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 30%;
+    gap: 10px;
+    padding: 10px 10px 0 10px;
+    box-shadow: inset white 5px 5px;
+}
+
+.project {
+    display: grid;
+    transition: var(--quickTransition);
+    background: linear-gradient( white, white 50%, var(--myCream) 50%, var(--myCream) );
+    background-size: 100% 200%;
+}
+
+    .project * {
+        transition: var(--quickTransition);
+        margin: 0.5rem;
+    }
+
+    .project p {
+        font-family: var(--bodyFont);
+        font-size: 14pt;
+    }
+
+    .project:hover {
+        box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
+        background-position: 100% 100%;
+        transition: var(--quickTransition);
+    }
+
+        .project:hover * {
+            transform: translateY(-3px);
+            transition: var(--quickTransition);
+        }
+
+/* education page styling */
+#education {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 30%;
+    grid-template-areas:
+        "one"
+        "one"
+        "one"
+        "one";
+    gap: 10px;
+    padding: 20px;
+}
+
+.schoolClass { /* inset is here for transitions and is not active until hovered */
+    inset: 30% 40% auto 40%;
+}
+
+    .schoolClass > * {
+        margin: 0.5em;
+    }
+
+    .schoolClass > h1 {
+        display: inline;
+    }
+
+    .schoolClass > p {
+        display: none;
+        text-align: center;
+        font-family: var(--bodyFont);
+        font-size: 14pt;
+        float: left;
+    }
+
+.subtitleAbbreviated {
+    display: inline;
+}
+
+.subtitleFull {
+    display: none;
+}
+/* school class hover transition properties */
+
+.schoolContainer { /* this container allows the .schoolClass to pop out of the element without breaking the grid */
+    transition: var(--longTransition);
+    transition-property: box-shadow background;
+    margin: 0 2px;
+    overflow: hidden;
+}
+    /* The trio of selectors allows for a combination of tapping on mobile and mouseover */
+    .schoolContainer:hover,
+    .schoolContainer:focus,
+    .schoolContainer:active {
+        background: radial-gradient(closest-corner, var(--myCream), white);
+        box-shadow: 0px 0px 2px 1px var(--myGrey);
+        border-radius: 4px;
+        transition: var(--quickTransition);
+        transition-property: box-shadow background;
+    }
+
+        .schoolContainer:hover > .schoolClass,
+        .schoolContainer:focus > .schoolClass,
+        .schoolContainer:active > .schoolClass {
+            position: fixed;
+            inset: 160px 30vw auto 30vw;
+            box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
+            border-radius: 4px;
+            background-color: var(--myCream);
+            transition: var(--medTransition);
+            transition-property: background-color inset;
+            z-index: 1;
+        }
+
+            .schoolContainer:hover > .schoolClass > p,
+            .schoolContainer:focus > .schoolClass > p,
+            .schoolContainer:active > .schoolClass > p {
+                display: unset;
+            }
+            /* hidden until the element is triggered */
+
+            .schoolContainer:hover > .schoolClass > .subtitleAbbreviated,
+            .schoolContainer:focus > .schoolClass > .subtitleAbbreviated,
+            .schoolContainer:active > .schoolClass > .subtitleAbbreviated {
+                display: none;
+            }
+            /* hidden when the element is triggered */
+
+            .schoolContainer:hover > .schoolClass > .subtitleFull,
+            .schoolContainer:focus > .schoolClass > .subtitleFull,
+            .schoolContainer:active > .schoolClass > .subtitleFull {
+                display: inline;
+            }/* hidden until the element is triggered */
+
+/* showcase properties */
+
+#showcase {
+    position: fixed;
+    border-radius: 3px;
+    z-index: 1;
+    inset: 160px 30vw auto 30vw;
+}
+
+.mask {
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: white;
+    z-index: -1;
+    opacity: 0.5;
+    transition: var(--medTransition);
+    transition-property: opacity;
+}
+
+#showcaseContent {
+    position: relative;
+    z-index: 1;
+    background-color: var(--myCream);
+    box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
+    padding: 1em;
+}
+    #showcaseContent p {
+        font-family: var(--bodyFont);
+        font-size: 14pt;
+    }
+
+
+.closeButton {
+    position: absolute;
+    inset: 0 0 auto auto;
+    z-index: 2;
+}

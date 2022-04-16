@@ -22,7 +22,7 @@
 .snapping {
     /* Snapping behavior below */
     scroll-snap-type: inline mandatory;
-    /*scroll-padding-inline: somethingTODO;*/
+    scroll-padding-inline: 3px;
 }
 
     .snapping > * {

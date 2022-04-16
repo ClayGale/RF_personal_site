@@ -1,7 +1,7 @@
 /*
 
 */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Bebas+Neue&family=Belleza&family=Brawler&family=Caudex&family=Corben&family=Gotu&family=Harmattan&family=Hind:wght@300&family=Josefin+Sans:wght@300&family=Lato&family=Pavanam&family=Quicksand&family=Zen+Kaku+Gothic+New&display=swap');
 
 :root {
     /* color vars */
@@ -12,23 +12,50 @@
     --myGoldenYellow: hsl(38, 96%, 63%);
     --myVeryGoldenYellow: hsl(34, 100%, 55%);
     --myGrey: hsl(217, 14%, 70%);
-    --myOffBlack: hsl(0, 0%, 9%);
+    --myOffBlack: hsl(0, 0%, 25%);
     /* font variables */
-    --bebas: 'Bebas Neue', cursive;
-    --smooch: 'Smooch Sans', sans-serif;
+    --titleFont: 'Bebas Neue', cursive;
+    --subtitleFont: 'Quicksand', sans-serif;
+    --bodyFont: 'Harmattan', sans-serif;
     /* transition timing variables */
-    --quickTransition: all 0.3s ease;
-    --medTransition: all 0.5s ease;
-    --longTransition: all 0.7s ease;
+    --quickTransition: all 0.2s ease;
+    --medTransition: all 0.4s ease;
+    --longTransition: all 0.6s ease;
 }
+/*     font-family: 'Antic Didone', serif; too thin
 
+    font-family: 'Bebas Neue', cursive;
+
+    font-family: 'Belleza', sans-serif; maybe?
+
+    font-family: 'Brawler', serif; I like it
+
+    font-family: 'Caudex', serif; very similar to the last one
+
+    font-family: 'Corben', cursive; has lots of serifs, probably not a good choice here
+
+    font-family: 'Gotu', sans-serif; needs a higher weight
+
+    font-family: 'Harmattan', sans-serif; Might be my favorite!
+
+    font-family: 'Hind', sans-serif; unsure. I feel like its not suited to this site
+
+    font-family: 'Josefin Sans', sans-serif; needs more weight
+
+    font-family: 'Lato', sans-serif; basic
+
+    font-family: 'Pavanam', sans-serif; feels kind of generic
+
+    font-family: 'Quicksand', sans-serif; eh?
+
+    font-family: 'Zen Kaku Gothic New', sans-serif; feels pretty good, kinda generic */
 body {
     max-width: 1380px;
     margin: auto;
+    padding: 0 1em;
     background-color: white;
 }
 /*
-    #a8b0bd
     styling for top navigation bar
 */
 nav {
@@ -65,28 +92,36 @@ nav {
     max-width: 1280px;
     margin: 0 60px 0 60px;
 }
-    .pageTitle {
-        margin: 1rem;
-        font-size: 40pt;
-        background: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+
+    #content h1 {
+        line-height: 85%;
+        position: center;
     }
 
     #content p {
         line-height: 165%;
         color: var(--myOffBlack);
-        font-family: var(--smooch);
-        font-size: 11pt;
-        letter-spacing: 1px;
+        font-family: var(--bodyFont);
+        font-size: 16pt;
+        /*letter-spacing: 1px;*/
+    }
+@media only screen and (min-width: 600px) {
+    #content p {
         width: max(70%, 500px);
     }
-
-    /* splash text main styling - most of the effect happins in the anim.css sheet */
+}
+.pageTitle {
+    margin: 1rem;
+    font-size: 40pt;
+    background: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* splash text main styling - most of the effect happens in the anim.css sheet */
 #splash {
     position: absolute;
-    font-family: var(--bebas);
+    font-family: var(--titleFont);
     color: var(--myDarkerBurgundy);
     z-index: 2;
 }
@@ -115,175 +150,42 @@ nav {
         transform: translateX(1rem);
     }
 
-/* project page styling */
-#projects {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 30%;
-    gap: 10px;
-    padding: 20px;
-    box-shadow: inset white 5px 5px;
-    
-}
-
-.project {
-    /* spacing */
-    display: grid;
-    transition: var(--medTransition);
-}
-
-    .project:hover {
-        transform: translate(3px, 3px);
-        transition: var(--medTransition);
-    }
-
-    .project::after {
-        content: '';
-        display: block;
-        background-color: var(--myCream);
-        border-radius: 4px;
-        box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
-        position: fixed;
-        transition: var(--medTransition);
-        width: 100%;
-        height: 100%;
-        right: 10px;
-        top: 10px;
-        z-index: -1;
-        opacity: 0;
-    }
-
-    .project:hover::after {
-        opacity: 0.7;
-        transition: var(--medTransition);
-        transform: translate(-3px, -3px);
-    }
-
-/* education page styling */
-#education {
-    position: relative;
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 30%;
-    grid-template-areas:
-        "one"
-        "one"
-        "one";
-    gap: 10px;
-    padding: 20px;
-}
-
-.schoolClass {
-    inset: 30% 40% auto 40%;
-}
-    .schoolClass > * {
-        margin: 0.5em;
-    }
-
-    .schoolClass > h1,
-    .schoolClass > h2 {
-        white-space:nowrap;
-        width: min(auto, 50%);
-        display: inline;
-    }
-
-    .schoolClass > p {
-        display: none;
-        text-align: center;
-        float: left;
-    }
-
-/* school class hover transition properties */
-
-.schoolContainer { /* this container allows the .schoolClass to pop out of the element without breaking the grid */
-    transition: var(--longTransition);
-    transition-property: box-shadow background;
-    margin: 0 2px;
-    overflow: hidden;
-}
-/* The trio of selectors allows for a combination of tapping on mobile and mouseover */
-    .schoolContainer:hover, 
-    .schoolContainer:focus, 
-    .schoolContainer:active {
-        background: radial-gradient(closest-corner, var(--myCream), white);
-        box-shadow: 0px 0px 2px 1px var(--myGrey);
-        border-radius: 4px;
-        transition: var(--quickTransition);
-        transition-property: box-shadow background;
-    }
-
-        .schoolContainer:hover > .schoolClass,
-        .schoolContainer:focus > .schoolClass,
-        .schoolContainer:active > .schoolClass {
-            position: fixed;
-            inset: 160px 30vw auto 30vw;
-            box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
-            border-radius: 4px;
-            background-color: var(--myCream);
-            transition: var(--quickTransition);
-            transition-property: background-color inset;
-            z-index: 1;
-        }
-
-            .schoolContainer:hover > .schoolClass > p,
-            .schoolContainer:focus > .schoolClass > p,
-            .schoolContainer:active > .schoolClass > p {
-                display: unset;
-            }
-
-
-/* showcase properties */
-
-#showcase {
-    position: fixed;
-    border-radius: 3px;
-    z-index: 1;
-    inset: 160px 30vw auto 30vw;
-}
-
-.mask {
-    position: fixed;
-    inset: 0 0 0 0;
-    background-color: white;
-    z-index: -1;
-    opacity: 0.5;
-    transition: var(--medTransition);
-    transition-property: opacity;
-}
-
-#showcaseContent {
-    position: relative;
-    z-index: 1;
-    background-color: var(--myCream);
-    box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
-
-    padding: 1em;
-}
-
 /* styling for bottom screen contact bar */
 #contactBar {
-    position: fixed;
-    inset: auto 35vw 0 35vw;
-    max-width: 800px;
+    position: sticky;
+    inset: auto auto 0 auto;
     padding: 1rem;
-    font-family: var(--smooch);
+    font-family: var(--bodyFont);
     background: linear-gradient(to bottom, var(--myDarkerBurgundy), var(--myDarkestBurgundy));
     color: white;
 }
 
     #contactBar * {
-        margin: 0.4em 0;
+        display: inline-block;
+        margin: 0.4em;
     }
 
-/*button styling and animaton*/
-.closeButton {
-    position: absolute;
-    inset: 0 0 auto auto;
-    z-index: 2;
+
+    #contactBar * {
+        font-size: 14pt;
+    }
+
+@media only screen and (min-width: 600px) {
+    #contactBar {
+        position: fixed;
+        inset: auto 0 0 0;
+    }
 }
 
+@media only screen and (min-width: 800px) {
+    #contactBar {
+        inset: auto 20vw 0 20vw;
+    }
+}
+/*button styling and animaton*/
+
 button {
-    font-family: var(--bebas);
+    font-family: var(--titleFont);
     color: inherit;
     font-size: inherit;
     /* tidying ugly default button style */
@@ -291,6 +193,7 @@ button {
     padding: 0;
 }
 
+/* properties for the navigation buttons */
 .navlink {
     position: relative;
     background-color: hsl(0, 0%, 100%, 0);
@@ -300,11 +203,11 @@ button {
     overflow: hidden;
 }
 
-.navlink:hover {
-    background-color: hsl(0, 0%, 100%, 0.3);
-    transition: var(--quickTransition);
-    transition-property: background-color;
-}
+    .navlink:hover {
+        background-color: hsl(0, 0%, 100%, 0.3);
+        transition: var(--quickTransition);
+        transition-property: background-color;
+    }
 
     .navlink::after {
         content: "";
@@ -329,30 +232,19 @@ button {
 
 /* general text formatting */
 h1 { /* titles and headers */
-    font-family: var(--bebas);
+    font-family: var(--titleFont);
     color: var(--myDarkerBurgundy);
-    position: center;
 }
 
-h2 {
+h2 { /* Sub headers mainly used in the education tab */
     text-transform: capitalize;
-    font-family: var(--bebas);
+    font-family: var(--subtitleFont);
+    font-size: 14pt;
 }
+
+    h2::first-letter {
+        text-transform: capitalize;
+    }
 
 p {
 }
-/*
-    font-family: 'Bebas Neue', cursive;
-
-    font-family: 'Dosis', sans-serif;
-
-    font-family: 'Encode Sans', sans-serif;
-
-    font-family: 'News Cycle', sans-serif;
-
-    font-family: 'Raleway', sans-serif;
-
-    font-family: 'Red Hat Display', sans-serif;
-
-    font-family: 'Roboto Condensed', sans-serif;
-*/

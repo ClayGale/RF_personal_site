@@ -132,7 +132,7 @@
     .my-splash-enter-active h3,
     .my-splash-enter-done h3,
     .my-splash-exit h3 {
-        font-size: clamp(32px, 24px, 64px) !important;
+        font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem) !important;
         transition: all 700ms ease;
     }
 }
