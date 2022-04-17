@@ -30,32 +30,21 @@ const Preview = (props) => {
                 let projectPrevs = []; //container for generated elements
                 console.log('rebuild');
 
-                //for (const [key, value] of Object.entries(props.data.projects)) {
-                //    projectPrevs.push(
-                //        <div key={key} className='project'
-                //            onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(key)}>
-                //            <h1>{value.title}</h1>
-                //            <a href={value.link}> {value.linkdesc} </a>
-                //            <p> {value.shortdesc} </p>
-                //        </div >);
-                //}; //maybe use this later
+                for (const [key, value] of Object.entries(props.data)) {
+                   projectPrevs.push(
+                        <div key={key} className='project'
+                            onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(key)}>
+                            <h1>{value.title}</h1>
+                            <p> {value.desc} </p>
+                        </div >);
+                };
 
-                props.data.projects.forEach((project) => {
-                    projectPrevs.push(
-                        <div key={project.ID} value={project.ID} className='project'
-                            onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(project.ID)}>
-                            <h1>{project.title}</h1>
-                            <a href={project.link}> {project.linkdesc} </a>
-                            <p> {project.shortdesc} </p>
-                        </div >
-                    );
-                });
                 return projectPrevs;
 
             case "education":
                 let classPrevs = []; //container for generated elements
                 console.log('rebuild');
-                for (const [key, value] of Object.entries(props.data.classes)) { //creating a nav button for each entry
+                for (const [key, value] of Object.entries(props.data)) { //creating a nav button for each entry
                     classPrevs.push(
                         <div className='schoolContainer' onWheel={horizontalScroll}>
                             <div key={key} className='schoolClass'>

@@ -1,6 +1,7 @@
 import sys, os, json
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS, cross_origin
+from . import searchPrep
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
@@ -10,6 +11,11 @@ pages ={1:{'name':'Home','route':'/index'},
         2:{'name':'Projects','route':'/projects'},
         3:{'name':'Education','route':'/education'},
         4:{'name':'About','route':'/about'}}
+
+file = os.path.join(app.static_folder, 'data', 'projects.json')
+projectIndex = searchPrep.searchIndex(file)
+file = os.path.join(app.static_folder, 'data', 'education.json')
+classesIndex = searchPrep.searchIndex(file)
 
 @app.route('/')
 @app.route('/index') # home screen 
@@ -54,11 +60,9 @@ def about():
 def nav():
     return jsonify(pages)
 
-@app.route('/showcase/<sValue>')
+@app.route('/showcase/<sValue>') # retrieves the template matching sValue
 @cross_origin()
-def showcase(sValue):
-    #input = request.get_json()
-    #pId = input.json('ID') #taking requested ID from get arg
+def showcase(sValue): 
     print(sValue, file=sys.stderr)
     
     output = {"htmlPack":render_template('showcaseTemplates/' + sValue + '.html', title='showcase')}

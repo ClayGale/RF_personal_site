@@ -1,50 +1,27 @@
-
 {
-  "projects": [
-    {
-      "ID": "test",
-      "title": "template project",
-      "shortdesc": "what this is",
-      "image": "previewimage.jpg",
-      "link": "WEB-ADDRESS",
-      "linkdesc": "test link",
-      "longdesc": "what this REALLY is blah blah blah"
-    },
-    {
-      "ID": "testy",
-      "title": "template project BOOO",
-      "shortdesc": "what this is",
-      "image": "previewimage.jpg",
-      "link": "WEB-ADDRESS",
-      "linkdesc": "test link",
-      "longdesc": "what this REALLY is blah blah blah"
-    },
-    {
-      "ID": "tests",
-      "title": "template project UGH",
-      "shortdesc": "what this is",
-      "image": "previewimage.jpg",
-      "link": "WEB-ADDRESS",
-      "linkdesc": "test link",
-      "longdesc": "what this REALLY is blah blah blah"
-    },
-    {
-      "ID": "testooo",
-      "title": "template project yeehaw",
-      "shortdesc": "what this is",
-      "image": "previewimage.jpg",
-      "link": "WEB-ADDRESS",
-      "linkdesc": "test link",
-      "longdesc": "what this REALLY is blah blah blah"
-    },
-    {
-      "ID": "testooooo",
-      "title": "template project things",
-      "shortdesc": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-      "image": "previewimage.jpg",
-      "link": "WEB-ADDRESS",
-      "linkdesc": "test link",
-      "longdesc": "what this REALLY is blah blah blah"
-    }
-  ]
+  "test": {
+    "title": "template project",
+    "desc": "what this is",
+    "skills": [ "" ]
+  },
+  "testy": {
+    "title": "template project BOOO",
+    "desc": "what this is",
+    "skills": [ "" ]
+  },
+  "tests": {
+    "title": "template project UGH",
+    "desc": "what this REALLY is blah blah blah",
+    "skills": [ "" ]
+  },
+  "testooo": {
+    "title": "template project yeehaw",
+    "desc": "what this REALLY is blah blah blah",
+    "skills": [ "" ]
+  },
+  "testla": {
+    "title": "template project things",
+    "desc": "test description go BRRRR",
+    "skills": [ "" ]
+  }
 }

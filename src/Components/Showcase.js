@@ -45,7 +45,7 @@ const Showcase = (props) => {
                     {'\u2715'}
                 </button>
                 <div id="showcaseContent" dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
-                <div class="mask"></div>
+                <div class="mask" onClick={closeShowcase}></div>
             </div>
         </CSSTransition>
 
