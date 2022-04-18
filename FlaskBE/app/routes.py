@@ -14,8 +14,10 @@ pages ={1:{'name':'Home','route':'/index'},
 
 file = os.path.join(app.static_folder, 'data', 'projects.json')
 projectIndex = searchPrep.searchIndex(file)
+print(projectIndex)
 file = os.path.join(app.static_folder, 'data', 'education.json')
 classesIndex = searchPrep.searchIndex(file)
+print(classesIndex)
 
 @app.route('/')
 @app.route('/index') # home screen 

@@ -63,6 +63,7 @@
 
     .schoolClass > h1 {
         display: inline;
+        white-space: nowrap;
     }
 
     .schoolClass > p {
@@ -75,6 +76,7 @@
 
 .subtitleAbbreviated {
     display: inline;
+    white-space: nowrap;
 }
 
 .subtitleFull {

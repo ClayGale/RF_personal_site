@@ -3,9 +3,11 @@ import sys, os, json
 #it will iterate through these values to get a list of relevant words for each entry
 def searchIndex(file): 
     results = {}
+    badChars = ['.',',','(',')','-',':'] # characters to be filtered from the processed data
+
     with open(file) as Data:
         dataSet = json.load(Data)
-
+        
         for entry in dataSet:
             results[entry] = []
 
@@ -14,14 +16,21 @@ def searchIndex(file):
             if dataSet[entry].get('skills', 0):
                 skills = dataSet[entry].pop('skills')
                 for skill in skills:
-                    results[entry].append(skill)
+                    results[entry].append(skill.lower())
             
-            for value in dataSet[entry]:
-                print(value)
-                    #for value in entry[1].items():
-                #print(value)
-                #print("\n")
-        print(results)
+            entryValues = set() # this set is for containing all the unique words from each of the entrys items
+            for value in dataSet[entry].items():
+                valueCopy = value[1].lower()
+                for badChar in badChars: #replacing characters that would mess with the data
+                    if badChar in valueCopy:
+                        valueCopy = valueCopy.replace(badChar,' ')
+
+                entryValues.update(valueCopy.split()) #adding uniques of the cleaned words to the entryValues set 
+        
+            for value in entryValues:
+                if len(value) > 3:
+                    results[entry].append(value)
+        
 
 
     return results
