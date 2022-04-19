@@ -1,9 +1,9 @@
-import sys, os, json
+import json
 #searchIndex takes in a file reference and load its json
 #it will iterate through these values to get a list of relevant words for each entry
-def searchIndex(file): 
+def searchSet(file): 
     results = {}
-    badChars = ['.',',','(',')','-',':'] # characters to be filtered from the processed data
+    badChars = ['.',',','(',')','-',':',';','/'] # characters to be filtered from the processed data
 
     with open(file) as Data:
         dataSet = json.load(Data)
@@ -21,13 +21,14 @@ def searchIndex(file):
             entryValues = set() # this set is for containing all the unique words from each of the entrys items
             for value in dataSet[entry].items():
                 valueCopy = value[1].lower()
+
                 for badChar in badChars: #replacing characters that would mess with the data
                     if badChar in valueCopy:
                         valueCopy = valueCopy.replace(badChar,' ')
 
                 entryValues.update(valueCopy.split()) #adding uniques of the cleaned words to the entryValues set 
         
-            for value in entryValues:
+            for value in entryValues: # adding all words with 4 or more letters (smaller ones probably aren't important)
                 if len(value) > 3:
                     results[entry].append(value)
         

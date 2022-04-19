@@ -13,11 +13,11 @@ pages ={1:{'name':'Home','route':'/index'},
         4:{'name':'About','route':'/about'}}
 
 file = os.path.join(app.static_folder, 'data', 'projects.json')
-projectIndex = searchPrep.searchIndex(file)
-print(projectIndex)
+projectSet = searchPrep.searchSet(file)
+print(projectSet)
 file = os.path.join(app.static_folder, 'data', 'education.json')
-classesIndex = searchPrep.searchIndex(file)
-print(classesIndex)
+classesSet = searchPrep.searchSet(file)
+print(classesSet)
 
 @app.route('/')
 @app.route('/index') # home screen 
@@ -36,7 +36,7 @@ def projects():
     with open(projects) as pData: #collecting data for template
         data = json.load(pData)
     #sending descriptive html, the project list, and the category for easy handling by the front end
-    output = {"htmlPack":render_template('projects.html'), "data":data, "type":"projects"}
+    output = {"htmlPack":render_template('projects.html'), "data":data, "searchSet":projectSet, "type":"projects"}
     return jsonify(output)
 
 @app.route('/education')  # route for education summary including json classlist data loading.
@@ -47,7 +47,7 @@ def education():
     with open(classes) as cData: #collecting data for template
         data = json.load(cData)
     #sending descriptive html, the class list, and the category for easy handling by the front end
-    output = {"htmlPack":render_template('education.html'), "data":data, "type":"education"}
+    output = {"htmlPack":render_template('education.html'), "data":data, "searchSet":classesSet, "type":"education"}
     return jsonify(output)
 
 @app.route('/about') # route for general info

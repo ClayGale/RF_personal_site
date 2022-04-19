@@ -1,10 +1,15 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import '../assets/preview.css';
 import Showcase from './Showcase';
+import useSearchItems from "../Utilities/useSearchItems";
 
 const Preview = (props) => {
     const [showcase, setShowcase] = useState(''); //state for the currently active showcase component
-    const scrollingBox = useRef(); //ref for the scrolling div so the other elements within can reference it onWheel events
+    const scrollingBox = useRef(); //ref for the scrolling div so the other elements within can reference its onWheel events
+    const [items, searchInput] = useSearchItems([props.data, props.searchSet, props.type], handleShowcaseRequest, horizontalScroll)
+    /* the useSearchItems is an abstraction for the growing complexity of the preview component
+    it receives the backend data related to preview and builds all the elements and returns
+    them based on search input */
 
     function handleShowcaseRequest(ID) {
         console.log(ID);
@@ -21,71 +26,17 @@ const Preview = (props) => {
         });
     };
 
-    console.log(props);
-    const previewItems = useMemo(() => { //memoizing the built list so it only rebuilds on a page change
+    function handleSearch(event) {
+        searchInput.current = event.target.value;
+    };
 
-        switch (props.type) {
-
-            case "projects":
-                let projectPrevs = []; //container for generated elements
-                console.log('rebuild');
-
-                for (const [key, value] of Object.entries(props.data)) {
-                   projectPrevs.push(
-                        <div key={key} className='project'
-                            onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(key)}>
-                            <h1>{value.title}</h1>
-                            <p> {value.desc} </p>
-                        </div >);
-                };
-
-                return projectPrevs;
-
-            case "education":
-                let classPrevs = []; //container for generated elements
-                console.log('rebuild');
-                for (const [key, value] of Object.entries(props.data)) { //creating a nav button for each entry
-                    classPrevs.push(
-                        <div className='schoolContainer' onWheel={horizontalScroll}>
-                            <div key={key} className='schoolClass'>
-                                <h1>{key}</h1>
-                                <h2 className={'subtitleAbbreviated'}>{value.shortTitle}</h2>
-                                <h2 className={'subtitleFull'}>{value.title}</h2>
-                                <p> {value.classdesc} </p>
-                            </div>
-                        </div>
-                    );
-                };
-                return classPrevs;
-
-            case "resume":
-                return "finish this";
-            default:
-                break;
-        }
-    }, [props.type]);
-    
     return (
         <section >
-            <h4> {props.type} </h4>
             <Showcase showcase={showcase} setShowcase={setShowcase} />
-            <div ref={scrollingBox} id={props.type} className="snapping scrolling" onWheel={horizontalScroll}>{previewItems}</div>
+            <input type="text" onChange={handleSearch}/>
+            <div ref={scrollingBox} id={props.type} className="snapping scrolling" onWheel={horizontalScroll}>{items}</div>
         </section>
     );
 }
 
 export default Preview;
-
-/*
- props.data.classes.forEach((schoolClass) => {
-                    classPrevs.push(
-                        <div className='schoolContainer' onWheel={horizontalScroll}>
-                            <div key={schoolClass.ID} value={schoolClass.ID} className='schoolClass'>
-                                <h1>{schoolClass.ID}</h1>
-                                <h2>{schoolClass.shortTitle}</h2>
-                                <h2>{schoolClass.title}</h2>
-                                <p> {schoolClass.classdesc} </p>
-                            </div>
-                        </div>);
-                });
- */
