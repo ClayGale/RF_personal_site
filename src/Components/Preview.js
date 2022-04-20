@@ -6,7 +6,7 @@ import useSearchItems from "../Utilities/useSearchItems";
 const Preview = (props) => {
     const [showcase, setShowcase] = useState(''); //state for the currently active showcase component
     const scrollingBox = useRef(); //ref for the scrolling div so the other elements within can reference its onWheel events
-    const [items, searchInput] = useSearchItems([props.data, props.searchSet, props.type], handleShowcaseRequest, horizontalScroll)
+    const [items, handleSearch] = useSearchItems({ 'data': props.data, 'searchSet':props.searchSet, 'type':props.type }, handleShowcaseRequest, horizontalScroll)
     /* the useSearchItems is an abstraction for the growing complexity of the preview component
     it receives the backend data related to preview and builds all the elements and returns
     them based on search input */
@@ -24,10 +24,6 @@ const Preview = (props) => {
             left: scrollingBox.current.scrollLeft + event.deltaY * 3.5,
             behavior: 'smooth'
         });
-    };
-
-    function handleSearch(event) {
-        searchInput.current = event.target.value;
     };
 
     return (

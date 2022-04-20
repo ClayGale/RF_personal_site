@@ -28,9 +28,9 @@ def searchSet(file):
 
                 entryValues.update(valueCopy.split()) #adding uniques of the cleaned words to the entryValues set 
         
-            for value in entryValues: # adding all words with 4 or more letters (smaller ones probably aren't important)
-                if len(value) > 3:
-                    results[entry].append(value)
+            for value in entryValues: # adding all words with 3 or more letters (smaller ones probably aren't important)
+                if len(value) > 2:
+                    results[entry].append(value.lower())
         
 
 

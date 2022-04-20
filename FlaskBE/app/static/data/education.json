@@ -9,7 +9,7 @@
   "COSC 111": {
     "shortTitle": "Computer Programming I",
     "title": "Computer Programming I",
-    "classdesc": "This course is an introduction to the design, implementation, and understanding of computer programs. Topics include problem solving, modeling, algorithm design, and abstraction, with the emphasis on the development of working programs. This course should be followed by COSC 121.",
+    "classdesc": "This course is an introduction to the design, implementation, and understanding of computer programs. Topics include problem solving, modeling, algorithm design, and abstraction, with the emphasis on the development of working programs.",
     "skills": [ "Java" ]
   },
   "COSC 118": {
@@ -81,7 +81,7 @@
   "COSC 213": {
     "shortTitle": "LAMP",
     "title": "Web development with LAMP",
-    "classdesc": "This course focuses on web development using LAMP technology, the Linux operating system, the Apache web server, the MySQL database, and the PHP server-side scripting language. Course topics include LAMP set-up, HTML5, CSS, PHP, MySQL, fine-tuning and administration of the web server.",
+    "classdesc": "This course focuses on web development using LAMP technology, the Linux operating system, the Apache web server, the MySQL database, and the PHP server-side scripting language. Course topics include LAMP set-up, HTML-5, CSS, PHP, MySQL, fine-tuning and administration of the web server.",
     "skills": [ "Linux", "Terminal use" ]
   },
   "COSC 219": {
