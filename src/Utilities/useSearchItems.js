@@ -5,32 +5,27 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
     switch (dataSet.type) {
 
         case "projects":
-            let projectPrevs = []; //container for generated elements
+            let projectPrevs = [[],[]]; //container for keys and generated elements
             console.log('rebuild');
 
             for (const [key, value] of Object.entries(dataSet.data)) {
-                let element = [];
-                element[0] = key;
-                element[1] = {
-                    key:
+                projectPrevs[0].push(key);
+                projectPrevs[1].push(
                         <div key={key} className='project'
                             onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(key)}>
                             <h1>{value.title}</h1>
                             <p> {value.desc} </p>
                         </div >
-                };
-                projectPrevs.push(element);
+                );
             };
             return projectPrevs;
 
         case "education":
-            let classPrevs = []; //container for generated elements
+            let classPrevs = [[], []]; //container for keys and generated elements
             console.log('rebuild');
             for (const [key, value] of Object.entries(dataSet.data)) {
-                let element = [];
-                element[0] = key;
-                element[1] = {
-                    key:
+                classPrevs[0].push(key);
+                classPrevs[1].push(
                         <div className='schoolContainer' onWheel={horizontalScroll}>
                             <div key={key} className='schoolClass'>
                                 <h1>{key}</h1>
@@ -39,8 +34,7 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
                                 <p> {value.classdesc} </p>
                             </div>
                         </div>
-                };
-                classPrevs.push(element);
+                );
             };
             return classPrevs;
 
@@ -55,33 +49,34 @@ function searchItems(query, searchSet) {
     for (const word of query.toLowerCase().split(' ')) {
         for (const [key, value] of Object.entries(searchSet)) {
             if (value.includes(word)) {
-                results = [...results, key];
+                results = [...results, key]; //might need extra work to ensure uniqueness TODO
             }
         }
     }
     return results;
 }
 
-function singleResult(result, type) {
-    let id = result[0];
-    let value = result[1];
+function singleResult(id, value, type) {
+    //console.log(result);
     switch (type) {
 
         case "projects":
-            return(
-            <div key={id} className='projects'>
-                <h1>{value.title}</h1>
-                <p> {value.desc} </p>
-            </div >);
+            return (
+                <div key={id} className='projects'>
+                    <h1>{value.title}</h1>
+                    <p> {value.desc} </p>
+                </div >);
+            break;
 
         case "education":
             return (
                 <div key={id}>
                     <h1>{id}</h1>
-                    <h2 className='subtitleFull'>{value.title}</h2>
+                    <h2>{value.title}</h2>
                     <p> {value.classdesc} </p>
                 </div>
             );
+            break;
 
         default:
 
@@ -89,13 +84,25 @@ function singleResult(result, type) {
     }
 }
 
-function searchResults() {
+function searchResults(results, previewItems) {
+    let resultItems = [];
+    
+    for (let i = 0; i < previewItems[0].length; i++) {
+        if (results.includes(previewItems[0][i])) {
+            resultItems = [...resultItems, previewItems[1][i]];
+        }
+    } /*
+    for (let i = 0; i < results; i++) {
+        console.log(previewItems[1]);
+        //resultItems = [...resultItems, previewItems[1][previewItems[0][result].indexOf()]];
+    } */ //possible more efficient approach
 
+    return resultItems;
 }
 
 export default function useSearchItems(dataSet, handleShowcaseRequest, horizontalScroll, initialSearch) {
 
-    console.log(dataSet);
+    //console.log(dataSet);
     const previewItems = useMemo(() => {
         return buildItems(dataSet, handleShowcaseRequest, horizontalScroll);
     }, [dataSet.type]);
@@ -106,25 +113,28 @@ export default function useSearchItems(dataSet, handleShowcaseRequest, horizonta
         let results = searchItems(searchInput.current, dataSet.searchSet);
         switch (results.length) {
             case 0:
-                //setItems(previewItems);
+                setItems( previewItems[1] );
+                break;
 
             case 1:
-                //const result = previewItems.find(item => item[0] === results[0]); dataSet.data.results[0];
-                const result = () => //TODO
-                console.log(result);
+                const result = dataSet.data[results[0]];
+
                 if (result !== undefined) {
-                    const item = singleResult(result, dataSet.type, handleShowcaseRequest, horizontalScroll);
-                    console.log(item);
+                    const item = singleResult(results[0], result, dataSet.type);
                     setItems(item);
                 }
+                break;
 
             default:
-
+                console.log(results);
+                const resultItems = searchResults(results, previewItems);
+                console.log(resultItems);
+                setItems(resultItems);
                 break;
         }
-    }, [dataSet.type])
+    }, [items, dataSet.type]);
 
-    const [items, setItems] = useState([]);
+const [items, setItems] = useState([]);
     const searchInput = useRef(initialSearch);
     const scrollingBox = useRef(); //ref for the scrolling div so the other elements within can reference its onWheel events
 
@@ -142,6 +152,35 @@ export default function useSearchItems(dataSet, handleShowcaseRequest, horizonta
 
 /*
 code dump
+
+const handleSearch = useCallback((event) => {
+        searchInput.current = event.target.value;
+        //console.log(searchInput.current);
+        let results = searchItems(searchInput.current, dataSet.searchSet);
+        switch (results.length) {
+            case 0:
+                setItems(previewItems);
+                break;
+
+            case 1:
+                //const result = previewItems.find(item => item[0] === results[0]); dataSet.data.results[0];
+                //const result = dataSet.data.entries([key, value] => key == results[0]);
+                const result = dataSet.data[results[0]];
+                console.log(result);
+
+                if (result !== undefined) {
+                    const item = singleResult(results[0], result, dataSet.type);
+                    console.log(item);
+                    setItems(item);
+                }
+                break;
+
+            default:
+
+                break;
+        }
+    }, [items, dataSet.type]);
+
 <div ref={scrollingBox} id={props.type} className="snapping scrolling" onWheel={horizontalScroll}>
 
 function buildContainer(type) {
