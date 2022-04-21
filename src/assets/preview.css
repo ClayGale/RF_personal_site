@@ -43,7 +43,6 @@
     position: relative;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 30%;
     grid-template-areas:
         "one"
         "one"
@@ -89,6 +88,8 @@
     transition-property: box-shadow background;
     margin: 0 2px;
     overflow: hidden;
+    min-height: 30px;
+    width: 400px;
 }
     /* The trio of selectors allows for a combination of tapping on mobile and mouseover */
     .schoolContainer:hover,

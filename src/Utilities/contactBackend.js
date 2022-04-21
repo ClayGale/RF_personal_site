@@ -16,7 +16,6 @@ const contactBackend = async (address, setReturn) => {
             throw Error(response.statusText);
         }
         const data = await response.json();
-        //console.log(data);
         setReturn(data);
 
     } catch (error) {

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import '../assets/preview.css';
 import Showcase from './Showcase';
 import useSearchItems from "../Utilities/useSearchItems";
@@ -29,8 +30,12 @@ const Preview = (props) => {
     return (
         <section >
             <Showcase showcase={showcase} setShowcase={setShowcase} />
-            <input type="text" onChange={handleSearch}/>
-            <div ref={scrollingBox} id={props.type} className="snapping scrolling" onWheel={horizontalScroll}>{items}</div>
+            <input type="text" onChange={handleSearch} />
+            <SwitchTransition>
+                <CSSTransition key={items} timeout={500} classNames="my-search" unmountOnExit>
+                    <div ref={scrollingBox} id={props.type} className="snapping scrolling" onWheel={horizontalScroll}>{items}</div>
+                </CSSTransition>
+            </SwitchTransition>
         </section>
     );
 }

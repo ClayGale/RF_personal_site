@@ -1,24 +1,24 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import contactBackend from './contactBackend';
 
 function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
     switch (dataSet.type) {
 
         case "projects":
-            let projectPrevs = [[],[]]; //container for keys and generated elements
+            let projectPrevs = [[], []]; //container for keys and generated elements
             console.log('rebuild');
 
             for (const [key, value] of Object.entries(dataSet.data)) {
                 projectPrevs[0].push(key);
                 projectPrevs[1].push(
-                        <div key={key} className='project'
-                            onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(key)}>
-                            <h1>{value.title}</h1>
-                            <p> {value.desc} </p>
-                        </div >
+                    <div key={key} className='project'
+                        onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(key)}>
+                        <h1>{value.title}</h1>
+                        <p> {value.desc} </p>
+                    </div >
                 );
             };
             return projectPrevs;
+            break;
 
         case "education":
             let classPrevs = [[], []]; //container for keys and generated elements
@@ -26,17 +26,18 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
             for (const [key, value] of Object.entries(dataSet.data)) {
                 classPrevs[0].push(key);
                 classPrevs[1].push(
-                        <div className='schoolContainer' onWheel={horizontalScroll}>
-                            <div key={key} className='schoolClass'>
-                                <h1>{key}</h1>
-                                <h2 className='subtitleAbbreviated'>{value.shortTitle}</h2>
-                                <h2 className='subtitleFull'>{value.title}</h2>
-                                <p> {value.classdesc} </p>
-                            </div>
+                    <div className='schoolContainer' onWheel={horizontalScroll}>
+                        <div key={key} className='schoolClass'>
+                            <h1>{key}</h1>
+                            <h2 className='subtitleAbbreviated'>{value.shortTitle}</h2>
+                            <h2 className='subtitleFull'>{value.title}</h2>
+                            <p> {value.classdesc} </p>
                         </div>
+                    </div>
                 );
             };
             return classPrevs;
+            break;
 
         default:
 
@@ -56,13 +57,15 @@ function searchItems(query, searchSet) {
     return results;
 }
 
-function singleResult(id, value, type) {
-    //console.log(result);
+function singleResult(id, value, type, handleShowcaseRequest) {
+    
     switch (type) {
 
         case "projects":
+
+            handleShowcaseRequest(id);
             return (
-                <div key={id} className='projects'>
+                <div key={id} className='projects' onClick={() => handleShowcaseRequest(id)}>
                     <h1>{value.title}</h1>
                     <p> {value.desc} </p>
                 </div >);
@@ -109,7 +112,11 @@ export default function useSearchItems(dataSet, handleShowcaseRequest, horizonta
 
     const handleSearch = useCallback((event) => {
         searchInput.current = event.target.value;
-        //console.log(searchInput.current);
+        if (searchInput.current === "") { //ending function early if no query has been made
+            setItems(previewItems[1]);
+            return;
+        }
+        
         let results = searchItems(searchInput.current, dataSet.searchSet);
         switch (results.length) {
             case 0:
@@ -120,7 +127,7 @@ export default function useSearchItems(dataSet, handleShowcaseRequest, horizonta
                 const result = dataSet.data[results[0]];
 
                 if (result !== undefined) {
-                    const item = singleResult(results[0], result, dataSet.type);
+                    const item = singleResult(results[0], result, dataSet.type, handleShowcaseRequest);
                     setItems(item);
                 }
                 break;
@@ -134,18 +141,16 @@ export default function useSearchItems(dataSet, handleShowcaseRequest, horizonta
         }
     }, [items, dataSet.type]);
 
-const [items, setItems] = useState([]);
+    const [items, setItems] = useState([]);
     const searchInput = useRef(initialSearch);
     const scrollingBox = useRef(); //ref for the scrolling div so the other elements within can reference its onWheel events
 
 
     useEffect(() => {
-        //setItems(previewItems);
-        const interval = setInterval(() => {
-            //setItems(previewItems);
-        }, 1000);
-        return () => clearInterval(interval);
-    }, [searchInput.current])
+        if (previewItems !== undefined) {
+            setItems(previewItems[1]);
+        }
+    }, [previewItems])
     
     return [items, handleSearch];
 }
