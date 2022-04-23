@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 
+/* building the preview elements */
 function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
     switch (dataSet.type) {
 
         case "projects":
             let projectPrevs = [[], []]; //container for keys and generated elements
-            console.log('rebuild');
 
             for (const [key, value] of Object.entries(dataSet.data)) {
                 projectPrevs[0].push(key);
@@ -18,11 +18,11 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
                 );
             };
             return projectPrevs;
-            break;
-
+        /* prevs[0] contains the names of each element for comparison
+           prevs[1] contains the actual elements. this is true for both cases*/
         case "education":
             let classPrevs = [[], []]; //container for keys and generated elements
-            console.log('rebuild');
+            
             for (const [key, value] of Object.entries(dataSet.data)) {
                 classPrevs[0].push(key);
                 classPrevs[1].push(
@@ -37,7 +37,6 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
                 );
             };
             return classPrevs;
-            break;
 
         default:
 
@@ -45,18 +44,42 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
     }
 }
 
+/* creating a set of element names based on matches.
+ split causes each word to be used for querying. a less strict search rather than the full text query */
 function searchItems(query, searchSet) {
     let results = [];
-    for (const word of query.toLowerCase().split(' ')) {
+    for (const word of query.toLowerCase().split(' ')) { 
         for (const [key, value] of Object.entries(searchSet)) {
             if (value.includes(word)) {
-                results = [...results, key]; //might need extra work to ensure uniqueness TODO
+                results = [...results, key];
             }
         }
     }
     return results;
 }
 
+/* filtering the previewItems elements array by comparing the keys array with the previously
+built results array from searchItems
+ */
+function searchResults(results, previewItems) {
+    let resultItems = [];
+
+    for (let i = 0; i < previewItems[0].length; i++) {
+        if (results.includes(previewItems[0][i])) {
+            resultItems = [...resultItems, previewItems[1][i]];
+        }
+    }
+
+    return resultItems;
+}
+
+const spinner = (props) => {
+    const [animation, setAnimation] = useState('');
+}
+
+/* in the case of there only being one match different approaches are taken.
+ for classes the full description is visible.
+ for projects the single element is displayed and showcase is automatically opened*/
 function singleResult(id, value, type, handleShowcaseRequest) {
     
     switch (type) {
@@ -65,11 +88,10 @@ function singleResult(id, value, type, handleShowcaseRequest) {
 
             handleShowcaseRequest(id);
             return (
-                <div key={id} className='projects' onClick={() => handleShowcaseRequest(id)}>
+                <div key={id} className='project' onClick={() => handleShowcaseRequest(id)}>
                     <h1>{value.title}</h1>
                     <p> {value.desc} </p>
                 </div >);
-            break;
 
         case "education":
             return (
@@ -79,7 +101,6 @@ function singleResult(id, value, type, handleShowcaseRequest) {
                     <p> {value.classdesc} </p>
                 </div>
             );
-            break;
 
         default:
 
@@ -87,118 +108,58 @@ function singleResult(id, value, type, handleShowcaseRequest) {
     }
 }
 
-function searchResults(results, previewItems) {
-    let resultItems = [];
-    
-    for (let i = 0; i < previewItems[0].length; i++) {
-        if (results.includes(previewItems[0][i])) {
-            resultItems = [...resultItems, previewItems[1][i]];
-        }
-    } /*
-    for (let i = 0; i < results; i++) {
-        console.log(previewItems[1]);
-        //resultItems = [...resultItems, previewItems[1][previewItems[0][result].indexOf()]];
-    } */ //possible more efficient approach
+export default function useSearchItems(dataSet, handleShowcaseRequest, horizontalScroll) {
 
-    return resultItems;
-}
+    const [items, setItems] = useState([]);//main items state
+    const searchRef = useRef(''); //ref for the input 
 
-export default function useSearchItems(dataSet, handleShowcaseRequest, horizontalScroll, initialSearch) {
-
-    //console.log(dataSet);
     const previewItems = useMemo(() => {
         return buildItems(dataSet, handleShowcaseRequest, horizontalScroll);
     }, [dataSet.type]);
 
     const handleSearch = useCallback((event) => {
-        searchInput.current = event.target.value;
-        if (searchInput.current === "") { //ending function early if no query has been made
+        if (event === 'clearSearch') { //checking for the clearing string. this allows the close button to reset the search
             setItems(previewItems[1]);
             return;
         }
-        
-        let results = searchItems(searchInput.current, dataSet.searchSet);
+        searchRef.current = event.target.value;
+        if (searchRef.current === "") { //ending search function early if no query has been made
+            setItems(previewItems[1]);
+            return;
+        }
+        //checking the search set values
+        let results = searchItems(searchRef.current, dataSet.searchSet);
         switch (results.length) {
-            case 0:
-                setItems( previewItems[1] );
+            case 0: //if no matches are found then just show everything
+                setItems(previewItems[1]);
                 break;
 
-            case 1:
+            case 1: // if there is one match then get the matches original data and call singleResult
                 const result = dataSet.data[results[0]];
 
                 if (result !== undefined) {
                     const item = singleResult(results[0], result, dataSet.type, handleShowcaseRequest);
-                    setItems(item);
+                    setItems(item); // fresh singlet not from preview items
                 }
                 break;
 
             default:
-                console.log(results);
                 const resultItems = searchResults(results, previewItems);
-                console.log(resultItems);
+
                 setItems(resultItems);
                 break;
         }
     }, [items, dataSet.type]);
 
-    const [items, setItems] = useState([]);
-    const searchInput = useRef(initialSearch);
-    const scrollingBox = useRef(); //ref for the scrolling div so the other elements within can reference its onWheel events
+    //const indicator = (props) => {
+    //    const [animation, setAnimation] = useState('');
+    //} // maybe come back to this later
 
-
-    useEffect(() => {
+    useEffect(() => { //this useEffect allows the elements to always be visible on page load
         if (previewItems !== undefined) {
             setItems(previewItems[1]);
         }
     }, [previewItems])
-    
+
     return [items, handleSearch];
 }
-
-/*
-code dump
-
-const handleSearch = useCallback((event) => {
-        searchInput.current = event.target.value;
-        //console.log(searchInput.current);
-        let results = searchItems(searchInput.current, dataSet.searchSet);
-        switch (results.length) {
-            case 0:
-                setItems(previewItems);
-                break;
-
-            case 1:
-                //const result = previewItems.find(item => item[0] === results[0]); dataSet.data.results[0];
-                //const result = dataSet.data.entries([key, value] => key == results[0]);
-                const result = dataSet.data[results[0]];
-                console.log(result);
-
-                if (result !== undefined) {
-                    const item = singleResult(results[0], result, dataSet.type);
-                    console.log(item);
-                    setItems(item);
-                }
-                break;
-
-            default:
-
-                break;
-        }
-    }, [items, dataSet.type]);
-
-<div ref={scrollingBox} id={props.type} className="snapping scrolling" onWheel={horizontalScroll}>
-
-function buildContainer(type) {
-    container = []; // this array will contain two entries. first being the the searchbar, second the scroller
-    switch (type) {
-        case "projects":
-            container[0] =
-
-            container[1] = <div ref={scrollingBox} id="projects" className="snapping scrolling" onWheel={horizontalScroll}>{items}</div>
-        default:
-            break;
-    }
-}
-
-
-*/

@@ -12,9 +12,9 @@
     --myGoldenYellow: hsl(38, 96%, 63%);
     --myVeryGoldenYellow: hsl(34, 100%, 55%);
     --myGrey: hsl(217, 14%, 70%);
-    --myOffBlack: hsl(0, 0%, 25%);
+    --myOffBlack: hsla(0, 0%, 0%, .75);
     /* font variables */
-    --titleFont: 'Bebas Neue', cursive;
+    --titleFont: 'Bebas Neue', serif;
     --subtitleFont: 'Quicksand', sans-serif;
     --bodyFont: 'Harmattan', sans-serif;
     /* transition timing variables */
@@ -102,21 +102,26 @@ nav {
         line-height: 165%;
         color: var(--myOffBlack);
         font-family: var(--bodyFont);
-        font-size: 16pt;
+        font-size: 14pt;
         /*letter-spacing: 1px;*/
     }
-@media only screen and (min-width: 600px) {
-    #content p {
-        width: max(70%, 500px);
-    }
-}
 .pageTitle {
     margin: 1rem;
-    font-size: 40pt;
+    font-size: 20pt;
     background: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+@media only screen and (min-width: 600px) {
+    #content p {
+        width: max(70%, 500px);
+        font-size: 18pt;
+    }
+
+    .pageTitle {
+        font-size: 40pt;
+    }
 }
 /* splash text main styling - most of the effect happens in the anim.css sheet */
 #splash {
@@ -140,7 +145,7 @@ nav {
 
     #splash > h1 {
         margin: 0;
-        background: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
+        background: linear-gradient(to top, var(--myBurgundy), var(--myDarkerBurgundy));
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

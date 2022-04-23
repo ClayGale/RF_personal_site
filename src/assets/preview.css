@@ -4,7 +4,6 @@
 #projects {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 30%;
     gap: 10px;
     padding: 10px 10px 0 10px;
     box-shadow: inset white 5px 5px;
@@ -12,6 +11,7 @@
 
 .project {
     display: grid;
+    min-width: 400px;
     transition: var(--quickTransition);
     background: linear-gradient( white, white 50%, var(--myCream) 50%, var(--myCream) );
     background-size: 100% 200%;
@@ -66,10 +66,10 @@
     }
 
     .schoolClass > p {
-        display: none;
+        /*display: none;*/
         text-align: center;
         font-family: var(--bodyFont);
-        font-size: 14pt;
+        font-size: 0;
         float: left;
     }
 
@@ -95,7 +95,7 @@
     .schoolContainer:hover,
     .schoolContainer:focus,
     .schoolContainer:active {
-        background: radial-gradient(closest-corner, var(--myCream), white);
+        background: radial-gradient(closest-corner, var(--myCream), var(--myCream), white);
         box-shadow: 0px 0px 2px 1px var(--myGrey);
         border-radius: 4px;
         transition: var(--quickTransition);
@@ -106,7 +106,7 @@
         .schoolContainer:focus > .schoolClass,
         .schoolContainer:active > .schoolClass {
             position: fixed;
-            inset: 160px 30vw auto 30vw;
+            inset: 50px 1rem auto 1rem;
             box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
             border-radius: 4px;
             background-color: var(--myCream);
@@ -115,10 +115,14 @@
             z-index: 1;
         }
 
+
             .schoolContainer:hover > .schoolClass > p,
             .schoolContainer:focus > .schoolClass > p,
             .schoolContainer:active > .schoolClass > p {
-                display: unset;
+                font-size: 14pt; /* TODO */
+                transition: var(--medTransition);
+                transition-timing-function: cubic-bezier(0.8, 0, 0, 1.0);
+                transition-property: font-size;
             }
             /* hidden until the element is triggered */
 
@@ -133,15 +137,29 @@
             .schoolContainer:focus > .schoolClass > .subtitleFull,
             .schoolContainer:active > .schoolClass > .subtitleFull {
                 display: inline;
-            }/* hidden until the element is triggered */
+            }
+/* hidden until the element is triggered */
 
+@media only screen and (min-width: 600px) {
+    .schoolContainer:hover > .schoolClass,
+    .schoolContainer:focus > .schoolClass,
+    .schoolContainer:active > .schoolClass {
+        inset: 160px 30vw auto 30vw;
+    }
+}
 /* showcase properties */
 
 #showcase {
     position: fixed;
     border-radius: 3px;
     z-index: 1;
-    inset: 160px 30vw auto 30vw;
+    inset: 160px 1rem auto 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+    #showcase {
+        inset: 160px 30vw auto 30vw;
+    }
 }
 
 .mask {
@@ -161,6 +179,7 @@
     box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
     padding: 1em;
 }
+
     #showcaseContent p {
         font-family: var(--bodyFont);
         font-size: 14pt;
@@ -172,3 +191,37 @@
     inset: 0 0 auto auto;
     z-index: 2;
 }
+
+.graphicButton {
+    margin: 0.5em;
+    padding: 0 0.5em;
+    color: white;
+    background-image: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
+    border-radius: 2px 5px;
+    transform: scale(1.1);
+    transition: var(--quickTransition);
+}
+
+    .graphicButton:active {
+        transform: scale(0.9);
+    }
+
+input {
+    border: none;
+    border-left-color: var(--myDarkerBurgundy);
+    border-right-color: var(--myDarkerBurgundy);
+    border-radius: 4px;
+    font-size: 14pt;
+    font-family: var(--bodyFont);
+    padding: 0.2em 0 0.2em 1em;
+    margin-left: 3rem;
+    transition: var(--medTransition);
+    width: unset;
+    min-width: 20ch;
+    line-height: 60%;
+}
+
+    input:focus {
+        outline: none;
+        box-shadow: var(--myGoldenYellow) 0px 0px 2px 1px inset, var(--myCream) 0px 0px 10px 12px inset;
+    }
