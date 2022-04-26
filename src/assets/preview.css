@@ -11,7 +11,7 @@
 
 .project {
     display: grid;
-    min-width: 400px;
+    width: 400px;
     transition: var(--quickTransition);
     background: linear-gradient( white, white 50%, var(--myCream) 50%, var(--myCream) );
     background-size: 100% 200%;
@@ -192,36 +192,79 @@
     z-index: 2;
 }
 
+/* search button animations */
+.inactive {
+    display: inline;
+    opacity: 0;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 0 0.5rem;
+    line-height: 50%;
+    transform: scale(2);
+    transition: var(--quickTransition);
+}
+
+.noResults { /* not used right now */
+    display: inline;
+    margin: 0.5rem 0.5rem 0.5rem 3rem;
+    padding: 0 0.5rem;
+    line-height: 50%;
+    transform: scale(2);
+    color: var(--myBurgundy);
+    transition: var(--quickTransition);
+    background-color: none;
+}
+    .noResults::after {
+        display: inline;
+        content: 'No Results';
+        font-family: var(--bodyFont);
+        font-size: 12px;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+    .noResults:hover {
+        background-color: unset;
+
+    }
+
 .graphicButton {
-    margin: 0.5em;
-    padding: 0 0.5em;
+    display: inline;
+    opacity: 1;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 0 0.5rem;
     color: white;
     background-image: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
     border-radius: 2px 5px;
+    filter: hue-rotate(0);
     transform: scale(1.1);
     transition: var(--quickTransition);
 }
 
-    .graphicButton:active {
+    .graphicButton:active,
+    .noResults:active{
         transform: scale(0.9);
     }
 
+.resultButton {
+    filter: hue-rotate(180deg) brightness(1.5);
+}
+
+/* search field styling */
 input {
+    display: inline;
     border: none;
     border-left-color: var(--myDarkerBurgundy);
     border-right-color: var(--myDarkerBurgundy);
     border-radius: 4px;
+    background-color: antiquewhite;
     font-size: 14pt;
     font-family: var(--bodyFont);
-    padding: 0.2em 0 0.2em 1em;
+    padding: 0 0 0 1em;
     margin-left: 3rem;
     transition: var(--medTransition);
-    width: unset;
-    min-width: 20ch;
     line-height: 60%;
 }
 
     input:focus {
         outline: none;
+        background-color: unset;
         box-shadow: var(--myGoldenYellow) 0px 0px 2px 1px inset, var(--myCream) 0px 0px 10px 12px inset;
     }

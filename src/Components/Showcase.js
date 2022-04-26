@@ -10,10 +10,7 @@ const Showcase = (props) => {
     const [content, setContent] = useState([]);
     const [animSwitchS, setAnimSwitchS] = useState(false); //animation switch for CSSTransition
 
-    console.log(props.showcase);
-
     function closeShowcase() {
-        console.log('Away with you showcase')
         setAnimSwitchS(false);
     };
 
@@ -28,12 +25,9 @@ const Showcase = (props) => {
 
     useEffect(() => {
         if (!(props.showcase === '')) {
-            console.log('nothin at all');
             setAnimSwitchS(true);
         };
     }, [content]);
-
-
 
     if (props.showcase === '') {
         return (null);

@@ -7,24 +7,33 @@ app = Flask(__name__)
 app.config.from_pyfile('config.py')
 CORS(app)
 
+#creating the static values to be used by the front end here
 pages ={1:{'name':'Home','route':'/index'},
         2:{'name':'Projects','route':'/projects'},
         3:{'name':'Education','route':'/education'},
         4:{'name':'About','route':'/about'}}
 
 file = os.path.join(app.static_folder, 'data', 'projects.json')
-projectSet = searchPrep.searchSet(file)
-print(projectSet)
+projectEntries = searchPrep.searchSet(file)
 file = os.path.join(app.static_folder, 'data', 'education.json')
-classesSet = searchPrep.searchSet(file)
-print(classesSet)
+classesEntries = searchPrep.searchSet(file)
+# since the search dictionary and the skills list are created in the searchSet def
+# they are separated out for their own purposes in the following couple of lines
+projectSet = projectEntries[0]
+classesSet = classesEntries[0]
+
+resumeSet = searchPrep.resumePrep(projectEntries[1],classesEntries[1])
+
+del projectEntries
+del classesEntries
 
 @app.route('/')
 @app.route('/index') # home screen 
 @cross_origin()
 def index():
     print('Hello world!', file=sys.stderr)
-    output = {"htmlPack":render_template('index.html', title='home')}
+    output = {"htmlPack":render_template('index.html', title='home'),
+             "resumeSet":resumeSet, "resumeBody":render_template('resume.html'), "type":"resume"}
     return jsonify(output)
 
 
@@ -36,7 +45,8 @@ def projects():
     with open(projects) as pData: #collecting data for template
         data = json.load(pData)
     #sending descriptive html, the project list, and the category for easy handling by the front end
-    output = {"htmlPack":render_template('projects.html'), "data":data, "searchSet":projectSet, "type":"projects"}
+    output = {"htmlPack":render_template('projects.html'), 
+              "data":data, "searchSet":projectSet, "type":"projects"}
     return jsonify(output)
 
 @app.route('/education')  # route for education summary including json classlist data loading.
@@ -47,7 +57,8 @@ def education():
     with open(classes) as cData: #collecting data for template
         data = json.load(cData)
     #sending descriptive html, the class list, and the category for easy handling by the front end
-    output = {"htmlPack":render_template('education.html'), "data":data, "searchSet":classesSet, "type":"education"}
+    output = {"htmlPack":render_template('education.html'), 
+              "data":data, "searchSet":classesSet, "type":"education"}
     return jsonify(output)
 
 @app.route('/about') # route for general info
@@ -56,6 +67,13 @@ def about():
 
     output = {"htmlPack":render_template('about.html', title='about')}
     return jsonify(output)
+
+#@app.route('/resume') # route for resume dataset and body text
+#@cross_origin()
+#def resume():
+
+#    output = {"htmlPack":render_template('resume.html'), "resumeSet":resumeSet, "type":"resume"}
+#    return jsonify(output)
 
 @app.route('/nav') # route for the top nav bar
 @cross_origin()

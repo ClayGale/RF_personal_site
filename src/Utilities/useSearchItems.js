@@ -26,8 +26,8 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
             for (const [key, value] of Object.entries(dataSet.data)) {
                 classPrevs[0].push(key);
                 classPrevs[1].push(
-                    <div className='schoolContainer' onWheel={horizontalScroll}>
-                        <div key={key} className='schoolClass'>
+                    <div key={key} className='schoolContainer' onWheel={horizontalScroll}>
+                        <div className='schoolClass'>
                             <h1>{key}</h1>
                             <h2 className='subtitleAbbreviated'>{value.shortTitle}</h2>
                             <h2 className='subtitleFull'>{value.title}</h2>
@@ -46,9 +46,9 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
 
 /* creating a set of element names based on matches.
  split causes each word to be used for querying. a less strict search rather than the full text query */
-function searchItems(query, searchSet) {
+function searchItems(query, searchSet) { //something is screwed up with single item results TODO
     let results = [];
-    for (const word of query.toLowerCase().split(' ')) { 
+    for (const word of [query.toLowerCase(), ...query.toLowerCase().split(' ')]) {
         for (const [key, value] of Object.entries(searchSet)) {
             if (value.includes(word)) {
                 results = [...results, key];
@@ -73,13 +73,9 @@ function searchResults(results, previewItems) {
     return resultItems;
 }
 
-const spinner = (props) => {
-    const [animation, setAnimation] = useState('');
-}
-
 /* in the case of there only being one match different approaches are taken.
  for classes the full description is visible.
- for projects the single element is displayed and showcase is automatically opened*/
+ for projects the single element is displayed and showcase is automatically opened */
 function singleResult(id, value, type, handleShowcaseRequest) {
     
     switch (type) {
@@ -110,27 +106,40 @@ function singleResult(id, value, type, handleShowcaseRequest) {
 
 export default function useSearchItems(dataSet, handleShowcaseRequest, horizontalScroll) {
 
-    const [items, setItems] = useState([]);//main items state
-    const searchRef = useRef(''); //ref for the input 
+    const [items, setItems] = useState([]); //main items state
+    const [graphic, setGraphic] = useState(['inactive', '']); //state for the button attached to the searchbar
+    const searchRef = useRef(''); //ref for the searched value
+
 
     const previewItems = useMemo(() => {
         return buildItems(dataSet, handleShowcaseRequest, horizontalScroll);
     }, [dataSet.type]);
 
-    const handleSearch = useCallback((event) => {
-        if (event === 'clearSearch') { //checking for the clearing string. this allows the close button to reset the search
+    const handleSearch = useCallback((search) => {
+
+        if (search === 'clearSearch') { // checking for the clearing string. this allows the close button to reset the search
+            setGraphic(['inactive', '']);
             setItems(previewItems[1]);
             return;
         }
-        searchRef.current = event.target.value;
-        if (searchRef.current === "") { //ending search function early if no query has been made
+
+        if (typeof search === 'string') { // if search is a string go directly to searching
+            searchRef.current = search;
+        } else { // if it is not a string it's an onChange event and the value will be found through target.value
+            searchRef.current = search.target.value;
+        }
+
+        if (searchRef.current === "") { // ending search function early if no query has been made
+            setGraphic(['inactive','']);
             setItems(previewItems[1]);
             return;
         }
-        //checking the search set values
+        // checking the search set values
+
         let results = searchItems(searchRef.current, dataSet.searchSet);
         switch (results.length) {
             case 0: //if no matches are found then just show everything
+                setGraphic(['graphicButton', '\u2715']);
                 setItems(previewItems[1]);
                 break;
 
@@ -139,27 +148,27 @@ export default function useSearchItems(dataSet, handleShowcaseRequest, horizonta
 
                 if (result !== undefined) {
                     const item = singleResult(results[0], result, dataSet.type, handleShowcaseRequest);
+                    setGraphic(['graphicButton resultButton', '\u2713']);
                     setItems(item); // fresh singlet not from preview items
                 }
                 break;
 
             default:
                 const resultItems = searchResults(results, previewItems);
-
+                setGraphic(['graphicButton resultButton', '\u2713']);
                 setItems(resultItems);
                 break;
         }
     }, [items, dataSet.type]);
 
-    //const indicator = (props) => {
-    //    const [animation, setAnimation] = useState('');
-    //} // maybe come back to this later
-
-    useEffect(() => { //this useEffect allows the elements to always be visible on page load
+    useEffect(() => { // this useEffect allows the elements to always be visible on page load
         if (previewItems !== undefined) {
             setItems(previewItems[1]);
         }
+        //if (initialSearch.current !== '') { // sending the pre-search
+        //    handleSearch('initialSearch')
+        //}
     }, [previewItems])
 
-    return [items, handleSearch];
+    return [items, handleSearch, graphic];
 }

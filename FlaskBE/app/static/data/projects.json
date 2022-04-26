@@ -2,26 +2,46 @@
   "test": {
     "title": "template project eggs",
     "desc": "what this is",
-    "skills": [ "" ]
+    "skills": [
+      ["React","Flask","Python","Javascript","CSS"],
+      [],
+      ["Web Design"]
+    ]
   },
   "testy": {
     "title": "template project BOOO",
     "desc": "what this is",
-    "skills": [ "" ]
+    "skills": [
+      [ "React" ],
+      [],
+      []
+    ]
   },
   "tests": {
     "title": "template project UGH",
     "desc": "what this REALLY is blah blah blah",
-    "skills": [ "" ]
+    "skills": [
+      ["c++"],
+      [],
+      []
+    ]
   },
   "testooo": {
     "title": "template project yeehaw",
     "desc": "what this REALLY is blah blah blah",
-    "skills": [ "" ]
+    "skills": [
+      ["Java"],
+      [],
+      []
+    ]
   },
   "testla": {
     "title": "template project things",
     "desc": "test description go BRRRR",
-    "skills": [ "" ]
+    "skills": [
+      [],
+      [],
+      []
+    ]
   }
 }

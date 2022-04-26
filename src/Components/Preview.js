@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import '../assets/preview.css';
 import Showcase from './Showcase';
@@ -8,10 +8,11 @@ const Preview = (props) => {
     const [showcase, setShowcase] = useState(''); //state for the currently active showcase component
     const scrollingBox = useRef(); //ref for the scrolling div so the other elements within can reference its onWheel events
     const searchInput = useRef()
-    const [items, handleSearch] = useSearchItems({ 'data': props.data, 'searchSet':props.searchSet, 'type':props.type }, handleShowcaseRequest, horizontalScroll)
-    /* the useSearchItems is an abstraction for the growing complexity of the preview component
+    const [items, handleSearch, graphic] = useSearchItems({ 'data': props.data, 'searchSet': props.searchSet, 'type': props.type },
+        handleShowcaseRequest, horizontalScroll)
+    /* the useSearchItems is an abstraction for the growing complexity of the preview component.
     it receives the backend data related to preview and builds all the elements and returns
-    them based on search input */
+    them based on search input. the search input can be initialized to a default value with the initialSearch ref */
 
     /* setting the showcase ID */
     function handleShowcaseRequest(ID) {
@@ -32,18 +33,25 @@ const Preview = (props) => {
     /* the clear input function empties the search field and passes the 'clearSearch' string to
     handleSearch. When it receives that string instead of an event object it resets the search elements*/
     function clearInput(event) {
-        console.log(searchInput);
         searchInput.current.value = '';
         handleSearch('clearSearch');
         searchInput.current.focus();
     }
 
+    useEffect(() => {
+        if (props.initialSearch.current !== '') { //setting an initial search value if one has been set
+            searchInput.current.value = props.initialSearch.current;
+            handleSearch(props.initialSearch.current);
+            props.initialSearch.current = '';
+        }
+    }, [])
+
     return (
         <section >
             <Showcase showcase={showcase} setShowcase={setShowcase} />
             <input type="search" placeholder="Search" ref={searchInput} onChange={handleSearch} />
-            <button type="button" className="graphicButton" onClick={clearInput}>
-                {'\u2715'}
+            <button type="button" className={graphic[0]} onClick={clearInput}>
+                {graphic[1]}
             </button>
             <SwitchTransition>
                 <CSSTransition key={items} timeout={300} classNames="my-search" unmountOnExit>

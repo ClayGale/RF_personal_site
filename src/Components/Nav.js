@@ -7,7 +7,6 @@ const Nav = (props) => {
     const [pages, setPages] = useState([]); //state to hold page list
 
     function handleNav(event) {
-        console.log(event.target.value);
         event.preventDefault();
         props.contentChange(event.target.value); //setting the view in the main app component
     }; //changes the page
