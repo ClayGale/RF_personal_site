@@ -48,13 +48,22 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
  split causes each word to be used for querying. a less strict search rather than the full text query */
 function searchItems(query, searchSet) { //something is screwed up with single item results TODO
     let results = [];
-    for (const word of [query.toLowerCase(), ...query.toLowerCase().split(' ')]) {
+    let processedQuery = [];
+    if (query.includes(' ')) {// setting up multi-word queries to search by each word
+        processedQuery = [query.toLowerCase(), ...query.toLowerCase().split(' ')];
+    }
+    else {// single word query is just a single word array to keep the code consistent
+        processedQuery = [query.toLowerCase()];
+    }
+
+    for (const word of processedQuery) {
         for (const [key, value] of Object.entries(searchSet)) {
             if (value.includes(word)) {
                 results = [...results, key];
             }
         }
     }
+    console.log(results);
     return results;
 }
 

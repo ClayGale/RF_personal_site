@@ -1,7 +1,7 @@
 /*
 
 */
-@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Bebas+Neue&family=Belleza&family=Brawler&family=Caudex&family=Corben&family=Gotu&family=Harmattan&family=Hind:wght@300&family=Josefin+Sans:wght@300&family=Lato&family=Pavanam&family=Quicksand&family=Zen+Kaku+Gothic+New&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Harmattan:wght@400;700&family=Quicksand&display=swap');
 
 :root {
     /* color vars */
@@ -22,38 +22,19 @@
     --medTransition: all 0.4s ease;
     --longTransition: all 0.6s ease;
 }
-/*     font-family: 'Antic Didone', serif; too thin
 
-    font-family: 'Bebas Neue', cursive;
 
-    font-family: 'Belleza', sans-serif; maybe?
-
-    font-family: 'Brawler', serif; I like it
-
-    font-family: 'Caudex', serif; very similar to the last one
-
-    font-family: 'Corben', cursive; has lots of serifs, probably not a good choice here
-
-    font-family: 'Gotu', sans-serif; needs a higher weight
-
-    font-family: 'Harmattan', sans-serif; Might be my favorite!
-
-    font-family: 'Hind', sans-serif; unsure. I feel like its not suited to this site
-
-    font-family: 'Josefin Sans', sans-serif; needs more weight
-
-    font-family: 'Lato', sans-serif; basic
-
-    font-family: 'Pavanam', sans-serif; feels kind of generic
-
-    font-family: 'Quicksand', sans-serif; eh?
-
-    font-family: 'Zen Kaku Gothic New', sans-serif; feels pretty good, kinda generic */
 body {
-    max-width: 1380px;
+    max-width: 1080px;
     margin: auto;
-    padding: 0 1em;
+    padding: 0 0.5em;
     background-color: white;
+    
+
+}
+
+#mainView { /* fixing height to keep the contact bar stuck to the bottom of the screen */
+    min-height: 75vh;
 }
 /*
     styling for top navigation bar
@@ -80,6 +61,10 @@ nav {
 }
 
 @media only screen and (min-width: 1730px) {
+    body {
+        max-width:1380px;
+    }
+    
     nav {
         grid-template-columns: repeat(4, 1fr);
         padding: 40px 120px 40px 120px;
@@ -156,8 +141,9 @@ nav {
     }
 
 /* styling for bottom screen contact bar */
+
 #contactBar {
-    position: sticky;
+    position:sticky;
     inset: auto auto 0 auto;
     padding: 1rem;
     font-family: var(--bodyFont);
@@ -177,7 +163,6 @@ nav {
 
 @media only screen and (min-width: 600px) {
     #contactBar {
-        position: fixed;
         inset: auto 0 0 0;
     }
 }
@@ -235,6 +220,101 @@ button {
         transition: 0s;
     }
 
+/* resume grid formatting */
+
+#resume {
+    display: grid;
+    grid-template-areas:
+        "list"
+        "body";
+    font-family: var(--bodyFont);
+    font-size: 14pt;
+    margin: auto;
+}
+
+#categories {
+    display: grid;
+    grid-area: list;
+    grid-template-columns: 33% 33% 33%;
+    color: white;
+    background: radial-gradient(ellipse at top left, var(--myDarkerBurgundy) 23%, transparent), radial-gradient(ellipse at bottom right, var(--myDarkerBurgundy) 23%, transparent);
+    box-shadow: white 0px 0px 2px 3px inset;
+    transition: var(--quickTransition);
+}
+
+    #categories > ul {
+        font-size: 14pt;
+    }
+
+    #categories li {
+        font-size: 12pt;
+        border-radius: 6px;
+        padding: 0 1rem;
+        margin-left: 1rem;
+        width: fit-content;
+        text-decoration: underline;
+        cursor: default;
+        transition: var(--quickTransition);
+    }
+
+        #categories li:hover {
+            background-color: hsl(0, 0%, 100%, 0.3);
+            transition: var(--quickTransition);
+            text-decoration: unset;
+            transition-property: background-color;
+        }
+
+        #categories li:active {
+            background-color: var(--myCream);
+            transition: var(--quickTransition);
+            transition-property: background-color;
+        }
+
+.projectSkill {
+    font-weight:700;
+}
+
+#resumeBody {
+    display: grid;
+    grid-area: body;
+    grid-template-areas:
+        "sublist"
+        "subheader";
+    max-width: 1280px;
+    margin: 0 60px;
+    color: var(--myOffBlack);
+    font-family: var(--bodyFont);
+    font-size: 14pt;
+}
+
+    #resumeBody li {
+        display: inline-block;
+        list-style-position: inside;
+        list-style-type: disc;
+        margin: 0 1rem;
+    }
+
+@media only screen and (min-width: 1000px) {
+    #resumeBody {
+        grid-template-areas:
+            "subheader sublist";
+    }
+    #resumeBody li {
+        display:block;
+    }
+    
+    #categories {
+        line-height: 95%;
+        margin: auto 10% auto 10%;
+    }
+    #categories > ul {
+        font-size: 20pt;
+    }
+
+        #categories li {
+            font-size: 14pt;
+        }
+}
 /* general text formatting */
 h1 { /* titles and headers */
     font-family: var(--titleFont);
@@ -250,6 +330,3 @@ h2 { /* Sub headers mainly used in the education tab */
     h2::first-letter {
         text-transform: capitalize;
     }
-
-p {
-}

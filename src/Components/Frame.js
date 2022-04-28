@@ -40,7 +40,7 @@ const Frame = (props) => {
     return (
         <SwitchTransition>
             <CSSTransition key={props.viewF} in={animSwitchF} timeout={500} classNames="my-frame" unmountOnExit>
-                <div className="m-2" >
+                <div id="mainView" className="m-2" >
                     <section id="content" dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></section>
                     {secondaryComponent(content.type)}
                 </div>

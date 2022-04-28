@@ -6,7 +6,7 @@
     grid-auto-flow: column;
     gap: 10px;
     padding: 10px 10px 0 10px;
-    box-shadow: inset white 5px 5px;
+    border-bottom: 3px solid var(--myCream);
 }
 
 .project {

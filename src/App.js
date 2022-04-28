@@ -25,7 +25,7 @@ function App() {
     });
 
     return (
-        <div className="App container m-4">
+        <div className="App">
             <Splash splash={splash} setSplash={setSplash} />
             <Nav active={view} contentChange={contentChange} splash={splash} />
             <Frame viewF={view} splash={splash} contentChange={contentChange} initialSearch={initialSearch} />

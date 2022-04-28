@@ -36,6 +36,9 @@ def searchSet(file):
                 if len(value) > 2:
                     results[entry].append(value.lower())
 
+    # this function might seem computationally heavy with its volume of loops but they mainly
+    # exist to strip away the json structures around the words that are to be added to the search set
+    # I would say the time complexity of this is O(n) where n is the number of words in the whole json file
     return [results, skillsList]
 
 # resumePrep takes two arrays presently representing the compiled skills from my projects and education
@@ -67,7 +70,7 @@ def resumePrep(projectSkills, educationSkills):
             if skill in category[0]:
                 category[1].remove(skill)
     #dumping the sets into a similar structure of arrays so it can be jsonified and passed to the front-end
-    resumeListItems = {"Coding Languages & Frameworks":[[*resumeWorkingSets[0][0]],[*resumeWorkingSets[0][1]]],
+    resumeListItems = {"Languages & Frameworks":[[*resumeWorkingSets[0][0]],[*resumeWorkingSets[0][1]]],
                        "Software":[[*resumeWorkingSets[1][0]],[*resumeWorkingSets[1][1]]],
                        "Technical Skills":[[*resumeWorkingSets[2][0]],[*resumeWorkingSets[2][1]]]}
     

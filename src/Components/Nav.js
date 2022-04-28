@@ -21,7 +21,7 @@ const Nav = (props) => {
 
     return (
         <CSSTransition in={props.splash} timeout={700} classNames="my-nav">
-            <nav className="m-2" id="nav">
+            <nav id="nav">
                 {links}
             </nav>
         </CSSTransition>

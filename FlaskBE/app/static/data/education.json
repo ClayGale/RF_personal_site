@@ -26,7 +26,7 @@
     "classdesc": "This course introduces the theory of practice of modern telecommunications with an emphasis on the TCP/IP (Transmission Control Protocol/Internet Protocol) stack. Students will learn to install and troubleshoot the electronic components necessary for telephony and data communications.",
     "skills": [
       [],
-      [],
+      ["Wireshark"],
       ["Networking"]
     ]
   },
