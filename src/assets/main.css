@@ -18,9 +18,9 @@
     --subtitleFont: 'Quicksand', sans-serif;
     --bodyFont: 'Harmattan', sans-serif;
     /* transition timing variables */
-    --quickTransition: all 0.2s ease;
-    --medTransition: all 0.4s ease;
-    --longTransition: all 0.6s ease;
+    --quickTransition: none 0.2s ease;
+    --medTransition: none 0.4s ease;
+    --longTransition: none 0.6s ease;
 }
 
 
@@ -33,8 +33,10 @@ body {
 
 }
 
+
 #mainView { /* fixing height to keep the contact bar stuck to the bottom of the screen */
-    min-height: 75vh;
+    min-height: 77vh;
+    transition: var(--medTransition);
 }
 /*
     styling for top navigation bar
@@ -73,9 +75,11 @@ nav {
 }
 
 /* main content styling - mainly typography */
+
 #content {
     max-width: 1280px;
     margin: 0 60px 0 60px;
+    position:relative;
 }
 
     #content h1 {
@@ -124,7 +128,6 @@ nav {
         left: 0;
         background-color: white;
         z-index: -1;
-        transition: var(--longTransition);
     }
     /* This pseudo element whites out the rest of the elements behind the splash text */
 
@@ -209,7 +212,7 @@ button {
         margin-top: -18%;
         opacity: 0;
         transition: var(--medTransition);
-        transition-property: margin padding;
+        transition-property: margin, padding;
         transition-timing-function: ease-out;
         /* the margin and padding on this function effectively work as timing for the ripple effect */
     }
@@ -255,19 +258,20 @@ button {
         text-decoration: underline;
         cursor: default;
         transition: var(--quickTransition);
+        transition-property: background-color, text-decoration;
     }
 
         #categories li:hover {
             background-color: hsl(0, 0%, 100%, 0.3);
             transition: var(--quickTransition);
             text-decoration: unset;
-            transition-property: background-color;
+            transition-property: background-color, text-decoration;
         }
 
         #categories li:active {
             background-color: var(--myCream);
             transition: var(--quickTransition);
-            transition-property: background-color;
+            transition-property: background-color, text-decoration;
         }
 
 .projectSkill {
@@ -315,6 +319,22 @@ button {
             font-size: 14pt;
         }
 }
+/* image formatting*/
+
+#headshot{
+    position:absolute;
+    inset: 0 0 auto auto;
+    float: right;
+    object-fit:contain;
+    height: 100px;
+}
+@media only screen and (min-width: 800px){
+    #headshot{
+        position:unset;
+        height: 300px;
+    }
+}
+
 /* general text formatting */
 h1 { /* titles and headers */
     font-family: var(--titleFont);
@@ -324,9 +344,14 @@ h1 { /* titles and headers */
 h2 { /* Sub headers mainly used in the education tab */
     text-transform: capitalize;
     font-family: var(--subtitleFont);
-    font-size: 14pt;
+    font-size: 16pt;
 }
 
     h2::first-letter {
         text-transform: capitalize;
     }
+
+#content h3 {
+    font-family: var(--subtitleFont);
+    font-size: 14pt;
+}

@@ -15,11 +15,13 @@
     transition: var(--quickTransition);
     background: linear-gradient( white, white 50%, var(--myCream) 50%, var(--myCream) );
     background-size: 100% 200%;
+    transition-property: box-shadow, background-position;
 }
 
     .project * {
         transition: var(--quickTransition);
         margin: 0.5rem;
+        transition-property: transform;
     }
 
     .project p {
@@ -31,16 +33,17 @@
         box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
         background-position: 100% 100%;
         transition: var(--quickTransition);
+        transition-property: box-shadow,background-position;
     }
 
         .project:hover * {
             transform: translateY(-3px);
             transition: var(--quickTransition);
+            transition-property: transform;
         }
 
 /* education page styling */
 #education {
-    position: relative;
     display: grid;
     grid-auto-flow: column;
     grid-template-areas:
@@ -76,16 +79,18 @@
 .subtitleAbbreviated {
     display: inline;
     white-space: nowrap;
+    font-size: 12pt;
 }
 
 .subtitleFull {
     display: none;
+    font-size: 13pt;
 }
 /* school class hover transition properties */
 
 .schoolContainer { /* this container allows the .schoolClass to pop out of the element without breaking the grid */
     transition: var(--longTransition);
-    transition-property: box-shadow background;
+    transition-property: box-shadow, background;
     margin: 0 2px;
     overflow: hidden;
     min-height: 30px;
@@ -99,27 +104,27 @@
         box-shadow: 0px 0px 2px 1px var(--myGrey);
         border-radius: 4px;
         transition: var(--quickTransition);
-        transition-property: box-shadow background;
+        transition-property: box-shadow, background;
     }
 
         .schoolContainer:hover > .schoolClass,
         .schoolContainer:focus > .schoolClass,
         .schoolContainer:active > .schoolClass {
-            position: fixed;
+            position: absolute;
             inset: 50px 1rem auto 1rem;
             box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
             border-radius: 4px;
             background-color: var(--myCream);
             transition: var(--medTransition);
-            transition-property: background-color inset;
-            z-index: 1;
+            transition-property: background-color, inset;
+            z-index: 2;
         }
 
 
             .schoolContainer:hover > .schoolClass > p,
             .schoolContainer:focus > .schoolClass > p,
             .schoolContainer:active > .schoolClass > p {
-                font-size: 14pt; /* TODO */
+                font-size: 14pt; 
                 transition: var(--medTransition);
                 transition-timing-function: cubic-bezier(0.8, 0, 0, 1.0);
                 transition-property: font-size;
@@ -154,6 +159,8 @@
     border-radius: 3px;
     z-index: 1;
     inset: 160px 1rem auto 1rem;
+    transition: var(--medTransition);
+    transition-property: inset;
 }
 
 @media only screen and (min-width: 600px) {
@@ -236,6 +243,7 @@
     filter: hue-rotate(0);
     transform: scale(1.1);
     transition: var(--quickTransition);
+    transition-property: transform, filter, margin, opacity;
 }
 
     .graphicButton:active,

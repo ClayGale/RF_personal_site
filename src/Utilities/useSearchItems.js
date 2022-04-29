@@ -10,8 +10,9 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
             for (const [key, value] of Object.entries(dataSet.data)) {
                 projectPrevs[0].push(key);
                 projectPrevs[1].push(
-                    <div key={key} className='project'
-                        onWheel={horizontalScroll} onClick={() => handleShowcaseRequest(key)}>
+                    <div tabIndex="0" key={key} className='project'
+                        onWheel={horizontalScroll} onKeyDown={e => e.key === 'Enter' && handleShowcaseRequest(key)}
+                        onClick={() => handleShowcaseRequest(key)}>
                         <h1>{value.title}</h1>
                         <p> {value.desc} </p>
                     </div >
@@ -22,11 +23,18 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
            prevs[1] contains the actual elements. this is true for both cases*/
         case "education":
             let classPrevs = [[], []]; //container for keys and generated elements
-            
-            for (const [key, value] of Object.entries(dataSet.data)) {
+
+            // sorting so the communications classes and computer science classes are first since they are more relevant
+            for (const [key, value] of Object.entries(dataSet.data).sort((a, b) => {
+                if (a[0].startsWith('C') && b[0].startsWith('C')) {return 0;}
+                if (!a[0].startsWith('C') && !b[0].startsWith('C')) {return 0;}
+                if (b[0].startsWith('C')) { return 1; }
+                else { return -1; }
+                return 0;
+            })) {
                 classPrevs[0].push(key);
                 classPrevs[1].push(
-                    <div key={key} className='schoolContainer' onWheel={horizontalScroll}>
+                    <div tabIndex="0" key={key} className='schoolContainer' onWheel={horizontalScroll}>
                         <div className='schoolClass'>
                             <h1>{key}</h1>
                             <h2 className='subtitleAbbreviated'>{value.shortTitle}</h2>
@@ -90,8 +98,8 @@ function singleResult(id, value, type, handleShowcaseRequest) {
     switch (type) {
 
         case "projects":
-
-            handleShowcaseRequest(id);
+            // sending request on delay so the animations proceed smoothly
+            setTimeout(() => {handleShowcaseRequest(id)}, 500); 
             return (
                 <div key={id} className='project' onClick={() => handleShowcaseRequest(id)}>
                     <h1>{value.title}</h1>

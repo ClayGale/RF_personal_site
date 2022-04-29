@@ -1,5 +1,5 @@
 import sys, os, json
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, send_file
 from flask_cors import CORS, cross_origin
 from . import searchPrep
 
@@ -68,13 +68,6 @@ def about():
     output = {"htmlPack":render_template('about.html', title='about')}
     return jsonify(output)
 
-#@app.route('/resume') # route for resume dataset and body text
-#@cross_origin()
-#def resume():
-
-#    output = {"htmlPack":render_template('resume.html'), "resumeSet":resumeSet, "type":"resume"}
-#    return jsonify(output)
-
 @app.route('/nav') # route for the top nav bar
 @cross_origin()
 def nav():
@@ -88,12 +81,9 @@ def showcase(sValue):
     output = {"htmlPack":render_template('showcaseTemplates/' + sValue + '.html', title='showcase')}
     return jsonify(output)
 
+@app.route('/images/<img>')
+@cross_origin()
+def image(img):
+    image = os.path.join(app.static_folder, 'images/' + img)
 
-    #showcase = os.path.join(app.static_folder, 'data', 'projects.json')
-    #with open(projects) as pData: #open json for iteration
-    #    data = json.load(pData)
-
-    #for project in data:
-    #    if project.ID == pId: #matching ID and setting output to matched project set
-    #        output = project
-    #        break
+    return send_file(image, mimetype='image/png')

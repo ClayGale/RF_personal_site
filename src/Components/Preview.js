@@ -54,7 +54,7 @@ const Preview = (props) => {
                 {graphic[1]}
             </button>
             <SwitchTransition>
-                <CSSTransition key={items} timeout={300} classNames="my-search" unmountOnExit>
+                <CSSTransition key={items} timeout={200} classNames="my-search" unmountOnExit>
                     <div ref={scrollingBox} id={props.type} className="snapping scrolling" onWheel={horizontalScroll}>{items}</div>
                 </CSSTransition>
             </SwitchTransition>

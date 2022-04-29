@@ -3,8 +3,12 @@ import { CSSTransition } from 'react-transition-group';
 
 const Splash = (props) => {
 
-    useEffect(() => {
+    useEffect(() => { //setting the splash screen to active on initial render
         props.setSplash(true);
+        //making the splash screen not linger if the user is coming back to a specific page
+        if (window.location.pathname !== '/') { 
+            setTimeout(() => { props.setSplash(false) }, 700);
+        }
     }, []);
 
     return (
