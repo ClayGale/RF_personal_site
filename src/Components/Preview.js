@@ -49,7 +49,7 @@ const Preview = (props) => {
     return (
         <section >
             <Showcase showcase={showcase} setShowcase={setShowcase} />
-            <input type="search" placeholder="Search" ref={searchInput} onChange={handleSearch} />
+            <input type="text" placeholder="Search" ref={searchInput} onChange={handleSearch} />
             <button type="button" className={graphic[0]} onClick={clearInput}>
                 {graphic[1]}
             </button>

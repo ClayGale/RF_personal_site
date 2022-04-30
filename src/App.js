@@ -20,7 +20,9 @@ function App() {
     const contentChange = useCallback((newView, search = '') => {
         window.history.replaceState(newView, "Title", newView); //setting the URL for clarity
         console.log(search);
-        initialSearch.current = search;
+        if (search !== '') {
+            initialSearch.current = "'" + search + "'";
+        }
         setView(newView);
     });
 

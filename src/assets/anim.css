@@ -225,7 +225,7 @@ only uses exit classes as the animations of this component are tied to the same 
 
 /* search animations */
 .my-search-enter {
-    transform: none;
+    transform: translate(-1rem,-1rem);
     filter: blur(3px);
 }
     .my-search-enter > div {
@@ -235,16 +235,16 @@ only uses exit classes as the animations of this component are tied to the same 
     }
 
 .my-search-enter-active {
-    transform: none;
+    transform: translate(0);
     filter: blur(0);
     opacity: 1;
-    transition: var(--longTransition);
+    transition: var(--medTransition);
     transition-property: filter, opacity, transform;
 }
 
 .my-search-enter-done {
     transform: none;
-    filter: blur(0);
+    filter: none;
     opacity: 1;
     transition: var(--medTransition);
     transition-property: filter, opacity, transform;

@@ -212,7 +212,7 @@ button {
         margin-top: -18%;
         opacity: 0;
         transition: var(--medTransition);
-        transition-property: margin, padding;
+        transition-property: margin-top, padding-left, padding-top, opacity;
         transition-timing-function: ease-out;
         /* the margin and padding on this function effectively work as timing for the ripple effect */
     }
@@ -241,7 +241,7 @@ button {
     grid-template-columns: 33% 33% 33%;
     color: white;
     background: radial-gradient(ellipse at top left, var(--myDarkerBurgundy) 23%, transparent), radial-gradient(ellipse at bottom right, var(--myDarkerBurgundy) 23%, transparent);
-    box-shadow: white 0px 0px 2px 3px inset;
+    box-shadow: white 0px 0px 2px 0px inset;
     transition: var(--quickTransition);
 }
 
@@ -282,8 +282,7 @@ button {
     display: grid;
     grid-area: body;
     grid-template-areas:
-        "sublist"
-        "subheader";
+        "subheader sublist";
     max-width: 1280px;
     margin: 0 60px;
     color: var(--myOffBlack);
@@ -292,20 +291,12 @@ button {
 }
 
     #resumeBody li {
-        display: inline-block;
         list-style-position: inside;
         list-style-type: disc;
         margin: 0 1rem;
     }
 
 @media only screen and (min-width: 1000px) {
-    #resumeBody {
-        grid-template-areas:
-            "subheader sublist";
-    }
-    #resumeBody li {
-        display:block;
-    }
     
     #categories {
         line-height: 95%;
@@ -319,18 +310,28 @@ button {
             font-size: 14pt;
         }
 }
+@media only screen and (max-width: 1000px){
+
+    #resumeBody {
+        grid-template-areas:
+            "sublist"
+            "subheader";
+    }
+
+        #resumeBody li {
+            display: inline-block;
+        }
+    
+}
 /* image formatting*/
 
 #headshot{
-    position:absolute;
-    inset: 0 0 auto auto;
     float: right;
     object-fit:contain;
     height: 100px;
 }
 @media only screen and (min-width: 800px){
     #headshot{
-        position:unset;
         height: 300px;
     }
 }
