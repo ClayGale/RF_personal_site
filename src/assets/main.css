@@ -29,20 +29,17 @@ body {
     margin: auto;
     padding: 0 0.5em;
     background-color: white;
-    
-
 }
 
 
 #mainView { /* fixing height to keep the contact bar stuck to the bottom of the screen */
-    min-height: 77vh;
+    min-height: 78vh;
     transition: var(--medTransition);
 }
 /*
     styling for top navigation bar
 */
 nav {
-    /* content properties */
     position: sticky;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -51,11 +48,12 @@ nav {
     color: white;
     background-image: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
     margin: auto;
-    opacity: 0;
+    opacity: 0; /* opacity and translate are transitioned out of when the splash screen finishes */
     transform: translateY(-3em);
     font-size: 32px;
     transition: var(--longTransition);
 }
+
 @media only screen and (min-width: 600px) {
     nav {
         max-width: 800px;
@@ -64,9 +62,9 @@ nav {
 
 @media only screen and (min-width: 1730px) {
     body {
-        max-width:1380px;
+        max-width: 1380px;
     }
-    
+
     nav {
         grid-template-columns: repeat(4, 1fr);
         padding: 40px 120px 40px 120px;
@@ -79,7 +77,7 @@ nav {
 #content {
     max-width: 1280px;
     margin: 0 60px 0 60px;
-    position:relative;
+    position: relative;
 }
 
     #content h1 {
@@ -94,6 +92,7 @@ nav {
         font-size: 14pt;
         /*letter-spacing: 1px;*/
     }
+
 .pageTitle {
     margin: 1rem;
     font-size: 20pt;
@@ -102,6 +101,7 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 @media only screen and (min-width: 600px) {
     #content p {
         width: max(70%, 500px);
@@ -146,7 +146,7 @@ nav {
 /* styling for bottom screen contact bar */
 
 #contactBar {
-    position:sticky;
+    position: sticky;
     inset: auto auto 0 auto;
     padding: 1rem;
     font-family: var(--bodyFont);
@@ -194,6 +194,9 @@ button {
     transition: var(--quickTransition);
     transition-property: background-color;
     overflow: hidden;
+    width: fit-content;
+    margin: auto;
+    padding: 0 2rem;
 }
 
     .navlink:hover {
@@ -208,13 +211,15 @@ button {
         display: block;
         position: absolute;
         padding-top: 300%;
-        padding-left: 150%;
-        margin-top: -18%;
+        padding-left: 200%;
+        height: 200%;/* size allows the ripple to seemingly come from one side */
+        width: 200%;
         opacity: 0;
+        top: -50%; /* starting position for ripple */
+        left: -200%;
         transition: var(--medTransition);
-        transition-property: margin-top, padding-left, padding-top, opacity;
+        transition-property:padding-left, padding-top, opacity;
         transition-timing-function: ease-out;
-        /* the margin and padding on this function effectively work as timing for the ripple effect */
     }
 
     .navlink:active::after {
@@ -275,7 +280,7 @@ button {
         }
 
 .projectSkill {
-    font-weight:700;
+    font-weight: 700;
 }
 
 #resumeBody {
@@ -297,20 +302,22 @@ button {
     }
 
 @media only screen and (min-width: 1000px) {
-    
+
     #categories {
         line-height: 95%;
         margin: auto 10% auto 10%;
     }
-    #categories > ul {
-        font-size: 20pt;
-    }
+
+        #categories > ul {
+            font-size: 20pt;
+        }
 
         #categories li {
             font-size: 14pt;
         }
 }
-@media only screen and (max-width: 1000px){
+
+@media only screen and (max-width: 1000px) {
 
     #resumeBody {
         grid-template-areas:
@@ -321,18 +328,20 @@ button {
         #resumeBody li {
             display: inline-block;
         }
-    
 }
 /* image formatting*/
 
-#headshot{
+#headshot {
     float: right;
-    object-fit:contain;
+    object-fit: contain;
     height: 100px;
+    border-radius: 1rem 2rem;
 }
-@media only screen and (min-width: 800px){
-    #headshot{
+
+@media only screen and (min-width: 800px) {
+    #headshot {
         height: 300px;
+        border-radius: 2rem 4rem;
     }
 }
 

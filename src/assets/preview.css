@@ -49,7 +49,6 @@
     grid-template-areas:
         "one"
         "one"
-        "one"
         "one";
     gap: 10px;
     padding: 20px;
@@ -69,7 +68,6 @@
     }
 
     .schoolClass > p {
-        /*display: none;*/
         text-align: center;
         font-family: var(--bodyFont);
         font-size: 0;
@@ -93,14 +91,14 @@
     transition-property: box-shadow, background;
     margin: 0 2px;
     overflow: hidden;
-    min-height: 30px;
+    min-height: 80px;
     width: 400px;
 }
     /* The trio of selectors allows for a combination of tapping on mobile and mouseover */
     .schoolContainer:hover,
     .schoolContainer:focus,
     .schoolContainer:active {
-        background: radial-gradient(circle at center, var(--myCream) 80%, white);
+        background: radial-gradient(ellipse at center, var(--myCream) 60%, white);
         box-shadow: 0px 0px 2px 1px var(--myGrey);
         border-radius: 4px;
         transform: none;
@@ -119,7 +117,10 @@
             border-radius: 4px;
             background-color: var(--myCream);
             transition: var(--medTransition);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.5, 1.0);
             transition-property: background-color, inset;
+            animation-duration: 0.5s;
+            animation-name: blurOut;
             z-index: 2;
         }
 
@@ -147,6 +148,21 @@
                 display: inline;
             }
 /* hidden until the element is triggered */
+
+@keyframes blurOut {
+    from {
+        filter: blur(2px);
+    }
+
+    90% {
+        filter: blur(0);
+    }
+
+    to {
+        filter: none;
+    }
+}
+
 
 @media only screen and (min-width: 600px) {
     .schoolContainer:hover > .schoolClass,
@@ -177,20 +193,26 @@
             font-size: 18pt;
         }
 }
-/* showcase properties */
 
+.skillsElement { /* Giving the skillset it's own color and boldface */
+    color: var(--myDarkerBurgundy) !important; /* the !important tags keep the schoolclass selectors from fighting it */
+    font-weight: 700;
+    white-space: nowrap;
+    font-size: 14pt !important;
+}
+/* showcase properties */
 #showcase {
     position: fixed;
     border-radius: 3px;
     z-index: 1;
-    inset: 160px 1rem auto 1rem;
+    inset: 3rem 1rem auto 1rem;
     transition: var(--medTransition);
     transition-property: inset;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
     #showcase {
-        inset: 160px 30vw auto 30vw;
+        inset: 3rem 20vw auto 20vw;
     }
 }
 
@@ -210,6 +232,8 @@
     background-color: var(--myCream);
     box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
     padding: 1em;
+    max-height: 80vh;
+    color: var(--myOffBlack);
 }
 
     #showcaseContent p {
@@ -217,21 +241,26 @@
         font-size: 14pt;
     }
 
+    #showcaseContent h2 {
+        font-size: 13pt;
+    }
 
 .closeButton {
     position: absolute;
-    inset: 0 0 auto auto;
+    inset: 0 1rem auto auto;
     z-index: 2;
 }
 
 /* search button animations */
 .inactive {
     display: inline;
+    color: white;
     opacity: 0;
     margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     padding: 0 0.5rem;
-    transform: scale(1.1);
+    transform: scale(2);
     transition: var(--quickTransition);
+    transition-property: transform, opacity, color;
 }
 
 .noResults { /* not used right now */
@@ -267,7 +296,7 @@
     filter: hue-rotate(0);
     transform: scale(1.1);
     transition: var(--quickTransition);
-    transition-property: transform, filter, margin, opacity;
+    transition-property: transform, filter, opacity;
 }
 
     .graphicButton:active,
@@ -277,6 +306,7 @@
 
 .resultButton {
     filter: hue-rotate(180deg) brightness(1.5);
+    transition-property: transform, filter;
 }
 
 /* search field styling */
@@ -292,6 +322,7 @@ input {
     padding: 0 0 0 1em;
     margin-left: 3rem;
     transition: var(--medTransition);
+    transition-property: background-color, outline, box-shadow;
     line-height: 60%;
 }
 
@@ -299,4 +330,5 @@ input {
         outline: none;
         background-color: unset;
         box-shadow: var(--myGoldenYellow) 0px 0px 2px 1px inset, var(--myCream) 0px 0px 10px 12px inset;
+        transition-property: background-color, outline, box-shadow;
     }

@@ -25,7 +25,6 @@ function App() {
         }
         setView(newView);
     });
-
     return (
         <div className="App">
             <Splash splash={splash} setSplash={setSplash} />

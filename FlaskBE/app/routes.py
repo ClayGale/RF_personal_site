@@ -87,3 +87,10 @@ def image(img):
     image = os.path.join(app.static_folder, 'images/' + img)
 
     return send_file(image, mimetype='image/png')
+
+@app.route('/files/<filename>') # file downloads
+@cross_origin()
+def download(filename):
+    file = os.path.join(app.static_folder, "files/" + filename)
+
+    return send_file(file, as_attachment=True)

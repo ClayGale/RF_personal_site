@@ -3,31 +3,11 @@ import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 /* building the preview elements */
 function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
 
-    /* small nested function to turn the skill categories array into a neat little row of text */
-    function buildSkillsElement(skills){
-        let skillsDesc = "Skills: "
-        for (const category of skills) {
-            for (const skill of category) {
-                skillsDesc = skillsDesc.concat(skill, ", ");
-            }
-        }
-        console.log(skillsDesc.length);
-        if (skillsDesc.length < 9) { // send nothing if there were no skills
-            return null;
-        }
-
-        return (
-            <p className="skillsElement">
-                {skillsDesc.slice(0, -2)}
-                </p>
-            ); // returning the generated text minus one ", "
-    }
-
     switch (dataSet.type) {
 
         case "projects":
             let projectPrevs = [[], []]; //container for keys and generated elements
-            console.log(dataSet);
+            
             for (const [key, value] of Object.entries(dataSet.data)) {
                 projectPrevs[0].push(key);
                 projectPrevs[1].push(
@@ -74,12 +54,32 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
     }
 }
 
+/* small function to turn the skill categories array into a neat little row of text */
+function buildSkillsElement(skills) {
+    let skillsDesc = "Skills: "
+    for (const category of skills) {
+        for (const skill of category) {
+            skillsDesc = skillsDesc.concat(skill, ", ");
+        }
+    }
+
+    if (skillsDesc.length < 9) { // send nothing if there were no skills
+        return null;
+    }
+
+    return (
+        <p className="skillsElement">
+            {skillsDesc.slice(0, -2)}
+        </p>
+    ); // returning the generated text minus one ", "
+}
+
 /* creating a set of element names based on matches.
  split causes each word to be used for querying. a less strict search rather than the full text query */
 function searchItems(query, searchSet) { //something is screwed up with single item results TODO
     let results = [];
     let processedQuery = []; 
-    if (query[0] == "'" && query[query.length - 1] == "'") { //strict searching when the string is enclosed with ''
+    if (query[0] === "'" && query[query.length - 1] === "'") { //strict searching when the string is enclosed with ''
         processedQuery = [query.toLowerCase().replaceAll("'","")];
         console.log(processedQuery);
     }
@@ -97,7 +97,7 @@ function searchItems(query, searchSet) { //something is screwed up with single i
             }
         }
     }
-    console.log(results);
+
     return results;
 }
 
@@ -130,6 +130,7 @@ function singleResult(id, value, type, handleShowcaseRequest) {
                 <div key={id} className='project' onClick={() => handleShowcaseRequest(id)}>
                     <h1>{value.title}</h1>
                     <p> {value.desc} </p>
+                    {buildSkillsElement(value.skills)}
                 </div >);
 
         case "education":
@@ -138,6 +139,7 @@ function singleResult(id, value, type, handleShowcaseRequest) {
                     <h1>{id}</h1>
                     <h2>{value.title}</h2>
                     <p> {value.classdesc} </p>
+                    {buildSkillsElement(value.skills)}
                 </div>
             );
 

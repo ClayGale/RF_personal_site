@@ -8,40 +8,13 @@
       ["Web Design"]
     ]
   },
-  "testy": {
-    "title": "template project BOOO",
-    "desc": "what this is",
-    "skills": [
-      [ "React" ],
-      [],
-      []
-    ]
-  },
-  "tests": {
-    "title": "template project UGH",
-    "desc": "what this REALLY is blah blah blah",
-    "skills": [
-      ["c++"],
-      [],
-      []
-    ]
-  },
-  "testooo": {
-    "title": "template project yeehaw",
-    "desc": "what this REALLY is blah blah blah",
-    "skills": [
-      ["Java"],
-      [],
-      []
-    ]
-  },
-  "testla": {
-    "title": "template project things",
-    "desc": "test description go BRRRR",
+  "manual": {
+    "title": "PC Building Manual",
+    "desc": "A manual I wrote with a partner that covered the process of building a PC in detail. Used with success by multiple real people!",
     "skills": [
       [],
       [],
-      []
+      ["Technical Writing"]
     ]
   }
 }

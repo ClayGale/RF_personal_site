@@ -38,7 +38,7 @@ const Showcase = (props) => {
                 <button type="button" className="closeButton graphicButton" onClick={closeShowcase}>
                     {'\u2715'}
                 </button>
-                <div id="showcaseContent" dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
+                <div id="showcaseContent" className="scrolling" dangerouslySetInnerHTML={createMarkup(content.htmlPack)}></div>
                 <div class="mask" onClick={closeShowcase}></div>
             </div>
         </CSSTransition>
