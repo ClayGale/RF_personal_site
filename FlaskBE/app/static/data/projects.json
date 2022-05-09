@@ -3,9 +3,9 @@
     "title": "template project eggs",
     "desc": "what this is",
     "skills": [
-      ["React","Flask","Python","Javascript","CSS"],
+      [ "React", "Flask", "Python", "Javascript", "CSS" ],
       [],
-      ["Web Design"]
+      [ "Web Design" ]
     ]
   },
   "manual": {
@@ -14,7 +14,25 @@
     "skills": [
       [],
       [],
-      ["Technical Writing"]
+      [ "Technical Writing" ]
+    ]
+  },
+  "beerclub": {
+    "title": "Mock-up Beer Review site",
+    "desc": "A website I created with a partner. The objective was to create a project utilizing the complete baseline LAMP stack. It has a user account system, a user editable list of beers, and users can post reviews of them! ",
+    "skills": [
+      ["LAMP"],
+      [],
+      []
+    ]
+  },
+  "isearch": {
+    "title": "i-Search-Kelowna",
+    "desc": "",
+    "skills": [
+      [],
+      [],
+      [ "Data Analysis" ]
     ]
   }
 }

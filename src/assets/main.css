@@ -44,7 +44,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    padding: 65px 80px 15px 80px;
+    padding: 65px 0 15px 0;
     color: white;
     background-image: linear-gradient(to bottom, var(--myBurgundy), var(--myDarkerBurgundy));
     margin: auto;
@@ -57,6 +57,7 @@ nav {
 @media only screen and (min-width: 600px) {
     nav {
         max-width: 800px;
+        padding: 65px 80px 15px 80px;
     }
 }
 
@@ -118,6 +119,7 @@ nav {
     font-family: var(--titleFont);
     color: var(--myDarkerBurgundy);
     z-index: 2;
+    white-space:nowrap;
 }
 
     #splash::before {
@@ -279,7 +281,7 @@ button {
             transition-property: background-color, text-decoration;
         }
 
-.projectSkill {
+.projectSkill { /* skills tied to projects are bold! */
     font-weight: 700;
 }
 
@@ -351,7 +353,7 @@ h1 { /* titles and headers */
     color: var(--myDarkerBurgundy);
 }
 
-h2 { /* Sub headers mainly used in the education tab */
+h2 { /* Sub headers */
     text-transform: capitalize;
     font-family: var(--subtitleFont);
     font-size: 16pt;

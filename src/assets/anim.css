@@ -43,13 +43,14 @@
 .my-splash-exit {
     font-size: 100px;
     top: 0%;
-    left: 45%;
+    left: 50%;
     transition: all 700ms ease;
 }
 
 
 .my-splash-exit-active {
     left: 50%;
+    transition: all 700ms ease;
 }
 
     .my-splash-exit-active::before {
@@ -69,6 +70,7 @@
         transform: translate(100%, 200%) !important;
         opacity: 0;
         margin: 0;
+        font-size: 0;
         transition: all 700ms ease;
     }
 
@@ -79,13 +81,14 @@
 
     .my-splash-exit-done > h1 {
         font-size: 48px;
-        margin: 0 auto 0 auto;
         letter-spacing: 3px;
         transform: translateX(-50%) !important;
         transition: all 700ms ease;
     }
     .my-splash-exit-done > h3 {
-        display: none;
+        opacity: 0;
+        margin: 0;
+        font-size: 0;
     }
 @media only screen and (min-width: 1730px) {
     .my-splash-exit {
