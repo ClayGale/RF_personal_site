@@ -1,9 +1,9 @@
 {
   "test": {
-    "title": "template project eggs",
-    "desc": "what this is",
+    "title": "This Website!",
+    "desc": "My personal CV site which you are currently viewing. It was built using a React front-end and a Flask back-end. Also contains a mini search engine for sorting through my classes and projects",
     "skills": [
-      [ "React", "Flask", "Python", "Javascript", "CSS" ],
+      [ "React", "Javascript", "Flask", "Python", "CSS" ],
       [],
       [ "Web Design" ]
     ]
@@ -21,18 +21,27 @@
     "title": "Mock-up Beer Review site",
     "desc": "A website I created with a partner. The objective was to create a project utilizing the complete baseline LAMP stack. It has a user account system, a user editable list of beers, and users can post reviews of them! ",
     "skills": [
-      ["LAMP"],
-      [],
+      [ "PHP", "CSS" ],
+      [ "LAMP" ],
       []
     ]
   },
   "isearch": {
     "title": "i-Search-Kelowna",
-    "desc": "",
+    "desc": "The two-year capstone project for my degree, I worked with a team to create data-analysis prototypes for them as they worked on a website designed to help low-income and at-risk individuals find housing.",
     "skills": [
-      [],
+      [ "PHP" ],
       [],
       [ "Data Analysis" ]
+    ]
+  },
+  "minesweeper": {
+    "title": "Minesweeper Clone",
+    "desc": "My year one end project during my degree. I fully recreated the 'classic' game of minesweeper with extra features such as custom difficulty and ridiculous board sizes.",
+    "skills": [
+      [ "Java" ],
+      [],
+      [ "Object Oriented Programming" ]
     ]
   }
 }

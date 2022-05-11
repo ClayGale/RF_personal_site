@@ -14,7 +14,7 @@
     --myGrey: hsl(217, 14%, 70%);
     --myOffBlack: hsla(0, 0%, 0%, .75);
     /* font variables */
-    --titleFont: 'Bebas Neue', serif;
+    --titleFont: 'Bebas Neue', monospace;
     --subtitleFont: 'Quicksand', sans-serif;
     --bodyFont: 'Harmattan', sans-serif;
     /* transition timing variables */
@@ -283,6 +283,13 @@ button {
 
 .projectSkill { /* skills tied to projects are bold! */
     font-weight: 700;
+}
+    .projectSkill::marker {
+        /* nothing here in the end */
+    }
+
+.classSkill::marker {
+    color: var(--myGrey)
 }
 
 #resumeBody {

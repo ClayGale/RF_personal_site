@@ -16,6 +16,7 @@
     background: linear-gradient( white, white 50%, var(--myCream) 50%, var(--myCream) );
     background-size: 100% 200%;
     transition-property: box-shadow, background-position;
+    align-content: space-between;
 }
 
     .project * {
@@ -195,10 +196,12 @@
 }
 
 .skillsElement { /* Giving the skillset it's own color and boldface */
+                 position: relative;
     color: var(--myDarkerBurgundy) !important; /* the !important tags keep the schoolclass selectors from fighting it */
     font-weight: 700;
     white-space: nowrap;
     font-size: 14pt !important;
+    bottom:0;
 }
 /* showcase properties */
 #showcase {
