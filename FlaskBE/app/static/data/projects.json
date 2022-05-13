@@ -1,12 +1,13 @@
 {
-  "test": {
+  "personalSite": {
     "title": "This Website!",
     "desc": "My personal CV site which you are currently viewing. It was built using a React front-end and a Flask back-end. Also contains a mini search engine for sorting through my classes and projects",
     "skills": [
       [ "React", "Javascript", "Flask", "Python", "CSS" ],
       [],
       [ "Web Design" ]
-    ]
+    ],
+    "sortIndex": 1
   },
   "manual": {
     "title": "PC Building Manual",
@@ -15,7 +16,8 @@
       [],
       [],
       [ "Technical Writing" ]
-    ]
+    ],
+    "sortIndex": 2
   },
   "beerclub": {
     "title": "Mock-up Beer Review site",
@@ -24,7 +26,8 @@
       [ "PHP", "CSS" ],
       [ "LAMP" ],
       []
-    ]
+    ],
+    "sortIndex": 3
   },
   "isearch": {
     "title": "i-Search-Kelowna",
@@ -33,7 +36,8 @@
       [ "PHP" ],
       [],
       [ "Data Analysis" ]
-    ]
+    ],
+    "sortIndex": 2
   },
   "minesweeper": {
     "title": "Minesweeper Clone",
@@ -42,6 +46,7 @@
       [ "Java" ],
       [],
       [ "Object Oriented Programming" ]
-    ]
+    ],
+    "sortIndex": 3
   }
 }

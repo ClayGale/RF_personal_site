@@ -1,13 +1,13 @@
 {
 
   "COSC 109": {
-    "shortTitle": "Technical Aspects of OS TODO",
+    "shortTitle": "Technical Aspects of OS",
     "title": "Technical aspects of operating systems",
     "classdesc": "This course will provide students with an overview of the UNIX and Windows operating systems. Topics include setup, processes, file systems, log files, recovery, popular daemons/services, text manipulation utilities, network utilities, shells, and scripting. Brief overviews of network troubleshooting and batch files are included.",
     "skills": [
-      ["c"],
       [],
-      ["Linux","Shell Scripting"]
+      [],
+      [ "Linux", "Shell Scripting" ]
     ]
   },
   "COSC 111": {
@@ -15,7 +15,7 @@
     "title": "Computer Programming I",
     "classdesc": "This course is an introduction to the design, implementation, and understanding of computer programs. Topics include problem solving, modeling, algorithm design, and abstraction, with the emphasis on the development of working programs.",
     "skills": [
-      ["Java"],
+      [ "Java" ],
       [],
       []
     ]
@@ -26,15 +26,15 @@
     "classdesc": "This course introduces the theory of practice of modern telecommunications with an emphasis on the TCP/IP (Transmission Control Protocol/Internet Protocol) stack. Students will learn to install and troubleshoot the electronic components necessary for telephony and data communications.",
     "skills": [
       [],
-      ["Wireshark"],
-      ["Networking"]
+      [ "Wireshark" ],
+      [ "Networking" ]
     ]
   },
   "ECON 115": {
     "shortTitle": "Micro-economics",
     "title": "Principles of micro-economics",
 
-    "classdesc": "This course is the micro half of the standard university-level introductory course in economic institutions and theory. It deals with supply and demand, the analysis of the firm under different market structures, markets for factors of production, and the distribution of income.",
+    "classdesc": "This course is the \"micro\" half of the standard university-level introductory course in economic institutions and theory. It deals with supply and demand, the analysis of the firm under different market structures, markets for factors of production, and the distribution of income.",
     "skills": [
       [],
       [],
@@ -43,8 +43,8 @@
   },
   "ECON 125": {
     "shortTitle": "Macro-economics",
-    "title": "Principles of macro-economics TODO",
-    "classdesc": "This course is an introduction to the design, implementation, and understanding of computer programs. Topics include problem solving, modeling, algorithm design, and abstraction, with the emphasis on the development of working programs. This course should be followed by COSC 121.",
+    "title": "Principles of macro-economics",
+    "classdesc": "This course is the \"macro\" half of the standard university-level introduction to economic institutions and theory. It deals with national income theory, money and banking, fiscal and monetary policies and international trade, with an emphasis on the Canadian economy and its problems. ",
     "skills": [
       [],
       [],
@@ -53,8 +53,8 @@
   },
   "BUAD 111": {
     "shortTitle": "Accounting 1",
-    "title": "Financial accounting 1 TODO",
-    "classdesc": "This course introduces the theory of practice of modern telecommunications with an emphasis on the TCP/IP (Transmission Control Protocol/Internet Protocol) stack. Students will learn to install and troubleshoot the electronic components necessary for telephony and data communications.",
+    "title": "Financial accounting 1",
+    "classdesc": "This course is an introduction to the system in which information is collected by the accounting process and presented by financial statements. Accounting cycle, statement preparation, special journals, internal control and the accounting for cash, inventory, payroll, merchandising and sales tax are examined. Basic financial reporting will be reviewed.",
     "skills": [
       [],
       [],
@@ -68,13 +68,13 @@
     "skills": [
       [],
       [],
-      ["Technical Writing"]
+      [ "Technical Writing" ]
     ]
   },
   "ECON 261": {
     "shortTitle": "Econ of developing countries",
     "title": "Economics of developing countries",
-    "classdesc": "i did a learning and got a degree!!",
+    "classdesc": "This course introduces students to economic conditions in less developed countries. The first part of the course provides students with information on what constitutes underdevelopment and looks at various theories that attempt to explain why some countries are less developed than others. Internal and external economic policies useful in changing the economic performance of these countries are explored.",
     "skills": [
       [],
       [],
@@ -88,7 +88,7 @@
     "skills": [
       [],
       [],
-      []
+      [ "Technical Writing" ]
     ]
   },
   "COSC 121": {
@@ -96,9 +96,9 @@
     "title": "Computer programming II",
     "classdesc": "This course is an advanced programming course in the application of software engineering techniques to the design and implementation of programs manipulating complex data structures.",
     "skills": [
+      [ "Java" ],
       [],
-      [],
-      []
+      [ "Data Structures", "Algorithms" ]
     ]
   },
   "COSC 126": {
@@ -107,8 +107,8 @@
     "classdesc": "This course concentrates on the activities associated with developing computer-based information systems. Online systems, including all aspects dealing with the use of databases and data communications, will be emphasized. Practical work will expose students to relational database management systems within a client-server environment and may include Computer Assisted Software Engineering (CASE) tools.",
     "skills": [
       [],
-      [],
-      []
+      [ "Microsoft Access" ],
+      [ "UML" ]
     ]
   },
   "COSC 131": {
@@ -118,7 +118,17 @@
     "skills": [
       [],
       [],
-      []
+      [ "UX" ]
+    ]
+  },
+  "MATH 139": {
+    "shortTitle": "Math for IT",
+    "title": "Mathematics for Information Technology",
+    "classdesc": "This course includes a review of algebra including linear equations, logarithms, exponentials and complex numbers, basic logic, Boolean algebra, number type conversations from base 10 to binary, octal and hex, an introduction to recursion, an introduction to set theory and an introduction to graph theory. ",
+    "skills": [
+      [],
+      [],
+      [ "Discrete Mathematics" ]
     ]
   },
   "COSC 221": {
@@ -128,7 +138,7 @@
     "skills": [
       [],
       [],
-      []
+      [ "Data Structures", "Discrete Mathematics" ]
     ]
   },
   "COSC 213": {
@@ -136,9 +146,9 @@
     "title": "Web development with LAMP",
     "classdesc": "This course focuses on web development using LAMP technology, the Linux operating system, the Apache web server, the MySQL database, and the PHP server-side scripting language. Course topics include LAMP set-up, HTML-5, CSS, PHP, MySQL, fine-tuning and administration of the web server.",
     "skills": [
-      [],
-      [],
-      []
+      [ "PHP", "HTML" ],
+      [ "LAMP", "MySQL" ],
+      [ "Linux", "Sys-admin" ]
     ]
   },
   "COSC 219": {
@@ -146,7 +156,7 @@
     "title": "Client-side web systems",
     "classdesc": "This course is an introduction to web applications published to the Internet. Topics will include validating end-user input, asynchronous and synchronous programming techniques, and content management systems. A scripting language for web development is the primary focus, with an exploration of one higher order library.",
     "skills": [
-      [],
+      [ "Javascript", "CSS", "HTML" ],
       [],
       []
     ]
@@ -154,11 +164,11 @@
   "COSC 222": {
     "shortTitle": "Data structures",
     "title": "Computer data structures",
-    "classdesc": "This course is an exploration of abstract data types (ADTs), their implementations, algorithms (including sorting and searching) and algorithm analysis. ADTs explored include vectors, queues, stacks, deques, lists, sequences, iterators, binary trees, search trees, priority queues, dictionaries, sets, graphs. A high-level programming language is used to study implementations during laboratory work.",
+    "classdesc": "This course is an exploration of abstract data types (ADTs), their implementations, algorithms (including sorting and searching) and algorithm analysis. ADTs explored include vectors, queues, stacks, deques, lists, sequences, iterators, binary trees, search trees, priority queues, dictionaries, sets, graphs.",
     "skills": [
+      [ "C" ],
       [],
-      [],
-      []
+      [ "Data Structures", "Discrete Mathematics" ]
     ]
   },
   "COSC 236": {
@@ -168,7 +178,7 @@
     "skills": [
       [],
       [],
-      []
+      [ "UML" ]
     ]
   },
   "COSC 304": {
@@ -177,8 +187,8 @@
     "classdesc": "This course is an introduction to the use and operating principles of database management systems. Topics include: semantic modelling, query languages, relational calculus and algebra as applied to database design, implementation and access. Students will receive hands-on experience in accessing information using a query language.",
     "skills": [
       [],
-      [],
-      []
+      [ "MySQL" ],
+      [ "Relational Databases" ]
     ]
   },
   "COSC 205": {
@@ -187,14 +197,14 @@
     "classdesc": "This course focuses on the business cycle as it relates to software development including: planning, organizing, directing, monitoring and control. Particular emphasis is given to scheduling practices and solving problems when the project is behind schedule. Students will be enrolled in a computer science capstone project course concurrently and will practice implementing a variety of problem solving strategies.",
     "skills": [
       [],
-      [],
+      [ "Git" ],
       []
     ]
   },
   "COSC 224": {
-    "shortTitle": "TODO",
+    "shortTitle": "CS Project",
     "title": "Projects in computer science",
-    "classdesc": "TODO",
+    "classdesc": "This capstone course for diploma students, synthesizes the material learned in the previous three semesters, including programming, systems analysis and design, networking, and database design and development, or are learning in a corequisite course, to complete a project. Students will choose a project from a selection provided by the professor. In This course I developed my i-search kelowna project.",
     "skills": [
       [],
       [],
@@ -206,18 +216,18 @@
     "title": "Intro to operating systems",
     "classdesc": "This course is an introduction to batch, multiprogramming and time-sharing systems. Process synchronization and communication. Main memory allocation techniques including virtual memory. Process scheduling. Deadlock avoidance and prevention. File organization and device management.",
     "skills": [
+      [ "C++" ],
       [],
-      [],
-      []
+      [ "Shell Scripting", "Algorithms" ]
     ]
   },
   "COSC 331": {
     "shortTitle": "Middleware",
     "title": "Middleware Development",
-    "classdesc": "Students will be introduced to web services that interact across multiple servers and the need for optimal performance and security. The evolution of enterprise software from legacy enterprise applications to the use of microservice containers and orchestration tools will be explored. Topics will include: distributed computing, integrating existing enterprise applications with microservices, and using patterns of software architecture for design.",
+    "classdesc": "In this course, students will explore the technologies employed in the development and deployment of software which participates in a multi-tier enterprise application environment. Topics include application servers, and the presentation, service, data and information system tiers.",
     "skills": [
       [],
-      [],
+      [ "Docker" ],
       []
     ]
   },
@@ -228,7 +238,7 @@
     "skills": [
       [],
       [],
-      []
+      [ "UX" ]
     ]
   },
   "COSC 404": {
@@ -236,18 +246,8 @@
     "title": "Advanced database management systems",
     "classdesc": "This course is a continuation and expansion of the concepts from COSC 304. Review of database environment and database design principles are included. Advanced topics include recovery and concurrency control in distributed database systems, object and object relational databases, data mining, and data warehousing. Students will design and develop database applications using state-of-the art technology. ",
     "skills": [
-      [],
-      [],
-      []
-    ]
-  },
-  "COSC 419": {
-    "shortTitle": "TODO",
-    "title": "Topics in computer science",
-    "classdesc": "TODO",
-    "skills": [
-      [],
-      [],
+      [ "PLSQL" ],
+      [ "MySQL" ],
       []
     ]
   },
@@ -257,7 +257,7 @@
     "classdesc": "This course explores the design and implementation of large, multi-module-program systems. Topics include the software life cycle, design tools, features and use of module-oriented programming languages, intermodule communication, and eXtreme programming. Students will require significant out-of-class time to complete this course successfully. This course is to be taken in the final year of the BCIS degree.",
     "skills": [
       [],
-      [],
+      [ "Git" ],
       []
     ]
   },
@@ -268,7 +268,7 @@
     "skills": [
       [],
       [],
-      []
+      [ "Algorithms" ]
     ]
   },
   "COSC 232": {
@@ -278,17 +278,17 @@
     "skills": [
       [],
       [],
-      []
+      [ "Secure Design", "Encryption" ]
     ]
   },
-  "COSC 419a": {
-    "shortTitle": "TODO",
-    "title": "Topics in computer science",
-    "classdesc": "TODO",
+  "COSC 419": {
+    "shortTitle": "Full Stack Web-Dev",
+    "title": "Topics: Full Stack Web Development",
+    "classdesc": "This course covered a diverse set of topics under the full-stack banner. Students work with a diverse set of frameworks covering many aspects of web development and server administration. Students put it together by designing a live online chatroom.",
     "skills": [
-      [],
-      [],
-      []
+      [ "Laravel", "Flask" ],
+      [ "Docker" ],
+      [ "Secure Design" ]
     ]
   },
   "PHIL 350": {
@@ -317,18 +317,28 @@
     "classdesc": "Students will focus on single-server deployment on a variety of cloud-native platforms(PaaS – Platform as a Service). Students will explore the need to move from their own server to a cloud platform when they have hope to serve thousands of end-users. Topics may include: performant server-side scripting, cost effectiveness and efficiency, load balancing, robustness testing.",
     "skills": [
       [],
-      [],
-      []
+      [ "AWS" ],
+      [ "Sys-admin", "Cloud Usage" ]
     ]
   },
   "COSC 416": {
-    "shortTitle": "TODO",
-    "title": "topics in database",
-    "classdesc": "TODO",
+    "shortTitle": "Non-relational Databases",
+    "title": "Topics: Non-relational Databases",
+    "classdesc": "In this course students will cover the principles of non-relational databases with software such as MongoDB or Redis. Later students will use python to develop their own simplistic database software.",
     "skills": [
-      [],
-      [],
+      ["Python"],
+      [ "MongoDB", "Redis"],
       []
+    ]
+  },
+  "COSC 416b": {
+    "shortTitle": "Survey of Databases",
+    "title": "Topics: Survey of Databases",
+    "classdesc": "In this course students examined a wide array of database softwares and services. Lab assignments saw students testing this programs and running performance comparisons on cloud-service versions of them with python scripts.",
+    "skills": [
+      ["Python"],
+      [ "DynamoDB", "MongoDB", "MySQL", "AWS", "Azure"],
+      [ "Cloud Usage" ]
     ]
   },
   "ECON 335": {
@@ -342,13 +352,13 @@
     ]
   },
   "COSC 417": {
-    "shortTitle": "TODO",
-    "title": "Topics in computer networks",
-    "classdesc": "TODO",
+    "shortTitle": "Internet of Things",
+    "title": "Topics: Internet Routing",
+    "classdesc": "In this course students used python to examine and explore global networks. Topics such as DNS, TCP/IP, and ASNs + Zones of authority.",
     "skills": [
-      [],
-      [],
-      []
+      ["Python"],
+      ["Wireshark"],
+      ["Networking"]
     ]
   },
   "PHIL 331": {
@@ -377,8 +387,8 @@
     "classdesc": "Students will be introduced to web services that interact across multiple servers and the need for optimal performance and security. The evolution of enterprise software from legacy enterprise applications to the use of microservice containers and orchestration tools will be explored. Topics will include: distributed computing, integrating existing enterprise applications with microservices, and using patterns of software architecture for design.",
     "skills": [
       [],
-      [],
-      []
+      [ "AWS", "Azure" ],
+      [ "Sys-admin", "Encryption" ]
     ]
   },
   "PSYC 111": {

@@ -7,8 +7,13 @@ function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
 
         case "projects":
             let projectPrevs = [[], []]; //container for keys and generated elements
-            
-            for (const [key, value] of Object.entries(dataSet.data)) {
+
+            // projects sorted according to preference
+            for (const [key, value] of Object.entries(dataSet.data).sort((a, b) => {
+                if (a[1].sortIndex === b[1].sortIndex) {return 0;}
+                if (a[1].sortIndex > b[1].sortIndex) {return 1;}
+                return -1;
+            })) {
                 projectPrevs[0].push(key);
                 projectPrevs[1].push(
                     <div tabIndex="0" key={key} className='project'

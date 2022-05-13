@@ -148,6 +148,13 @@
             .schoolContainer:active > .schoolClass > .subtitleFull {
                 display: inline;
             }
+
+            /* this selector is just to fix a bug related to the whitespace property when hovering */
+            .schoolContainer:hover > .schoolClass > .skillsElement,
+            .schoolContainer:focus > .schoolClass > .skillsElement,
+            .schoolContainer:active > .schoolClass > .skillsElement {
+                white-space: unset !important;
+            }
 /* hidden until the element is triggered */
 
 @keyframes blurOut {
@@ -196,12 +203,15 @@
 }
 
 .skillsElement { /* Giving the skillset it's own color and boldface */
-                 position: relative;
+    display: block;
+    position: relative;
     color: var(--myDarkerBurgundy) !important; /* the !important tags keep the schoolclass selectors from fighting it */
     font-weight: 700;
     white-space: nowrap;
     font-size: 14pt !important;
-    bottom:0;
+    bottom: 0;
+    float: none !important;
+    text-align: left !important;
 }
 /* showcase properties */
 #showcase {
@@ -230,7 +240,6 @@
 }
 
 #showcaseContent {
-    position: relative;
     z-index: 1;
     background-color: var(--myCream);
     box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
@@ -246,6 +255,9 @@
 
     #showcaseContent h2 {
         font-size: 13pt;
+    }
+    #showcaseContent img {
+        object-fit: cover;
     }
 
 .closeButton {
@@ -335,3 +347,28 @@ input {
         box-shadow: var(--myGoldenYellow) 0px 0px 2px 1px inset, var(--myCream) 0px 0px 10px 12px inset;
         transition-property: background-color, outline, box-shadow;
     }
+
+/* legend styling for diagrams */
+.legendBox{
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    margin: 0 3px;
+}
+
+/* img styling */
+.techLogo{
+    float: left;
+}
+.sample{
+    max-width:100%;
+}
+.sample:active, .sample:focus{
+    max-width: unset;
+    position: fixed;
+    inset: 4rem auto auto auto;
+    background-color: var(--myCream);
+    transition: var(--medtransition);
+    transition-property: inset, background-color;
+}

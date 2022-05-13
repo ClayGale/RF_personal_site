@@ -13,6 +13,9 @@ def searchSet(file):
         for entry in dataSet:
             results[entry] = []
             
+            if dataSet[entry].get('sortIndex', 0): # removing the sort index since it is not used here
+                dataSet[entry].pop('sortIndex')
+
             # each entry contains a skills array, here i check if it is not empty and then pop it
             # the skills are added to the results dict first so they are hit first when searching
             if dataSet[entry].get('skills', 0):
