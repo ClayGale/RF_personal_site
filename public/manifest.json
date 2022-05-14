@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Clays React app",
+  "name": "Clays React app w/ flask",
   "icons": [
     {
       "src": "favicon.ico",

@@ -7,7 +7,7 @@ def searchSet(file):
     results = {}
     badChars = ['.',',','(',')','-',':',';','/'] # characters to be filtered from the processed data
     skillsList = [] # separating the skill entries to be passed separately for the resume
-    with open(file) as Data:
+    with open(file, encoding="utf8", errors='ignore') as Data:
         dataSet = json.load(Data)
         
         for entry in dataSet:
