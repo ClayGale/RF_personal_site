@@ -39,5 +39,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": {
+    "production": "https://54.69.232.76/api",
+    "development": "http://localhost:5000"
+  }
 }
