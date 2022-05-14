@@ -27,8 +27,8 @@ resumeSet = searchPrep.resumePrep(projectEntries[1],classesEntries[1])
 del projectEntries
 del classesEntries
 
-@app.route('/')
-@app.route('/index') # home screen 
+@app.route('/api/')
+@app.route('/api/index') # home screen 
 @cross_origin()
 def index():
     print('Hello world!', file=sys.stderr)
@@ -37,7 +37,7 @@ def index():
     return jsonify(output)
 
 
-@app.route('/projects')  # route for projects showcase including json project data loading
+@app.route('/api/projects')  # route for projects showcase including json project data loading
 @cross_origin()
 def projects():
     projects = os.path.join(app.static_folder, 'data', 'projects.json')
@@ -49,7 +49,7 @@ def projects():
               "data":data, "searchSet":projectSet, "type":"projects"}
     return jsonify(output)
 
-@app.route('/education')  # route for education summary including json classlist data loading.
+@app.route('/api/education')  # route for education summary including json classlist data loading.
 @cross_origin()
 def education():
     classes = os.path.join(app.static_folder, 'data', 'education.json')
@@ -61,19 +61,19 @@ def education():
               "data":data, "searchSet":classesSet, "type":"education"}
     return jsonify(output)
 
-@app.route('/about') # route for general info
+@app.route('/api/about') # route for general info
 @cross_origin()
 def about():
 
     output = {"htmlPack":render_template('about.html', title='about')}
     return jsonify(output)
 
-@app.route('/nav') # route for the top nav bar
+@app.route('/api/nav') # route for the top nav bar
 @cross_origin()
 def nav():
     return jsonify(pages)
 
-@app.route('/showcase/<sValue>') # retrieves the template matching sValue
+@app.route('/api/showcase/<sValue>') # retrieves the template matching sValue
 @cross_origin()
 def showcase(sValue): 
     print(sValue, file=sys.stderr)
@@ -81,14 +81,14 @@ def showcase(sValue):
     output = {"htmlPack":render_template('showcaseTemplates/' + sValue + '.html', title='showcase')}
     return jsonify(output)
 
-@app.route('/images/<img>')
+@app.route('/api/images/<img>')
 @cross_origin()
 def image(img):
     image = os.path.join(app.static_folder, 'images/' + img)
 
     return send_file(image, mimetype='image/png')
 
-@app.route('/files/<filename>') # file downloads
+@app.route('/api/files/<filename>') # file downloads
 @cross_origin()
 def download(filename):
     file = os.path.join(app.static_folder, "files/" + filename)

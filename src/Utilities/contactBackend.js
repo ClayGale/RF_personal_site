@@ -6,12 +6,8 @@ It takes two arguements
 */
 
 const contactBackend = async (address, setReturn) => {
-    
-    if (address === '/') {
-        address = 'http://localhost:5000/';
-    }
     try {
-        const response = await fetch(address, {
+        const response = await fetch("/api" + address, {
             'methods': 'GET',
             headers: { 'Content-Type': 'application/json' },
         })
