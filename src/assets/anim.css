@@ -231,6 +231,10 @@ only uses exit classes as the animations of this component are tied to the same 
     transform: translate(-1rem,-1rem);
     filter: blur(3px);
 }
+    .my-search-enter:hover { /* turning the bounding boxes off on mouseover to avoid animation breaks */
+        transform: none !important;
+        filter: none !important;
+    }
     .my-search-enter > div {
         opacity: 0.1;
         transform: translate(-1rem,-1rem);
@@ -244,6 +248,10 @@ only uses exit classes as the animations of this component are tied to the same 
     transition: var(--medTransition);
     transition-property: filter, opacity, transform;
 }
+    .my-search-enter-active:hover {
+        transform: none !important;
+        filter: none !important;
+    }
 
 .my-search-enter-done {
     transform: none;

@@ -11,11 +11,12 @@
 
 .project {
     display: grid;
-    width: 400px;
+    min-width: 400px;
+    width:400px;
     transition: var(--quickTransition);
     background: linear-gradient( white, white 50%, var(--myCream) 50%, var(--myCream) );
     background-size: 100% 200%;
-    transition-property: box-shadow, background-position;
+    transition-property: box-shadow, background-position, width;
     align-content: space-between;
 }
 
@@ -29,18 +30,28 @@
         font-family: var(--bodyFont);
         font-size: 14pt;
     }
+    .project .skillsElement {
+        overflow: hidden;
+    }
 
     .project:hover {
         box-shadow: 0px 0px 2px 1px var(--myGoldenYellow);
         background-position: 100% 100%;
         transition: var(--quickTransition);
-        transition-property: box-shadow,background-position;
+        transition-property: box-shadow, background-position, width;
+        width: fit-content;
+        max-width: 750px;
+        z-index: 1;
     }
 
         .project:hover * {
             transform: translateY(-3px);
             transition: var(--quickTransition);
             transition-property: transform;
+        }
+
+        .project:hover .skillsElement {
+            overflow: unset;
         }
 
 /* education page styling */
@@ -94,6 +105,7 @@
     overflow: hidden;
     min-height: 80px;
     width: 400px;
+    filter: none !important; /* the filter none !important overrides the animation causing the bounding box for hovers */
 }
     /* The trio of selectors allows for a combination of tapping on mobile and mouseover */
     .schoolContainer:hover,

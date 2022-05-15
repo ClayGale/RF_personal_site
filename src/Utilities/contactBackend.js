@@ -1,5 +1,5 @@
 /* 
-This script separates the logic for contacting the flask backend.
+This script separates the logic for contacting the flask backend with the /api namespace.
 It takes two arguements
 - address, which is the route to fetch from the backend
 - setReturn, Which sets the supplied state variable with the fetched content

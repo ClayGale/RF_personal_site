@@ -31,7 +31,6 @@ del classesEntries
 @app.route('/api/index') # home screen 
 @cross_origin()
 def index():
-    print('Hello world!', file=sys.stderr)
     output = {"htmlPack":render_template('index.html', title='home'),
              "resumeSet":resumeSet, "resumeBody":render_template('resume.html'), "type":"resume"}
     return jsonify(output)

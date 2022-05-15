@@ -73,8 +73,8 @@ def resumePrep(projectSkills, educationSkills):
             if skill in category[0]:
                 category[1].remove(skill)
     #dumping the sets into a similar structure of arrays so it can be jsonified and passed to the front-end
-    resumeListItems = {"Languages & Frameworks":[[*resumeWorkingSets[0][0]],[*resumeWorkingSets[0][1]]],
-                       "Software":[[*resumeWorkingSets[1][0]],[*resumeWorkingSets[1][1]]],
-                       "Technical Skills":[[*resumeWorkingSets[2][0]],[*resumeWorkingSets[2][1]]]}
+    resumeListItems = {"Languages & Frameworks:":[[*resumeWorkingSets[0][0]],[*resumeWorkingSets[0][1]]],
+                       "Software:":[[*resumeWorkingSets[1][0]],[*resumeWorkingSets[1][1]]],
+                       "Technical Skills:":[[*resumeWorkingSets[2][0]],[*resumeWorkingSets[2][1]]]}
     
     return resumeListItems

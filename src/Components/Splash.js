@@ -6,8 +6,11 @@ const Splash = (props) => {
     useEffect(() => { //setting the splash screen to active on initial render
         props.setSplash(true);
         //making the splash screen not linger if the user is coming back to a specific page
-        if (window.location.pathname !== '/') { 
+        if (window.location.pathname !== '/') {
             setTimeout(() => { props.setSplash(false) }, 700);
+        }
+        else { //making the splash screen go away no matter what for people who don't clue into it's clickability
+            setTimeout(() => { props.setSplash(false) }, 3000);
         }
     }, []);
 
