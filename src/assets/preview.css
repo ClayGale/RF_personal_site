@@ -229,7 +229,7 @@
 #showcase {
     position: fixed;
     border-radius: 3px;
-    z-index: 1;
+    z-index: 2;
     inset: 3rem 1rem auto 1rem;
     transition: var(--medTransition);
     transition-property: inset;
