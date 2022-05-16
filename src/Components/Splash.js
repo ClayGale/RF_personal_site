@@ -9,7 +9,7 @@ const Splash = (props) => {
         if (window.location.pathname !== '/') {
             setTimeout(() => { props.setSplash(false) }, 700);
         }
-        else { //making the splash screen go away no matter what for people who don't clue into it's clickability
+        else { //making the splash screen go away no matter what, for people who don't clue into it's clickability
             setTimeout(() => { props.setSplash(false) }, 3000);
         }
     }, []);
