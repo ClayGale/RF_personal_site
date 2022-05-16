@@ -97,6 +97,6 @@ def download(filename):
 @app.errorhandler(404)
 @cross_origin()
 def page_not_found(e):
-    # note that we set the 404 status explicitly
+
     output = {"htmlPack":render_template('404.html', title='about')}
     return jsonify(output)
