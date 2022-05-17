@@ -2,6 +2,7 @@ import React, { useState, useRef, useCallback } from 'react';
 import './assets/main.css';
 import './assets/anim.css';
 import './assets/scroll.css';
+import './assets/loading.css';
 import Frame from './Components/Frame';
 import Nav from './Components/Nav';
 import Splash from './Components/Splash';
