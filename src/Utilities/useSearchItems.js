@@ -215,9 +215,6 @@ export default function useSearchItems(dataSet, handleShowcaseRequest, horizonta
         if (previewItems !== undefined) {
             setItems(previewItems[1]);
         }
-        //if (initialSearch.current !== '') { // sending the pre-search
-        //    handleSearch('initialSearch')
-        //}
     }, [previewItems])
 
     return [items, handleSearch, graphic];

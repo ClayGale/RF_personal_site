@@ -64,7 +64,7 @@ def education():
 @cross_origin()
 def about():
 
-    output = {"htmlPack":render_template('about.html', title='about')}
+    output = {"htmlPack":render_template('about.html', title='about'), "type":"about"}
     return jsonify(output)
 
 @app.route('/api/nav') # route for the top nav bar

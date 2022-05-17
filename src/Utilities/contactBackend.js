@@ -15,6 +15,7 @@ const contactBackend = async (address, setReturn) => {
             throw Error(response.statusText);
         }
         const data = await response.json();
+        //setTimeout(() => { setReturn(data) }, 2000); // loading animation tester
         setReturn(data);
 
     } catch (error) {
