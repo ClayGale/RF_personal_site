@@ -22,9 +22,9 @@ export default function SkeletonLoader(type) {
                     <div class='skeleton sText'></div>
                     <div class='skeleton sText'></div>
                     <div class='skeleton sTextLast'></div>
-
-                    <div class='skeleton sResume'></div>
-                </div>`;
+                 </div>
+                <div class='skeleton sResume'></div>
+                `;
             break;
 
         case ("/projects"):

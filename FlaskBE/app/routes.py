@@ -77,7 +77,7 @@ def nav():
 def showcase(sValue): 
     print(sValue, file=sys.stderr)
     
-    output = {"htmlPack":render_template('showcaseTemplates/' + sValue + '.html', title='showcase')}
+    output = {"htmlPack":render_template('showcaseTemplates/' + sValue + '.html', title='showcase'), "type":"showcase"}
     return jsonify(output)
 
 @app.route('/api/images/<img>')
