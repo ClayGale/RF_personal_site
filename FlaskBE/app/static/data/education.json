@@ -313,7 +313,7 @@
   "COSC 360": {
     "shortTitle": "Server platform as a service",
     "title": "Server platform as a service",
-    "classdesc": "Students will focus on single-server deployment on a variety of cloud-native platforms(PaaS – Platform as a Service). Students will explore the need to move from their own server to a cloud platform when they have hope to serve thousands of end-users. Topics may include: performant server-side scripting, cost effectiveness and efficiency, load balancing, robustness testing.",
+    "classdesc": "Students will focus on single-server deployment on a variety of cloud-native platforms(PaaS â€“ Platform as a Service). Students will explore the need to move from their own server to a cloud platform when they have hope to serve thousands of end-users. Topics may include: performant server-side scripting, cost effectiveness and efficiency, load balancing, robustness testing.",
     "skills": [
       [],
       [ "AWS" ],
