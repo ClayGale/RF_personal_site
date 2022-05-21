@@ -196,8 +196,8 @@
     "classdesc": "This course focuses on the business cycle as it relates to software development including: planning, organizing, directing, monitoring and control. Particular emphasis is given to scheduling practices and solving problems when the project is behind schedule. Students will be enrolled in a computer science capstone project course concurrently and will practice implementing a variety of problem solving strategies.",
     "skills": [
       [],
-      [ "Git" ],
-      []
+      [ "Git", "Jira" ],
+      ["Agile"]
     ]
   },
   "COSC 224": {

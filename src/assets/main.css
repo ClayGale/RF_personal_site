@@ -382,3 +382,8 @@ button {
         font-family: var(--subtitleFont);
         font-size: 14pt;
     }
+
+    mark{
+        background-color:transparent;
+        color: black;
+    }

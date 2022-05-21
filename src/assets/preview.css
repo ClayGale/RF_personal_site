@@ -326,8 +326,12 @@
     transition-property: transform, filter, opacity;
 }
 
+    .graphicButton:hover {
+        transform: scale(1.1);
+    }
+
     .graphicButton:active,
-    .noResults:active{
+    .noResults:active {
         transform: scale(0.9);
     }
 
