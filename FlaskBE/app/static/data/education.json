@@ -256,7 +256,7 @@
     "classdesc": "This course explores the design and implementation of large, multi-module-program systems. Topics include the software life cycle, design tools, features and use of module-oriented programming languages, intermodule communication, and eXtreme programming. Students will require significant out-of-class time to complete this course successfully. This course is to be taken in the final year of the BCIS degree.",
     "skills": [
       [],
-      [ "Git" ],
+      [ "Git", "Selenium" ],
       []
     ]
   },
@@ -317,7 +317,7 @@
     "skills": [
       [],
       [ "AWS" ],
-      [ "Sys-admin", "Cloud Usage" ]
+      [ "Sys-admin", "Cloud Usage", "Serverless Cloud Computing" ]
     ]
   },
   "COSC 416": {
@@ -356,7 +356,7 @@
     "classdesc": "In this course students used python to examine and explore global networks. Topics such as DNS, TCP/IP, and ASNs + Zones of authority.",
     "skills": [
       ["Python"],
-      ["Wireshark"],
+      ["Wireshark", "REST"],
       ["Networking"]
     ]
   },

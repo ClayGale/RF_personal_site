@@ -98,5 +98,5 @@ def download(filename):
 @cross_origin()
 def page_not_found(e):
 
-    output = {"htmlPack":render_template('404.html', title='about')}
+    output = {"htmlPack":render_template('404.html', title='about'), "type":"error"}
     return jsonify(output)

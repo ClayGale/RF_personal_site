@@ -29,6 +29,7 @@
     .project p {
         font-family: var(--bodyFont);
         font-size: 14pt;
+        max-width: 385px; /* fixing a bug - element would spread out unecessarily with two search results */
     }
     .project .skillsElement {
         overflow: hidden;
@@ -51,7 +52,8 @@
         }
 
         .project:hover .skillsElement {
-            overflow: unset;
+            overflow: visible;
+            white-space: normal;
         }
 
 /* education page styling */
