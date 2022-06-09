@@ -16,7 +16,6 @@ const Preview = (props) => {
 
     /* setting the showcase ID */
     function handleShowcaseRequest(ID) {
-        console.log(ID);
         setShowcase(ID);
     };
 
@@ -41,9 +40,9 @@ const Preview = (props) => {
     useEffect(() => {
         if (props.initialSearch.current !== '') { //setting an initial search value if one has been set
             searchInput.current.value = props.initialSearch.current;
-            handleSearch(props.initialSearch.current);
-            props.initialSearch.current = '';
         }
+        handleSearch(searchInput.current.value);
+        props.initialSearch.current = '';
     }, [])
 
     return (

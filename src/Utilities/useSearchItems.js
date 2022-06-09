@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import React, { useState, useRef, useMemo, useCallback} from 'react';
 
 /* building the preview elements */
 function buildItems(dataSet, handleShowcaseRequest, horizontalScroll) {
@@ -86,7 +86,6 @@ function searchItems(query, searchSet) { //something is screwed up with single i
     let processedQuery = []; 
     if (query[0] === "'" && query[query.length - 1] === "'") { //strict searching when the string is enclosed with ''
         processedQuery = [query.toLowerCase().replaceAll("'","")];
-        console.log(processedQuery);
     }
     else if (query.includes(' ')) {// setting up multi-word queries to search by each word
         processedQuery = [query.toLowerCase(), ...query.toLowerCase().split(' ')];
@@ -160,7 +159,6 @@ export default function useSearchItems(dataSet, handleShowcaseRequest, horizonta
     const [graphic, setGraphic] = useState(['inactive', '\u2715']); //state for the button attached to the searchbar
     const searchRef = useRef(''); //ref for the searched value
 
-
     const previewItems = useMemo(() => {
         return buildItems(dataSet, handleShowcaseRequest, horizontalScroll);
     }, [dataSet.type]);
@@ -210,12 +208,6 @@ export default function useSearchItems(dataSet, handleShowcaseRequest, horizonta
                 break;
         }
     }, [items, dataSet.type]);
-
-    useEffect(() => { // this useEffect allows the elements to always be visible on page load
-        if (previewItems !== undefined) {
-            setItems(previewItems[1]);
-        }
-    }, [previewItems])
 
     return [items, handleSearch, graphic];
 }
