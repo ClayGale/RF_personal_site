@@ -34,7 +34,7 @@ function App() {
             <section id={"contactBar"}>
                 <h2> Contact Me! </h2>
                 <p> Email: clay.aj.gale@gmail.com </p>
-                <p> Phone: 250-826-4293 </p>
+                <p> LinkedIn: <a href="https://www.linkedin.com/in/clay-gale/"> /in/clay-gale/ </a></p>
             </section>
         </div>
     );
