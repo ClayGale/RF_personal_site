@@ -8,8 +8,9 @@ It takes two arguements
 const contactBackend = async (address, setReturn) => {
     try {
         const response = await fetch("/api" + address, {
-            'methods': 'GET',
+            method: 'GET',
             headers: { 'Content-Type': 'application/json' },
+            redirect: 'follow'
         })
         if (!response.ok) {
             throw Error(response.statusText);

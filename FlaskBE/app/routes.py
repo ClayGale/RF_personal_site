@@ -1,5 +1,5 @@
 import sys, os, json
-from flask import Flask, render_template, jsonify, send_file
+from flask import Flask, render_template, jsonify, send_file, redirect
 from flask_cors import CORS, cross_origin
 from . import searchPrep
 
@@ -74,9 +74,7 @@ def nav():
 
 @app.route('/api/showcase/<sValue>') # retrieves the template matching sValue
 @cross_origin()
-def showcase(sValue): 
-    print(sValue, file=sys.stderr)
-    
+def showcase(sValue):     
     output = {"htmlPack":render_template('showcaseTemplates/' + sValue + '.html', title='showcase'), "type":"showcase"}
     return jsonify(output)
 
@@ -94,9 +92,24 @@ def download(filename):
 
     return send_file(file, as_attachment=True)
 
+@app.route('/api/s/<shortcut>') #short links to be added on the resume
+@cross_origin()
+def shortcut(shortcut):
+
+    shortcuts ={'site':'personalSite',
+                'isk':'isearch',
+                'mine':'minesweeper',
+                'bc':'beerclub',
+                'pc':'manual'}
+
+    project = shortcuts[shortcut]
+
+    return redirect('/api/showcase/' + project)
+
 @app.errorhandler(404)
 @cross_origin()
 def page_not_found(e):
+
 
     output = {"htmlPack":render_template('404.html', title='about'), "type":"error"}
     return jsonify(output)
